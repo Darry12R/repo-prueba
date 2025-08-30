@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de Ciberseguridad - CyberSec Elite Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #1e293b;
+            --accent-color: #3b82f6;
+            --gold-color: #f59e0b;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+            --light-bg: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--light-bg);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gold-color), #fbbf24);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .breadcrumb {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--gold-color);
+            text-decoration: none;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Main Container - FIX PRINCIPAL */
+        .main-container {
+            margin-top: 80px;
+            display: flex;
+            min-height: calc(100vh - 80px);
+            max-width: 1600px; /* Límite máximo de ancho */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Sidebar - FIX */
+        .sidebar {
+            background: white;
+            border-right: 1px solid var(--border-color);
+            padding: 2rem 0;
+            width: 320px; /* Ancho fijo más específico */
+            min-width: 320px; /* Evita que se encoja */
+            max-width: 320px; /* Evita que crezca */
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            position: sticky; /* Cambiado de fixed a sticky */
+            top: 80px; /* Altura del navbar */
+        }
+
+        .module-info {
+            padding: 0 2rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .module-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-color), var(--gold-color));
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .module-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .module-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .progress-section {
+            padding: 0 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .progress-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--success-color), var(--accent-color));
+            width: 25%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Chapter Navigation */
+        .chapter-nav {
+            list-style: none;
+            padding: 0 1rem;
+        }
+
+        .chapter-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .chapter-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .chapter-link:hover {
+            background: var(--light-bg);
+            color: var(--primary-color);
+        }
+
+        .chapter-link.active {
+            background: linear-gradient(135deg, var(--accent-color), var(--gold-color));
+            color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .chapter-status {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+
+        .chapter-status.completed {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .chapter-status.current {
+            background: var(--warning-color);
+            color: white;
+        }
+
+        /* Content Area - FIX PRINCIPAL */
+        .content-area {
+            flex: 1; /* Toma el espacio restante */
+            padding: 2rem;
+            max-width: calc(100vw - 320px); /* Evita desbordamiento */
+            overflow-x: hidden; /* Evita scroll horizontal */
+        }
+
+        .content-wrapper {
+            max-width: 900px; /* Límite del contenido */
+            margin: 0 auto; /* Centrado automático */
+        }
+
+        .content-header {
+            margin-bottom: 3rem;
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-color), var(--gold-color));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .content-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .content-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .chapter-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .meta-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-content {
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .section-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        /* Key Concepts Box */
+        .key-concepts {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(245, 158, 11, 0.1));
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .key-concepts h4 {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .concept-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--gold-color);
+        }
+
+        .concept-term {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .concept-definition {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Interactive Lab */
+        .lab-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border: none;
+        }
+
+        .lab-title {
+            color: var(--gold-color);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lab-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .lab-simulator {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .simulator-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .simulator-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .lab-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .lab-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lab-btn-primary {
+            background: var(--gold-color);
+            color: var(--primary-color);
+        }
+
+        .lab-btn-primary:hover {
+            background: #fbbf24;
+            transform: translateY(-2px);
+        }
+
+        .lab-btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .lab-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--success-color);
+        }
+
+        .quiz-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-options {
+            list-style: none;
+        }
+
+        .quiz-option {
+            background: var(--light-bg);
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background: #e0e7ff;
+            border-color: var(--accent-color);
+        }
+
+        .quiz-option.selected {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .quiz-option.correct {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: var(--success-color);
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: var(--danger-color);
+        }
+
+        /* Navigation Buttons */
+        .content-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-btn-primary {
+            background: linear-gradient(135deg, var(--accent-color), var(--gold-color));
+            color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .nav-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .nav-btn-secondary {
+            background: white;
+            color: var(--text-secondary);
+            border: 2px solid var(--border-color);
+        }
+
+        .nav-btn-secondary:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Responsive Design - MEJORADO */
+        @media (max-width: 1200px) {
+            .main-container {
+                max-width: 100%;
+            }
+            
+            .content-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                top: 0;
+            }
+
+            .content-area {
+                max-width: 100%;
+            }
+
+            .chapter-meta {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .content-area {
+                padding: 1rem;
+            }
+
+            .content-title {
+                font-size: 2rem;
+            }
+
+            .concepts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lab-controls {
+                flex-direction: column;
+            }
+
+            .content-navigation {
+                flex-direction: column;
+            }
+
+            .chapter-meta {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .simulator-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chapter-meta {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-section {
+                padding: 1.5rem;
+            }
+            
+            .lab-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="goBack()">
+                <div class="logo-icon">🛡️</div>
+                <div class="logo-text">CyberSec Elite</div>
+            </a>
+            <div class="breadcrumb">
+                <a href="#" onclick="goBack()">Inicio</a> / <a href="#" onclick="goBack()">Módulos</a> / Fundamentos de Ciberseguridad
+            </div>
+            <a href="#" class="back-btn" onclick="goBack()">
+                ← Volver al Inicio
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="module-info">
+                <div class="module-number">1</div>
+                <h2 class="module-title">Fundamentos de Ciberseguridad</h2>
+                <div class="module-meta">
+                    ⏱️ 8 semanas • 🎯 Principiante • 📚 12 capítulos
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-title">Progreso del Módulo</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="moduleProgress"></div>
+                </div>
+                <div class="progress-text">3 de 12 capítulos completados (25%)</div>
+            </div>
+
+            <ul class="chapter-nav">
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link active" onclick="loadChapter(1)">
+                        <div class="chapter-status current">1</div>
+                        <span>Introducción a la Ciberseguridad</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(2)">
+                        <div class="chapter-status">2</div>
+                        <span>Tríada CIA</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(3)">
+                        <div class="chapter-status">3</div>
+                        <span>Marcos Regulatorios</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(4)">
+                        <div class="chapter-status">4</div>
+                        <span>NIST Framework</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(5)">
+                        <div class="chapter-status">5</div>
+                        <span>ISO 27001</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(6)">
+                        <div class="chapter-status">6</div>
+                        <span>GDPR y Privacidad</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(7)">
+                        <div class="chapter-status">7</div>
+                        <span>Gestión de Riesgos</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(8)">
+                        <div class="chapter-status">8</div>
+                        <span>Métricas de Seguridad</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(9)">
+                        <div class="chapter-status">9</div>
+                        <span>Compliance</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(10)">
+                        <div class="chapter-status">10</div>
+                        <span>Auditorías de Seguridad</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(11)">
+                        <div class="chapter-status">11</div>
+                        <span>Políticas y Procedimientos</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(12)">
+                        <div class="chapter-status">12</div>
+                        <span>Proyecto Final</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <div class="content-wrapper">
+                <header class="content-header">
+                    <div class="chapter-badge">📖 Capítulo 1</div>
+                    <h1 class="content-title">Introducción a la Ciberseguridad</h1>
+                    <p class="content-description">
+                        Explora los fundamentos esenciales de la ciberseguridad, desde conceptos básicos 
+                        hasta principios avanzados que rigen la protección de activos digitales en el mundo moderno.
+                    </p>
+                    
+                    <div class="chapter-meta">
+                        <div class="meta-item">
+                            <div class="meta-value">45</div>
+                            <div class="meta-label">Minutos</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-value">3</div>
+                            <div class="meta-label">Laboratorios</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-value">1</div>
+                            <div class="meta-label">Quiz</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-value">95%</div>
+                            <div class="meta-label">Tasa de Éxito</div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Content Sections -->
+                <section class="content-section">
+                    <h2 class="section-title">🎯 Objetivos de Aprendizaje</h2>
+                    <div class="section-content">
+                        <p>Al completar este capítulo, serás capaz de:</p>
+                        <ul>
+                            <li>Definir ciberseguridad y su importancia en el contexto actual</li>
+                            <li>Identificar los principales activos digitales que requieren protección</li>
+                            <li>Comprender el panorama de amenazas contemporáneo</li>
+                            <li>Reconocer los roles y responsabilidades en ciberseguridad</li>
+                            <li>Aplicar principios básicos de seguridad en escenarios reales</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2 class="section-title">📚 ¿Qué es la Ciberseguridad?</h2>
+                    <div class="section-content">
+                        <p>
+                            La <strong>ciberseguridad</strong> es la práctica de proteger sistemas, redes y programas 
+                            de ataques digitales. Estos ataques generalmente tienen como objetivo acceder, cambiar 
+                            o destruir información confidencial, extorsionar dinero de los usuarios o interrumpir 
+                            procesos comerciales normales.
+                        </p>
+                        
+                        <h3>Evolución Histórica</h3>
+                        <p>
+                            La ciberseguridad ha evolucionado desde simples contraseñas en los años 70 hasta 
+                            sofisticados sistemas de inteligencia artificial y machine learning actuales. 
+                            Esta evolución responde a la creciente sofisticación de las amenazas cibernéticas.
+                        </p>
+                        
+                        <h3>Importancia en el Mundo Digital</h3>
+                        <p>
+                            En 2024, el costo promedio de una violación de datos alcanzó los $4.45 millones USD. 
+                            Más allá del aspecto económico, las brechas de seguridad pueden destruir la reputación 
+                            de una organización y compreter la privacidad de millones de usuarios.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Key Concepts -->
+                <div class="key-concepts">
+                    <h4>🔑 Conceptos Clave</h4>
+                    <div class="concepts-grid">
+                        <div class="concept-item">
+                            <div class="concept-term">Activo Digital</div>
+                            <div class="concept-definition">Cualquier información o sistema con valor para una organización</div>
+                        </div>
+                        <div class="concept-item">
+                            <div class="concept-term">Amenaza</div>
+                            <div class="concept-definition">Potencial causa de incidente que puede resultar en daño</div>
+                        </div>
+                        <div class="concept-item">
+                            <div class="concept-term">Vulnerabilidad</div>
+                            <div class="concept-definition">Debilidad que puede ser explotada por una amenaza</div>
+                        </div>
+                        <div class="concept-item">
+                            <div class="concept-term">Riesgo</div>
+                            <div class="concept-definition">Probabilidad de que una amenaza explote una vulnerabilidad</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Lab -->
+                <section class="lab-section">
+                    <h2 class="lab-title">🧪 Laboratorio: Evaluación de Activos</h2>
+                    <p class="lab-description">
+                        En este laboratorio práctico, identificarás y clasificarás diferentes tipos de activos 
+                        digitales según su valor y criticidad para una organización ficticia.
+                    </p>
+                    
+                    <div class="lab-simulator">
+                        <div class="simulator-header">
+                            <div class="simulator-title">📊 Simulador de Clasificación de Activos</div>
+                            <div>Puntuación: <span id="labScore">0</span>/100</div>
+                        </div>
+                        
+                        <div id="labContent">
+                            <p><strong>Escenario:</strong> TechCorp es una startup fintech con 200 empleados. 
+                            Tu tarea es clasificar los siguientes activos por orden de criticidad:</p>
+                            
+                            <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 6px;">
+                                <div style="margin-bottom: 0.5rem;">🔹 Base de datos de clientes (información PII)</div>
+                                <div style="margin-bottom: 0.5rem;">🔹 Sistema de procesamiento de pagos</div>
+                                <div style="margin-bottom: 0.5rem;">🔹 Correos electrónicos corporativos</div>
+                                <div style="margin-bottom: 0.5rem;">🔹 Página web corporativa</div>
+                                <div>🔹 Sistema de respaldos</div>
+                            </div>
+                        </div>
+                        
+                        <div class="lab-controls">
+                            <button class="lab-btn lab-btn-primary" onclick="startLab()">Comenzar Simulación</button>
+                            <button class="lab-btn lab-btn-secondary" onclick="resetLab()">Reiniciar</button>
+                            <button class="lab-btn lab-btn-secondary" onclick="showHint()">Pista</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quiz Section -->
+                <section class="quiz-section">
+                    <h2 class="section-title">🎯 Quiz de Evaluación</h2>
+                    <div id="quizContainer">
+                        <div class="quiz-question" id="currentQuestion">
+                            ¿Cuál de los siguientes NO es uno de los pilares fundamentales de la ciberseguridad?
+                        </div>
+                        <ul class="quiz-options" id="quizOptions">
+                            <li class="quiz-option" onclick="selectOption(this, false)">
+                                A) Confidencialidad
+                            </li>
+                            <li class="quiz-option" onclick="selectOption(this, false)">
+                                B) Integridad
+                            </li>
+                            <li class="quiz-option" onclick="selectOption(this, false)">
+                                C) Disponibilidad
+                            </li>
+                            <li class="quiz-option" onclick="selectOption(this, true)">
+                                D) Rentabilidad
+                            </li>
+                        </ul>
+                        <div style="margin-top: 1.5rem;">
+                            <button class="lab-btn lab-btn-primary" onclick="checkAnswer()" id="checkBtn">Verificar Respuesta</button>
+                            <button class="lab-btn lab-btn-secondary" onclick="nextQuestion()" id="nextBtn" style="display: none;">Siguiente Pregunta</button>
+                        </div>
+                        <div id="quizFeedback" style="margin-top: 1rem; display: none;"></div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2 class="section-title">🏛️ Panorama Regulatorio Global</h2>
+                    <div class="section-content">
+                        <p>
+                            El panorama regulatorio en ciberseguridad varía significativamente por región y sector. 
+                            Comprender estas regulaciones es crucial para cualquier profesional en el campo.
+                        </p>
+                        
+                        <h3>Principales Marcos Regulatorios</h3>
+                        <ul>
+                            <li><strong>GDPR (Europa):</strong> Regula el procesamiento de datos personales</li>
+                            <li><strong>CCPA (California):</strong> Derechos de privacidad de los consumidores</li>
+                            <li><strong>SOX (Estados Unidos):</strong> Controles financieros y de TI</li>
+                            <li><strong>PCI DSS:</strong> Estándar para manejo de datos de tarjetas de pago</li>
+                            <li><strong>HIPAA (Estados Unidos):</strong> Protección de información médica</li>
+                        </ul>
+                        
+                        <h3>Impacto en las Organizaciones</h3>
+                        <p>
+                            El incumplimiento de estas regulaciones puede resultar en multas de hasta el 4% 
+                            de los ingresos anuales globales, como en el caso del GDPR. Más allá de las 
+                            sanciones económicas, el incumplimiento puede generar pérdida de confianza 
+                            y daño reputacional irreversible.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Interactive Lab 2 -->
+                <section class="lab-section">
+                    <h2 class="lab-title">🔬 Laboratorio: Análisis de Incidentes</h2>
+                    <p class="lab-description">
+                        Analiza un caso real de brecha de seguridad y identifica los fallos en los 
+                        controles de seguridad que permitieron el incidente.
+                    </p>
+                    
+                    <div class="lab-simulator">
+                        <div class="simulator-header">
+                            <div class="simulator-title">🔍 Caso de Estudio: Equifax 2017</div>
+                            <div>Progreso: <span id="caseProgress">0</span>/5</div>
+                        </div>
+                        
+                        <div id="caseStudyContent">
+                            <p><strong>Contexto:</strong> En septiembre de 2017, Equifax reveló una brecha masiva 
+                            que comprometió información personal de 147 millones de personas.</p>
+                            
+                            <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 6px;">
+                                <h4>Información comprometida:</h4>
+                                <ul style="margin: 0.5rem 0;">
+                                    <li>Nombres completos y números de seguro social</li>
+                                    <li>Fechas de nacimiento y direcciones</li>
+                                    <li>Números de licencias de conducir</li>
+                                    <li>Números de tarjetas de crédito (209,000 casos)</li>
+                                </ul>
+                            </div>
+                            
+                            <p><strong>Tu tarea:</strong> Identifica los fallos de seguridad que permitieron este incidente.</p>
+                        </div>
+                        
+                        <div class="lab-controls">
+                            <button class="lab-btn lab-btn-primary" onclick="startCaseStudy()">Iniciar Análisis</button>
+                            <button class="lab-btn lab-btn-secondary" onclick="showTimeline()">Ver Cronología</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2 class="section-title">🛡️ Roles en Ciberseguridad</h2>
+                    <div class="section-content">
+                        <p>
+                            La ciberseguridad es un campo multidisciplinario que requiere diversos 
+                            especialistas trabajando en conjunto para proteger los activos digitales.
+                        </p>
+                        
+                        <h3>Principales Roles Técnicos</h3>
+                        <ul>
+                            <li><strong>Security Analyst:</strong> Monitoreo y análisis de amenazas</li>
+                            <li><strong>Penetration Tester:</strong> Evaluación proactiva de vulnerabilidades</li>
+                            <li><strong>Incident Response Specialist:</strong> Gestión de crisis de seguridad</li>
+                            <li><strong>Security Architect:</strong> Diseño de arquitecturas seguras</li>
+                            <li><strong>Forensic Analyst:</strong> Investigación de incidentes</li>
+                        </ul>
+                        
+                        <h3>Roles de Gestión</h3>
+                        <ul>
+                            <li><strong>CISO (Chief Information Security Officer):</strong> Liderazgo estratégico</li>
+                            <li><strong>Security Manager:</strong> Gestión de equipos y proyectos</li>
+                            <li><strong>Risk Manager:</strong> Evaluación y gestión de riesgos</li>
+                            <li><strong>Compliance Officer:</strong> Cumplimiento regulatorio</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Navigation -->
+                <div class="content-navigation">
+                    <a href="#" class="nav-btn nav-btn-secondary" onclick="goBack()">
+                        ← Volver a Módulos
+                    </a>
+                    <a href="#" class="nav-btn nav-btn-primary" onclick="nextChapter()">
+                        Capítulo 2: Tríada CIA →
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Progress tracking
+        let moduleProgress = 25;
+        let labScore = 0;
+        let currentQuestionIndex = 0;
+        let quizScore = 0;
+        let selectedOption = null;
+
+        // Quiz data
+        const quizQuestions = [
+            {
+                question: "¿Cuál de los siguientes NO es uno de los pilares fundamentales de la ciberseguridad?",
+                options: ["Confidencialidad", "Integridad", "Disponibilidad", "Rentabilidad"],
+                correct: 3,
+                explanation: "La tríada CIA (Confidencialidad, Integridad, Disponibilidad) son los tres pilares fundamentales. La rentabilidad, aunque importante para el negocio, no es un principio de ciberseguridad."
+            },
+            {
+                question: "¿Qué porcentaje de las brechas de seguridad son causadas por error humano según estudios recientes?",
+                options: ["25%", "45%", "65%", "85%"],
+                correct: 2,
+                explanation: "Aproximadamente el 65% de las brechas de seguridad tienen como factor contribuyente el error humano, destacando la importancia de la capacitación en seguridad."
+            }
+        ];
+
+        // Initialize page
+        function initializePage() {
+            updateProgress();
+            console.log('Módulo Fundamentos de Ciberseguridad cargado');
+        }
+
+        function updateProgress() {
+            const progressBar = document.getElementById('moduleProgress');
+            if (progressBar) {
+                progressBar.style.width = moduleProgress + '%';
+            }
+        }
+
+        function goBack() {
+    if (confirm('¿Estás seguro de que quieres volver? Tu progreso se guardará automáticamente.')) {
+        // Redirige a la página principal (cambia 'index.html' si tu página principal tiene otro nombre)
+        window.location.href = "index.html"; 
+    }
+}
+        
+
+        function loadChapter(chapterNum) {
+            alert(`Cargando Capítulo ${chapterNum}...\n\nEn una implementación real, esto cargaría el contenido específico del capítulo.`);
+            
+            // Update active chapter
+            document.querySelectorAll('.chapter-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.closest('.chapter-link').classList.add('active');
+        }
+
+        function nextChapter() {
+            if (quizScore >= 80) {
+                alert('Excelente trabajo! Procediendo al Capítulo 2: Tríada CIA\n\nEn una implementación real, esto cargaría el siguiente capítulo.');
+            } else {
+                alert('Completa el quiz con al menos 80% de aciertos para continuar.');
+            }
+        }
+
+        // Lab functions
+        function startLab() {
+            const labContent = document.getElementById('labContent');
+            labContent.innerHTML = `
+                <div style="margin: 1rem 0;">
+                    <h4>Instrucciones:</h4>
+                    <p>Arrastra los activos en orden de criticidad (del más crítico al menos crítico):</p>
+                    
+                    <div id="assetList" style="margin: 1rem 0;">
+                        <div class="asset-item" draggable="true" onclick="selectAsset(this)" style="margin: 0.5rem 0; padding: 0.5rem; background: rgba(255,255,255,0.1); border-radius: 4px; cursor: pointer;">
+                            🏦 Sistema de procesamiento de pagos
+                        </div>
+                        <div class="asset-item" draggable="true" onclick="selectAsset(this)" style="margin: 0.5rem 0; padding: 0.5rem; background: rgba(255,255,255,0.1); border-radius: 4px; cursor: pointer;">
+                            👥 Base de datos de clientes (información PII)
+                        </div>
+                        <div class="asset-item" draggable="true" onclick="selectAsset(this)" style="margin: 0.5rem 0; padding: 0.5rem; background: rgba(255,255,255,0.1); border-radius: 4px; cursor: pointer;">
+                            💾 Sistema de respaldos
+                        </div>
+                        <div class="asset-item" draggable="true" onclick="selectAsset(this)" style="margin: 0.5rem 0; padding: 0.5rem; background: rgba(255,255,255,0.1); border-radius: 4px; cursor: pointer;">
+                            📧 Correos electrónicos corporativos
+                        </div>
+                        <div class="asset-item" draggable="true" onclick="selectAsset(this)" style="margin: 0.5rem 0; padding: 0.5rem; background: rgba(255,255,255,0.1); border-radius: 4px; cursor: pointer;">
+                            🌐 Página web corporativa
+                        </div>
+                    </div>
+                    
+                    <button class="lab-btn lab-btn-primary" onclick="checkLabAnswer()" style="margin-top: 1rem;">Verificar Orden</button>
+                </div>
+            `;
+        }
+
+        function selectAsset(element) {
+            // Simple selection simulation
+            document.querySelectorAll('.asset-item').forEach(item => {
+                item.style.background = 'rgba(255,255,255,0.1)';
+            });
+            element.style.background = 'rgba(245,158,11,0.3)';
+        }
+
+        function checkLabAnswer() {
+            labScore = 85;
+            document.getElementById('labScore').textContent = labScore;
+            alert('¡Excelente trabajo!\n\nOrden correcto identificado:\n1. Base de datos de clientes\n2. Sistema de procesamiento de pagos\n3. Sistema de respaldos\n4. Correos corporativos\n5. Página web\n\nPuntuación: 85/100');
+        }
+
+        function resetLab() {
+            labScore = 0;
+            document.getElementById('labScore').textContent = labScore;
+            startLab();
+        }
+
+        function showHint() {
+            alert('💡 Pista: Considera el impacto directo en los clientes y la operación del negocio. Los datos personales y sistemas financieros suelen tener la mayor criticidad.');
+        }
+
+        // Case Study functions
+        function startCaseStudy() {
+            const caseContent = document.getElementById('caseStudyContent');
+            caseContent.innerHTML = `
+                <div style="margin: 1rem 0;">
+                    <h4>Análisis de Fallos de Seguridad:</h4>
+                    <p>Selecciona los principales fallos que permitieron la brecha:</p>
+                    
+                    <div style="margin: 1rem 0;">
+                        <label style="display: block; margin: 0.5rem 0; cursor: pointer;">
+                            <input type="checkbox" style="margin-right: 0.5rem;"> Falta de parches de seguridad (vulnerabilidad Apache Struts)
+                        </label>
+                        <label style="display: block; margin: 0.5rem 0; cursor: pointer;">
+                            <input type="checkbox" style="margin-right: 0.5rem;"> Segmentación de red insuficiente
+                        </label>
+                        <label style="display: block; margin: 0.5rem 0; cursor: pointer;">
+                            <input type="checkbox" style="margin-right: 0.5rem;"> Monitoreo de red deficiente
+                        </label>
+                        <label style="display: block; margin: 0.5rem 0; cursor: pointer;">
+                            <input type="checkbox" style="margin-right: 0.5rem;"> Cifrado insuficiente de datos
+                        </label>
+                        <label style="display: block; margin: 0.5rem 0; cursor: pointer;">
+                            <input type="checkbox" style="margin-right: 0.5rem;"> Respuesta tardía al incidente
+                        </label>
+                    </div>
+                    
+                    <button class="lab-btn lab-btn-primary" onclick="checkCaseStudy()" style="margin-top: 1rem;">Evaluar Análisis</button>
+                </div>
+            `;
+        }
+
+        function checkCaseStudy() {
+            document.getElementById('caseProgress').textContent = '5';
+            alert('Análisis completo!\n\nTodos los factores seleccionados fueron relevantes en la brecha de Equifax. El factor más crítico fue la falta de actualización del parche de Apache Struts, que era conocido 2 meses antes del ataque.');
+        }
+
+        function showTimeline() {
+            alert('Cronología del Incidente Equifax:\n\n• Marzo 2017: Vulnerabilidad Apache Struts divulgada\n• Mayo 2017: Inicio del ataque (sin detectar)\n• Julio 2017: Descubrimiento interno de la brecha\n• Septiembre 2017: Divulgación pública\n\n76 días de acceso no detectado a los sistemas.');
+        }
+
+        // Quiz functions
+        function selectOption(element, isCorrect) {
+            // Reset previous selections
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            element.classList.add('selected');
+            selectedOption = { element, isCorrect };
+        }
+
+        function checkAnswer() {
+            if (!selectedOption) {
+                alert('Por favor selecciona una respuesta.');
+                return;
+            }
+
+            const feedback = document.getElementById('quizFeedback');
+            const checkBtn = document.getElementById('checkBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            if (selectedOption.isCorrect) {
+                selectedOption.element.classList.add('correct');
+                feedback.innerHTML = '<div style="color: #10b981; font-weight: 600;">¡Correcto! ' + quizQuestions[currentQuestionIndex].explanation + '</div>';
+                quizScore += 50;
+            } else {
+                selectedOption.element.classList.add('incorrect');
+                // Show correct answer
+                document.querySelectorAll('.quiz-option').forEach((opt, index) => {
+                    if (index === quizQuestions[currentQuestionIndex].correct) {
+                        opt.classList.add('correct');
+                    }
+                });
+                feedback.innerHTML = '<div style="color: #ef4444; font-weight: 600;">Incorrecto. ' + quizQuestions[currentQuestionIndex].explanation + '</div>';
+            }
+
+            feedback.style.display = 'block';
+            checkBtn.style.display = 'none';
+            nextBtn.style.display = 'inline-flex';
+
+            // Disable further selection
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < quizQuestions.length) {
+                loadQuestion(currentQuestionIndex);
+            } else {
+                showQuizResults();
+            }
+        }
+
+        function loadQuestion(index) {
+            const question = quizQuestions[index];
+            document.getElementById('currentQuestion').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('quizOptions');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, i) => {
+                const li = document.createElement('li');
+                li.className = 'quiz-option';
+                li.textContent = String.fromCharCode(65 + i) + ') ' + option;
+                li.onclick = () => selectOption(li, i === question.correct);
+                optionsContainer.appendChild(li);
+            });
+
+            // Reset UI
+            document.getElementById('quizFeedback').style.display = 'none';
+            document.getElementById('checkBtn').style.display = 'inline-flex';
+            document.getElementById('nextBtn').style.display = 'none';
+            selectedOption = null;
+        }
+
+        function showQuizResults() {
+            const percentage = (quizScore / (quizQuestions.length * 50)) * 100;
+            alert(`Quiz Completado!\n\nPuntuación: ${quizScore}/${quizQuestions.length * 50} puntos (${percentage}%)\n\n${percentage >= 80 ? '¡Excelente trabajo! Puedes continuar al siguiente capítulo.' : 'Considera revisar el material antes de continuar.'}`);
+            
+            if (percentage >= 80) {
+                moduleProgress = Math.min(moduleProgress + 15, 100);
+                updateProgress();
+            }
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', initializePage);
+    </script>
+    
+</body>
+</html>

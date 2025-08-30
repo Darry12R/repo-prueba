@@ -1,0 +1,2162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacidad en Línea - CyberSec Elite Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #1e293b;
+            --accent-color: #8b5cf6;
+            --privacy-color: #6366f1;
+            --gold-color: #f59e0b;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+            --light-bg: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--light-bg);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--privacy-color), #8b5cf6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .breadcrumb {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--gold-color);
+            text-decoration: none;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Main Container */
+        .main-container {
+            margin-top: 80px;
+            display: flex;
+            min-height: calc(100vh - 80px);
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            border-right: 1px solid var(--border-color);
+            padding: 2rem 0;
+            width: 320px;
+            min-width: 320px;
+            max-width: 320px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            position: sticky;
+            top: 80px;
+        }
+
+        .module-info {
+            padding: 0 2rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .module-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--privacy-color), #8b5cf6);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .module-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .module-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .progress-section {
+            padding: 0 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .progress-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--privacy-color), #8b5cf6);
+            width: 8%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Chapter Navigation */
+        .chapter-nav {
+            list-style: none;
+            padding: 0 1rem;
+        }
+
+        .chapter-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .chapter-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .chapter-link:hover {
+            background: var(--light-bg);
+            color: var(--primary-color);
+        }
+
+        .chapter-link.active {
+            background: linear-gradient(135deg, var(--privacy-color), #8b5cf6);
+            color: white;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .chapter-status {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+
+        .chapter-status.completed {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .chapter-status.current {
+            background: var(--privacy-color);
+            color: white;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            padding: 2rem;
+            max-width: calc(100vw - 320px);
+            overflow-x: hidden;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-header {
+            margin-bottom: 3rem;
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--privacy-color), #8b5cf6);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .content-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .content-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .chapter-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--privacy-color);
+        }
+
+        .meta-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--privacy-color);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-content {
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .section-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .section-content strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Privacy Tools Grid */
+        .privacy-tools {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            border: 2px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .privacy-tools h4 {
+            color: var(--privacy-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--privacy-color);
+        }
+
+        .tool-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .tool-category {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .category-browser {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .category-network {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .category-mobile {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .category-communication {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        /* Privacy Scanner */
+        .privacy-scanner {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border: none;
+        }
+
+        .scanner-title {
+            color: var(--gold-color);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .scanner-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .scanner-interface {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .scanner-output {
+            background: #000;
+            color: #00ff00;
+            padding: 1.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            height: 300px;
+            overflow-y: auto;
+            margin: 1rem 0;
+            border: 1px solid #333;
+        }
+
+        .privacy-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .privacy-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .privacy-btn-primary {
+            background: var(--privacy-color);
+            color: white;
+        }
+
+        .privacy-btn-primary:hover {
+            background: #4338ca;
+            transform: translateY(-2px);
+        }
+
+        .privacy-btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .privacy-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Threat Matrix */
+        .threat-matrix {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .threat-item {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .threat-item:hover {
+            border-color: var(--privacy-color);
+            transform: translateY(-2px);
+        }
+
+        .threat-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .threat-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .threat-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .threat-level {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .level-low {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .level-medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .level-high {
+            background: #fecaca;
+            color: #991b1b;
+        }
+
+        .level-critical {
+            background: #fde2e8;
+            color: #be123c;
+        }
+
+        /* VPN Comparison */
+        .vpn-comparison {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .vpn-table {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        .vpn-table table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .vpn-table th,
+        .vpn-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .vpn-table th {
+            background: var(--light-bg);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .vpn-rating {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .star {
+            color: #fbbf24;
+        }
+
+        .star.empty {
+            color: #d1d5db;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--privacy-color);
+        }
+
+        .quiz-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-options {
+            list-style: none;
+        }
+
+        .quiz-option {
+            background: var(--light-bg);
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background: #e0e7ff;
+            border-color: var(--privacy-color);
+        }
+
+        .quiz-option.selected {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: var(--privacy-color);
+        }
+
+        .quiz-option.correct {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: var(--success-color);
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: var(--danger-color);
+        }
+
+        /* Navigation Buttons */
+        .content-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-btn-primary {
+            background: linear-gradient(135deg, var(--privacy-color), #8b5cf6);
+            color: white;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .nav-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .nav-btn-secondary {
+            background: white;
+            color: var(--text-secondary);
+            border: 2px solid var(--border-color);
+        }
+
+        .nav-btn-secondary:hover {
+            border-color: var(--privacy-color);
+            color: var(--privacy-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                top: 0;
+            }
+
+            .content-area {
+                max-width: 100%;
+            }
+
+            .chapter-meta {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .content-area {
+                padding: 1rem;
+            }
+
+            .content-title {
+                font-size: 2rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .privacy-controls {
+                flex-direction: column;
+            }
+
+            .content-navigation {
+                flex-direction: column;
+            }
+
+            .chapter-meta {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .matrix-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chapter-meta {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-section {
+                padding: 1.5rem;
+            }
+            
+            .privacy-scanner {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="goBack()">
+                <div class="logo-icon">🔒</div>
+                <div class="logo-text">CyberSec Elite</div>
+            </a>
+            <div class="breadcrumb">
+                <a href="#" onclick="goBack()">Inicio</a> / <a href="#" onclick="goBack()">Módulos</a> / Privacidad en Línea
+            </div>
+            <a href="#" class="back-btn" onclick="goBack()">
+                ← Volver al Inicio
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="module-info">
+                <div class="module-number">4</div>
+                <h2 class="module-title">Privacidad en Línea</h2>
+                <div class="module-meta">
+                    ⏱️ 6 semanas • 🎯 Intermedio • 📚 12 capítulos
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-title">Progreso del Módulo</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="moduleProgress"></div>
+                </div>
+                <div class="progress-text">1 de 12 capítulos completados (8%)</div>
+            </div>
+
+            <ul class="chapter-nav">
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link active" onclick="loadChapter(1)">
+                        <div class="chapter-status current">1</div>
+                        <span>Fundamentos de Privacidad Digital</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(2)">
+                        <div class="chapter-status">2</div>
+                        <span>Hardening de Navegadores</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(3)">
+                        <div class="chapter-status">3</div>
+                        <span>VPNs y Redes de Anonimato</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(4)">
+                        <div class="chapter-status">4</div>
+                        <span>Tor y Deep Web</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(5)">
+                        <div class="chapter-status">5</div>
+                        <span>Privacidad en Dispositivos Móviles</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(6)">
+                        <div class="chapter-status">6</div>
+                        <span>Contramedidas Anti-Tracking</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(7)">
+                        <div class="chapter-status">7</div>
+                        <span>Comunicaciones Seguras</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(8)">
+                        <div class="chapter-status">8</div>
+                        <span>Gestión de Identidades Digitales</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(9)">
+                        <div class="chapter-status">9</div>
+                        <span>OSINT y Footprint Personal</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(10)">
+                        <div class="chapter-status">10</div>
+                        <span>Criptografía Personal</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(11)">
+                        <div class="chapter-status">11</div>
+                        <span>Privacy by Design</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(12)">
+                        <div class="chapter-status">12</div>
+                        <span>Proyecto Final: Auditoría Personal</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <div class="content-wrapper">
+                <header class="content-header">
+                    <div class="chapter-badge">🔒 Capítulo 1</div>
+                    <h1 class="content-title">Fundamentos de Privacidad Digital</h1>
+                    <p class="content-description">
+                        Comprende los principios fundamentales de privacidad digital, modelos de amenaza personal, 
+                        y estrategias avanzadas para proteger tu identidad y datos en el ecosistema digital moderno.
+                    </p>
+                    
+                    <div class="chapter-meta">
+                        <div class="meta-item">
+                            <div class="meta-value">90</div>
+                            <div class="meta-label">Minutos</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-value">4</div>
+                            <div class="meta-label">Laboratorios</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-value">2</div>
+                            <div class="meta-label">Herramientas</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-value">88%</div>
+                            <div class="meta-label">Tasa de Éxito</div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Content Sections -->
+                <section class="content-section">
+                    <h2 class="section-title">🎯 Objetivos de Aprendizaje</h2>
+                    <div class="section-content">
+                        <p>Al completar este capítulo, serás capaz de:</p>
+                        <ul>
+                            <li>Desarrollar un modelo de amenaza personalizado basado en tu perfil de riesgo</li>
+                            <li>Evaluar y mitigar vectores de exposición de información personal</li>
+                            <li>Implementar estrategias de compartimentación de identidades digitales</li>
+                            <li>Configurar herramientas avanzadas de privacidad y anonimato</li>
+                            <li>Realizar auditorías de footprint digital y OSINT defensivo</li>
+                            <li>Establecer comunicaciones seguras end-to-end</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2 class="section-title">🛡️ Privacidad vs Seguridad vs Anonimato</h2>
+                    <div class="section-content">
+                        <p>
+                            Aunque frecuentemente se usan intercambiablemente, <strong>privacidad</strong>, 
+                            <strong>seguridad</strong> y <strong>anonimato</strong> representan conceptos distintos 
+                            con implicaciones técnicas y legales diferentes.
+                        </p>
+                        
+                        <h3>Privacidad (Privacy)</h3>
+                        <p>
+                            La privacidad es el derecho a controlar qué información personal se comparte, 
+                            con quién, cuándo y bajo qué condiciones. No implica ocultación total, sino 
+                            control selectivo sobre la divulgación. Incluye el derecho al olvido, 
+                            consentimiento informado y transparencia en el procesamiento de datos.
+                        </p>
+                        
+                        <h3>Seguridad (Security)</h3>
+                        <p>
+                            La seguridad protege la información contra acceso no autorizado, modificación 
+                            o destrucción. Se enfoca en la integridad, confidencialidad y disponibilidad 
+                            de los datos mediante controles técnicos como cifrado, autenticación y 
+                            control de acceso.
+                        </p>
+                        
+                        <h3>Anonimato (Anonymity)</h3>
+                        <p>
+                            El anonimato es la condición de no ser identificable dentro de un conjunto 
+                            de sujetos (anonymity set). Se logra mediante técnicas como mixing, 
+                            onion routing y sistemas pseudónimos que rompen la vinculación entre 
+                            identidad y actividad.
+                        </p>
+
+                        <h3>Intersección y Tensiones</h3>
+                        <p>
+                            Estos conceptos pueden entrar en conflicto. La seguridad puede requerir 
+                            identificación fuerte, mientras el anonimato la elimina. La privacidad 
+                            busca el balance mediante controles granulares que permiten diferentes 
+                            niveles de divulgación según el contexto.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2 class="section-title">🎭 Modelos de Amenaza Personal</h2>
+                    <div class="section-content">
+                        <p>
+                            Un <strong>modelo de amenaza</strong> define qué proteges, de quién lo proteges, 
+                            qué tan probable es que necesites protegerlo, cuán graves serían las consecuencias 
+                            si fallaras, y qué estás dispuesto a sacrificar para protegerlo.
+                        </p>
+                        
+                        <h3>Componentes del Modelo de Amenaza</h3>
+                        <ul>
+                            <li><strong>Assets:</strong> Información, reputación, relaciones, libertad física</li>
+                            <li><strong>Adversaries:</strong> Criminales, corporaciones, gobiernos, acosadores</li>
+                            <li><strong>Attack Vectors:</strong> Técnicos, sociales, físicos, legales</li>
+                            <li><strong>Capabilities:</strong> Recursos, tiempo, acceso, conocimiento técnico</li>
+                            <li><strong>Motivations:</strong> Financieras, políticas, personales, oportunistas</li>
+                        </ul>
+                        
+                        <h3>Perfiles de Riesgo Comunes</h3>
+                        <p>
+                            <strong>Ciudadano Promedio:</strong> Amenazas corporativas de tracking publicitario, 
+                            robo de identidad, acoso online. Medidas: navegación segura, gestores de contraseñas, 
+                            configuraciones de privacidad.
+                        </p>
+                        
+                        <p>
+                            <strong>Profesional de Alto Perfil:</strong> Espionaje corporativo, targeting selectivo, 
+                            chantaje. Medidas: compartimentación, comunicaciones cifradas, OPSEC avanzado.
+                        </p>
+                        
+                        <p>
+                            <strong>Activista/Periodista:</strong> Vigilancia gubernamental, intimidación, 
+                            exposición de fuentes. Medidas: anonimato fuerte, sistemas operativos seguros, 
+                            dead drops digitales.
+                        </p>
+                        
+                        <p>
+                            <strong>Víctima de Violencia:</strong> Stalking, doxxing, violencia física. 
+                            Medidas: nuevas identidades digitales, hardening extremo, redes de apoyo seguras.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Threat Matrix -->
+                <div class="threat-matrix">
+                    <h3>Matriz de Amenazas a la Privacidad</h3>
+                    <div class="matrix-grid">
+                        <div class="threat-item">
+                            <div class="threat-icon">🕷️</div>
+                            <div class="threat-name">Web Tracking</div>
+                            <div class="threat-description">
+                                Cookies, fingerprinting, cross-site tracking, behavioral profiling 
+                                por redes publicitarias y data brokers.
+                            </div>
+                            <span class="threat-level level-high">ALTO</span>
+                        </div>
+                        <div class="threat-item">
+                            <div class="threat-icon">📱</div>
+                            <div class="threat-name">Mobile Surveillance</div>
+                            <div class="threat-description">
+                                Location tracking, app permissions excesivos, advertising IDs, 
+                                análisis de patrones de uso.
+                            </div>
+                            <span class="threat-level level-critical">CRÍTICO</span>
+                        </div>
+                        <div class="threat-item">
+                            <div class="threat-icon">🏢</div>
+                            <div class="threat-name">Corporate Data Mining</div>
+                            <div class="threat-description">
+                                Recolección masiva por plataformas sociales, correlación entre 
+                                servicios, perfilado psicométrico.
+                            </div>
+                            <span class="threat-level level-critical">CRÍTICO</span>
+                        </div>
+                        <div class="threat-item">
+                            <div class="threat-icon">👁️</div>
+                            <div class="threat-name">Government Surveillance</div>
+                            <div class="threat-description">
+                                Mass surveillance, lawful interception, metadata analysis, 
+                                programs de inteligencia signals.
+                            </div>
+                            <span class="threat-level level-high">ALTO</span>
+                        </div>
+                        <div class="threat-item">
+                            <div class="threat-icon">💰</div>
+                            <div class="threat-name">Data Brokers</div>
+                            <div class="threat-description">
+                                Agregación de datos públicos y comerciales, creación de perfiles 
+                                detallados, venta a terceros.
+                            </div>
+                            <span class="threat-level level-high">ALTO</span>
+                        </div>
+                        <div class="threat-item">
+                            <div class="threat-icon">🎯</div>
+                            <div class="threat-name">Social Engineering</div>
+                            <div class="threat-description">
+                                OSINT para targeting personalizado, pretexting basado en información 
+                                pública, spear phishing.
+                            </div>
+                            <span class="threat-level level-medium">MEDIO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="content-section">
+                    <h2 class="section-title">🌐 Ecosistema de Tracking Digital</h2>
+                    <div class="section-content">
+                        <p>
+                            El tracking digital moderno es un ecosistema complejo que involucra múltiples 
+                            actores, tecnologías y modelos de negocio interconectados para crear perfiles 
+                            detallados de usuarios.
+                        </p>
+                        
+                        <h3>Actores del Ecosistema</h3>
+                        <ul>
+                            <li><strong>First-Party Trackers:</strong> Sitios web que visitas directamente</li>
+                            <li><strong>Third-Party Trackers:</strong> Redes publicitarias, analytics, CDNs</li>
+                            <li><strong>Data Brokers:</strong> Aggregadores que compilan perfiles de múltiples fuentes</li>
+                            <li><strong>Ad Exchanges:</strong> Subastas en tiempo real de espacios publicitarios</li>
+                            <li><strong>Identity Resolution:</strong> Servicios que vinculan identidades across devices</li>
+                        </ul>
+                        
+                        <h3>Técnicas de Tracking</h3>
+                        <p>
+                            <strong>Cookies y Storage:</strong> HTTP cookies, localStorage, sessionStorage, 
+                            indexedDB para persistencia de identificadores únicos.
+                        </p>
+                        
+                        <p>
+                            <strong>Browser Fingerprinting:</strong> Recolección de características únicas 
+                            del navegador: user agent, plugins, fonts, screen resolution, timezone, 
+                            canvas fingerprinting, WebGL fingerprinting.
+                        </p>
+                        
+                        <p>
+                            <strong>Behavioral Tracking:</strong> Análisis de patrones de navegación, 
+                            timing de clics, mouse movements, scroll patterns para crear "behavioral 
+                            fingerprints" únicos.
+                        </p>
+                        
+                        <p>
+                            <strong>Cross-Device Tracking:</strong> Vinculación de actividades entre 
+                            desktop, mobile, tablets mediante login graphs, WiFi networks compartidas, 
+                            household IP addresses.
+                        </p>
+                        
+                        <h3>Nuevas Técnicas Emergentes</h3>
+                        <ul>
+                            <li><strong>CNAME Cloaking:</strong> Ocultar third-party trackers como first-party</li>
+                            <li><strong>Server-Side Tracking:</strong> Bypass de ad blockers via server proxying</li>
+                            <li><strong>Ultrasonic Tracking:</strong> Audio beacons inaudibles para cross-device linking</li>
+                            <li><strong>Battery API Fingerprinting:</strong> Uso de nivel de batería como identificador</li>
+                            <li><strong>Network Timing Attacks:</strong> Fingerprinting via timing de requests</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Privacy Tools -->
+                <div class="privacy-tools">
+                    <h4>🛡️ Arsenal de Herramientas de Privacidad</h4>
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <div class="tool-name">uBlock Origin</div>
+                            <div class="tool-description">
+                                Ad/tracker blocker avanzado con filtros personalizables, cosmetic filtering, 
+                                y protección contra malware domains. Essential para navegación privada.
+                            </div>
+                            <span class="tool-category category-browser">BROWSER</span>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-name">Privacy Badger</div>
+                            <div class="tool-description">
+                                Bloqueador inteligente que aprende automáticamente qué trackers bloquear 
+                                basado en su comportamiento, desarrollado por EFF.
+                            </div>
+                            <span class="tool-category category-browser">BROWSER</span>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-name">Tor Browser</div>
+                            <div class="tool-description">
+                                Navegador basado en Firefox con onion routing integrado, resistente a 
+                                fingerprinting y configurado para máximo anonimato.
+                            </div>
+                            <span class="tool-category category-browser">BROWSER</span>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-name">Mullvad VPN</div>
+                            <div class="tool-description">
+                                VPN sin logs con pagos anónimos, WireGuard protocol, kill switch robusto, 
+                                y política estricta de no recolección de datos.
+                            </div>
+                            <span class="tool-category category-network">NETWORK</span>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-name">Signal</div>
+                            <div class="tool-description">
+                                Mensajería end-to-end encrypted con perfect forward secrecy, minimal 
+                                metadata, y funciones avanzadas como sealed sender.
+                            </div>
+                            <span class="tool-category category-communication">COMUNICACIÓN</span>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-name">GrapheneOS</div>
+                            <div class="tool-description">
+                                Sistema operativo móvil hardened, basado en AOSP con mejoras de seguridad 
+                                y privacidad, compatible con Pixel phones.
+                            </div>
+                            <span class="tool-category category-mobile">MOBILE</span>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-name">Qubes OS</div>
+                            <div class="tool-description">
+                                Sistema operativo que usa virtualización para crear compartimentos seguros, 
+                                ideal para compartimentación de actividades.
+                            </div>
+                            <span class="tool-category category-browser">OS</span>
+                        </div>
+                        <div class="tool-item">
+                            <div class="tool-name">Tails</div>
+                            <div class="tool-description">
+                                Live OS que no deja rastros, fuerza todo tráfico por Tor, con amnesia 
+                                incorporada para máximo anonimato temporal.
+                            </div>
+                            <span class="tool-category category-browser">OS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="content-section">
+                    <h2 class="section-title">🔐 Principios de Privacy by Design</h2>
+                    <div class="section-content">
+                        <p>
+                            Privacy by Design, conceptualizado por Ann Cavoukian, establece siete principios 
+                            fundamentales para integrar privacidad desde el diseño de sistemas y procesos.
+                        </p>
+                        
+                        <h3>Los 7 Principios Fundamentales</h3>
+                        
+                        <p>
+                            <strong>1. Proactivo no Reactivo; Preventivo no Correctivo:</strong> Anticipar 
+                            y prevenir invasiones de privacidad antes de que ocurran, no esperar a que 
+                            se materialicen las amenazas.
+                        </p>
+                        
+                        <p>
+                            <strong>2. Privacidad como Default:</strong> Máxima protección de privacidad 
+                            sin requerir acción del individuo. Personal data protegida automáticamente.
+                        </p>
+                        
+                        <p>
+                            <strong>3. Privacidad Embebida en el Diseño:</strong> Consideraciones de privacidad 
+                            integradas en el diseño del sistema, no agregadas después como reflexión tardía.
+                        </p>
+                        
+                        <p>
+                            <strong>4. Funcionalidad Completa - Suma Positiva:</strong> Acomodar todos los 
+                            intereses legítimos sin trade-offs innecesarios. "Win-win" scenarios.
+                        </p>
+                        
+                        <p>
+                            <strong>5. Seguridad End-to-End:</strong> Datos seguros durante todo el lifecycle, 
+                            con destrucción segura al final del proceso.
+                        </p>
+                        
+                        <p>
+                            <strong>6. Visibilidad y Transparencia:</strong> Todos los stakeholders pueden 
+                            verificar que las prácticas operan según objetivos y promesas declarados.
+                        </p>
+                        
+                        <p>
+                            <strong>7. Respeto por la Privacidad del Usuario:</strong> Centrado en el usuario, 
+                            con interfaces user-friendly, opciones granulares y strong privacy defaults.
+                        </p>
+                        
+                        <h3>Implementación Técnica</h3>
+                        <ul>
+                            <li><strong>Minimización de Datos:</strong> Recoger solo datos necesarios</li>
+                            <li><strong>Pseudonimización:</strong> Separar identificadores de datos</li>
+                            <li><strong>Anonimización:</strong> Remover capacidad de re-identificación</li>
+                            <li><strong>Cifrado Diferencial:</strong> Agregar ruido estadístico</li>
+                            <li><strong>Homomorphic Encryption:</strong> Computación sobre datos cifrados</li>
+                            <li><strong>Zero-Knowledge Proofs:</strong> Verificación sin revelación</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Interactive Privacy Scanner -->
+                <section class="privacy-scanner">
+                    <h2 class="scanner-title">🔍 Laboratorio: Privacy Assessment Scanner</h2>
+                    <p class="scanner-description">
+                        Evalúa tu huella digital actual y identifica vectores de exposición de privacidad 
+                        mediante análisis automatizado de configuraciones y comportamientos.
+                    </p>
+                    
+                    <div class="scanner-interface">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+                            <div>🛡️ Privacy Assessment Suite v2.4</div>
+                            <div>Privacy Score: <span id="privacyScore">0</span>/100</div>
+                        </div>
+                        
+                        <div class="scanner-output" id="scannerOutput">
+> Privacy Assessment Suite iniciado
+> Cargando módulos de análisis...
+> 
+> === CONFIGURACIÓN DE ASSESSMENT ===
+> Target: Personal Privacy Audit
+> Scope: Browser, Network, Mobile, Social Media
+> Methodology: OWASP Privacy Risks + Custom Checks
+> 
+> === CATEGORÍAS DE EVALUACIÓN ===
+> [✓] Browser Configuration
+> [✓] Network Privacy
+> [✓] Mobile Device Settings
+> [✓] Social Media Exposure
+> [✓] Data Broker Presence
+> [✓] Search Engine Privacy
+> [✓] Email Security
+> [✓] Communication Privacy
+> 
+> Utiliza los controles para iniciar diferentes módulos de assessment...
+                        </div>
+                        
+                        <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 6px;">
+                            <h4>Módulos de Assessment Disponibles:</h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; font-size: 0.9rem; margin: 1rem 0;">
+                                <label><input type="checkbox" id="scan-browser"> 🌐 Browser Privacy</label>
+                                <label><input type="checkbox" id="scan-network"> 🔒 Network Analysis</label>
+                                <label><input type="checkbox" id="scan-mobile"> 📱 Mobile Privacy</label>
+                                <label><input type="checkbox" id="scan-social"> 👥 Social Media</label>
+                                <label><input type="checkbox" id="scan-databrokers"> 💼 Data Brokers</label>
+                                <label><input type="checkbox" id="scan-search"> 🔍 Search Privacy</label>
+                                <label><input type="checkbox" id="scan-email"> 📧 Email Security</label>
+                                <label><input type="checkbox" id="scan-communication"> 💬 Communications</label>
+                            </div>
+                        </div>
+                        
+                        <div class="privacy-controls">
+                            <button class="privacy-btn privacy-btn-primary" onclick="runPrivacyScan()">Ejecutar Scan Completo</button>
+                            <button class="privacy-btn privacy-btn-secondary" onclick="generateReport()">Generar Reporte</button>
+                            <button class="privacy-btn privacy-btn-secondary" onclick="recommendTools()">Recomendar Herramientas</button>
+                            <button class="privacy-btn privacy-btn-secondary" onclick="resetScanner()">Reset Scanner</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2 class="section-title">🕵️ OSINT Defensivo y Footprint Analysis</h2>
+                    <div class="section-content">
+                        <p>
+                            <strong>OSINT Defensivo</strong> implica usar técnicas de Open Source Intelligence 
+                            para evaluar tu propia exposición digital y identificar información que 
+                            adversarios podrían explotar.
+                        </p>
+                        
+                        <h3>Metodología de Footprint Analysis</h3>
+                        <ul>
+                            <li><strong>Passive Reconnaissance:</strong> Google dorking, shodan searches, wayback machine</li>
+                            <li><strong>Social Media Analysis:</strong> Cross-platform correlation, metadata extraction</li>
+                            <li><strong>Public Records:</strong> WHOIS, business registrations, property records</li>
+                            <li><strong>Data Broker Presence:</strong> People search engines, background check sites</li>
+                            <li><strong>Breach Databases:</strong> Have I Been Pwned, dehashed, leaked credentials</li>
+                        </ul>
+                        
+                        <h3>Herramientas de OSINT Defensivo</h3>
+                        <p>
+                            <strong>theHarvester:</strong> Email harvesting, subdomain discovery, people search. 
+                            Útil para descubrir qué información corporativa está expuesta públicamente.
+                        </p>
+                        
+                        <p>
+                            <strong>Maltego:</strong> Link analysis y visualización de relaciones entre entidades. 
+                            Excellent para mapear conexiones entre identidades digitales.
+                        </p>
+                        
+                        <p>
+                            <strong>Sherlock:</strong> Username enumeration across social platforms para 
+                            identificar accounts asociados con un handle específico.
+                        </p>
+                        
+                        <p>
+                            <strong>SpiderFoot:</strong> Automated OSINT collection con 200+ modules para 
+                            comprehensive footprint analysis.
+                        </p>
+                        
+                        <h3>Técnicas de Mitigación</h3>
+                        <ul>
+                            <li><strong>Username Diversification:</strong> Diferentes handles por contexto</li>
+                            <li><strong>Compartimentación:</strong> Separar identidades personal/profesional</li>
+                            <li><strong>Information Minimization:</strong> Reducir datos en perfiles públicos</li>
+                            <li><strong>Regular Monitoring:</strong> Google Alerts sobre tu nombre/email</li>
+                            <li><strong>Opt-out Programs:</strong> Removal requests a data brokers</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- VPN Comparison -->
+                <div class="vpn-comparison">
+                    <h3>Comparativa de Proveedores VPN Orientados a Privacidad</h3>
+                    <div class="vpn-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Proveedor</th>
+                                    <th>Jurisdicción</th>
+                                    <th>Logs Policy</th>
+                                    <th>Payment Methods</th>
+                                    <th>Protocolos</th>
+                                    <th>Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Mullvad</strong></td>
+                                    <td>Sweden</td>
+                                    <td>No logs</td>
+                                    <td>Bitcoin, Cash, Crypto</td>
+                                    <td>WireGuard, OpenVPN</td>
+                                    <td>
+                                        <div class="vpn-rating">
+                                            <span class="star">★</span>
+                                            <span class="star">★</span>
+                                            <span class="star">★</span>
+                                            <span class="star">★</span>
+                                            <span class="star">★</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>IVPN</strong></td>
+                                    <td>Gibraltar</td>
+                                    <td>No logs</td>
+                                    <td>Bitcoin, Monero, Cash</td>
+                                    <td>WireGuard, OpenVPN</td>
+                                    <td>
+                                        <div class="vpn-rating">
+                                            <span class="star">★</span>
+                                            <span class="star">★</span>
+                                            <span class="star">★</span>
+                                            <span class="star">★</span>
+                                            <span class="star">★</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Proton VPN</strong></td>
+                                    <td>Switzerland</td>
+                                    <td>No logs</td>
+                                    <td>Bitcoin, PayPal, Card</td>
+                                    <td>WireGuard, OpenVPN, IKEv2</td>
+                                    <td>
+                                        <div class="vpn-rating">
+                                            <span class="star">★</span>
+                                            <span class="star">★</span>
+                                            <span class="star">★</span>
+                                            <span class="star">★</span>
+                                            <span class="star empty">☆</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>OVPN</strong></td>
+                                    <td>Sweden</td>
+                                    <td>No logs</td>
+                                    <td>Bitcoin, Card, Bank</td>
+                                    <td>WireGuard, OpenVPN</td>
+                                    <td>
+                                        <div class="vpn-rating">
+                                            <span class="star">★</span>
+                                            <span class="star">★</span>
+                                            <span class="star">★</span>
+                                            <span class="star">★</span>
+                                            <span class="star empty">☆</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem;">
+                        <strong>Criteria de Evaluación:</strong> No-logs policy auditada, jurisdicción favorable, 
+                        métodos de pago anónimos, protocolos modernos, track record de transparencia.
+                    </p>
+                </div>
+
+                <section class="content-section">
+                    <h2 class="section-title">📊 Métricas de Privacidad y KPIs</h2>
+                    <div class="section-content">
+                        <p>
+                            Medir la efectividad de medidas de privacidad requiere métricas cuantificables 
+                            que evalúen reducción de exposición, anonimato y control sobre datos personales.
+                        </p>
+                        
+                        <h3>Métricas de Exposición</h3>
+                        <ul>
+                            <li><strong>Data Minimization Index:</strong> Ratio de datos necesarios vs. recolectados</li>
+                            <li><strong>Tracker Blocking Rate:</strong> Porcentaje de trackers bloqueados exitosamente</li>
+                            <li><strong>Fingerprinting Resistance Score:</strong> Uniqueness de browser fingerprint</li>
+                            <li><strong>Public Information Footprint:</strong> Cantidad de datos en fuentes públicas</li>
+                        </ul>
+                        
+                        <h3>Métricas de Anonimato</h3>
+                        <ul>
+                            <li><strong>Anonymity Set Size:</strong> Número de usuarios indistinguibles</li>
+                            <li><strong>Unlinkability Score:</strong> Dificultad de correlacionar actividades</li>
+                            <li><strong>Plausible Deniability Index:</strong> Ambigüedad en atribución de acciones</li>
+                            <li><strong>Forward/Backward Privacy:</strong> Protección temporal de identidad</li>
+                        </ul>
+                        
+                        <h3>Métricas de Control</h3>
+                        <ul>
+                            <li><strong>Consent Granularity:</strong> Nivel de control sobre sharing de datos</li>
+                            <li><strong>Data Portability Score:</strong> Facilidad de exportar datos personales</li>
+                            <li><strong>Deletion Effectiveness:</strong> Completitud de data deletion requests</li>
+                            <li><strong>Transparency Index:</strong> Claridad en privacy policies y prácticas</li>
+                        </ul>
+                        
+                        <h3>Benchmarking y Comparativas</h3>
+                        <p>
+                            Establecer baselines usando herramientas como Cover Your Tracks (EFF), 
+                            Browser Leaks, y Am I Unique para medir mejoras en configuraciones de privacidad 
+                            a lo largo del tiempo. Comparar scores antes y después de implementar medidas 
+                            de hardening.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2 class="section-title">🔬 Técnicas Avanzadas de Anti-Fingerprinting</h2>
+                    <div class="section-content">
+                        <p>
+                            Browser fingerprinting es una de las técnicas de tracking más sofisticadas 
+                            y difíciles de evitar, requiriendo contramedidas técnicas específicas para 
+                            cada vector de identificación.
+                        </p>
+                        
+                        <h3>Vectores de Fingerprinting</h3>
+                        <p>
+                            <strong>Canvas Fingerprinting:</strong> Rendering differences en HTML5 canvas 
+                            debido a variaciones en hardware gráfico, drivers, y fonts. Mitigation: 
+                            canvas spoofing extensions o deshabilitar canvas completamente.
+                        </p>
+                        
+                        <p>
+                            <strong>WebGL Fingerprinting:</strong> Information sobre GPU, drivers, y 
+                            rendering capabilities. Más preciso que canvas fingerprinting. Mitigation: 
+                            block WebGL APIs o usar spoofing.
+                        </p>
+                        
+                        <p>
+                            <strong>Audio Context Fingerprinting:</strong> Differences en audio processing 
+                            hardware crean signatures únicas. Web Audio API puede ser explotada para 
+                            generar audio fingerprints. Mitigation: disable audio context o spoofing.
+                        </p>
+                        
+                        <p>
+                            <strong>Font Fingerprinting:</strong> Lista de fonts instaladas es altamente 
+                            identifying. Diferentes OS y configuraciones tienen different font sets. 
+                            Mitigation: font masking o browser hardening.
+                        </p>
+                        
+                        <h3>Contramedidas Técnicas</h3>
+                        <ul>
+                            <li><strong>User Agent Spoofing:</strong> Rotar user agents comunes para blend in</li>
+                            <li><strong>Screen Resolution Masking:</strong> Report common resolutions instead of real</li>
+                            <li><strong>Timezone Spoofing:</strong> Use UTC or common timezones</li>
+                            <li><strong>Language Header Normalization:</strong> Set to common language combinations</li>
+                            <li><strong>Plugin Enumeration Blocking:</strong> Hide or spoof plugin lists</li>
+                            <li><strong>Hardware Concurrency Masking:</strong> Report common CPU core counts</li>
+                        </ul>
+                        
+                        <h3>Browser Hardening Configurations</h3>
+                        <p>
+                            <strong>Firefox:</strong> about:config hardening via user.js files como arkenfox 
+                            user.js. Disable WebRTC, resist fingerprinting, strict tracking protection.
+                        </p>
+                        
+                        <p>
+                            <strong>Chromium-based:</strong> Command line flags para disable features, 
+                            extensions like uBlock Origin con advanced settings, Brave's built-in protections.
+                        </p>
+                        
+                        <p>
+                            <strong>Tor Browser:</strong> Pre-configured para resist fingerprinting, 
+                            uniform appearance across users, JavaScript restrictions, canvas blocking.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2 class="section-title">🏢 Marco Legal y Regulatorio de Privacidad</h2>
+                    <div class="section-content">
+                        <p>
+                            La privacidad digital está regulada por un mosaico complejo de leyes nacionales 
+                            e internacionales que establecen derechos, obligaciones y mecanismos de enforcement.
+                        </p>
+                        
+                        <h3>GDPR (General Data Protection Regulation)</h3>
+                        <p>
+                            Regulation EU 2016/679 establece el marco más completo de protección de datos 
+                            personales. Aplica a cualquier processing de datos de residents EU, 
+                            independientemente de la ubicación del processor.
+                        </p>
+                        
+                        <ul>
+                            <li><strong>Lawful Basis:</strong> 6 bases legales para processing (consent, contract, etc.)</li>
+                            <li><strong>Data Subject Rights:</strong> Access, rectification, erasure, portability</li>
+                            <li><strong>Privacy by Design/Default:</strong> Obligatorio en system design</li>
+                            <li><strong>Data Protection Officer:</strong> Mandatory para ciertos organizations</li>
+                            <li><strong>Fines:</strong> Up to 4% of global annual turnover</li>
+                        </ul>
+                        
+                        <h3>CCPA/CPRA (California Consumer Privacy Act)</h3>
+                        <p>
+                            California's comprehensive privacy law que otorga derechos significativos 
+                            a residents de California sobre su personal information.
+                        </p>
+                        
+                        <ul>
+                            <li><strong>Right to Know:</strong> Qué personal information se recolecta y usa</li>
+                            <li><strong>Right to Delete:</strong> Request deletion de personal information</li>
+                            <li><strong>Right to Opt-Out:</strong> Sale/sharing de personal information</li>
+                            <li><strong>Right to Non-Discrimination:</strong> Equal treatment regardless of privacy choices</li>
+                        </ul>
+                        
+                        <h3>Otras Jurisdicciones Relevantes</h3>
+                        <p>
+                            <strong>Brazil LGPD:</strong> Lei Geral de Proteção de Dados similar a GDPR. 
+                            <strong>Canada PIPEDA:</strong> Personal Information Protection and Electronic Documents Act. 
+                            <strong>Australia Privacy Act:</strong> Privacy principles para australian organizations.
+                        </p>
+                        
+                        <h3>Implications para Privacy Practitioners</h3>
+                        <ul>
+                            <li>Cross-border data transfers requieren adequate protection mechanisms</li>
+                            <li>Privacy impact assessments obligatorios para high-risk processing</li>
+                            <li>Breach notification requirements (72 hours bajo GDPR)</li>
+                            <li>Record keeping obligations para demonstrate compliance</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Quiz Section -->
+                <section class="quiz-section">
+                    <h2 class="section-title">🎯 Quiz de Evaluación</h2>
+                    <div id="quizContainer">
+                        <div class="quiz-question" id="currentQuestion">
+                            ¿Cuál es la diferencia principal entre privacidad y anonimato en el contexto de seguridad digital?
+                        </div>
+                        <ul class="quiz-options" id="quizOptions">
+                            <li class="quiz-option" onclick="selectOption(this, false)">
+                                A) No hay diferencia significativa, son términos sinónimos
+                            </li>
+                            <li class="quiz-option" onclick="selectOption(this, true)">
+                                B) Privacidad es control sobre divulgación de información; anonimato es no ser identificable
+                            </li>
+                            <li class="quiz-option" onclick="selectOption(this, false)">
+                                C) Anonimato solo se aplica a comunicaciones, privacidad a datos almacenados
+                            </li>
+                            <li class="quiz-option" onclick="selectOption(this, false)">
+                                D) Privacidad requiere tecnología avanzada, anonimato es solo procedural
+                            </li>
+                        </ul>
+                        <div style="margin-top: 1.5rem;">
+                            <button class="privacy-btn privacy-btn-primary" onclick="checkAnswer()" id="checkBtn">Verificar Respuesta</button>
+                            <button class="privacy-btn privacy-btn-secondary" onclick="nextQuestion()" id="nextBtn" style="display: none;">Siguiente Pregunta</button>
+                        </div>
+                        <div id="quizFeedback" style="margin-top: 1rem; display: none;"></div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2 class="section-title">🔮 Tendencias Futuras en Privacidad Digital</h2>
+                    <div class="section-content">
+                        <p>
+                            La privacidad digital evoluciona rápidamente impulsada por avances tecnológicos, 
+                            cambios regulatorios y creciente conciencia pública sobre surveillance capitalism.
+                        </p>
+                        
+                        <h3>Privacy-Enhancing Technologies (PETs)</h3>
+                        <p>
+                            <strong>Differential Privacy:</strong> Mathematical framework para quantify privacy 
+                            loss en statistical databases. Usado por Apple, Google, y US Census Bureau.
+                        </p>
+                        
+                        <p>
+                            <strong>Homomorphic Encryption:</strong> Permite computation sobre encrypted data 
+                            sin decryption. Promising para privacy-preserving analytics y cloud computing.
+                        </p>
+                        
+                        <p>
+                            <strong>Secure Multi-Party Computation (MPC):</strong> Multiple parties pueden 
+                            jointly compute functions sobre their inputs manteniendo inputs privados.
+                        </p>
+                        
+                        <p>
+                            <strong>Zero-Knowledge Proofs:</strong> Cryptographic method para prove knowledge 
+                            de algo sin revealing the information itself. Applications en blockchain y identity.
+                        </p>
+                        
+                        <h3>Regulatory Evolution</h3>
+                        <ul>
+                            <li>Expansion de comprehensive privacy laws globally</li>
+                            <li>Algorithmic accountability y automated decision-making oversight</li>
+                            <li>Children's privacy protections (edad verification challenges)</li>
+                            <li>AI governance frameworks intersecting con privacy rights</li>
+                            <li>Data localization requirements en various jurisdictions</li>
+                        </ul>
+                        
+                        <h3>Technological Challenges</h3>
+                        <p>
+                            <strong>IoT Privacy:</strong> Billions de connected devices generando unprecedented 
+                            amounts de personal data requieren new privacy paradigms.
+                        </p>
+                        
+                        <p>
+                            <strong>Biometric Privacy:</strong> Increased use de facial recognition, voice 
+                            analysis, y behavioral biometrics plantea unique privacy challenges.
+                        </p>
+                        
+                        <p>
+                            <strong>Quantum Computing:</strong> Future quantum computers podrían break 
+                            current cryptographic protections, requiring post-quantum cryptography.
+                        </p>
+                        
+                        <h3>Recomendaciones Estratégicas</h3>
+                        <ul>
+                            <li>Adoptar privacy-by-design thinking en todas las decisions tecnológicas</li>
+                            <li>Invertir en learning sobre emerging PETs y their practical applications</li>
+                            <li>Desarrollar personal privacy policies y regular auditing processes</li>
+                            <li>Participar en privacy communities y mantenerse updated sobre regulatory changes</li>
+                            <li>Balanced approach: practical usability vs. theoretical privacy maximization</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Navigation -->
+                <div class="content-navigation">
+                    <a href="#" class="nav-btn nav-btn-secondary" onclick="goBack()">
+                        ← Volver a Módulos
+                    </a>
+                    <a href="#" class="nav-btn nav-btn-primary" onclick="nextChapter()">
+                        Capítulo 2: Hardening de Navegadores →
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Progress tracking
+        let moduleProgress = 8;
+        let privacyScore = 0;
+        let currentQuestionIndex = 0;
+        let quizScore = 0;
+        let selectedOption = null;
+
+        // Quiz data
+        const quizQuestions = [
+            {
+                question: "¿Cuál es la diferencia principal entre privacidad y anonimato en el contexto de seguridad digital?",
+                options: [
+                    "No hay diferencia significativa, son términos sinónimos",
+                    "Privacidad es control sobre divulgación de información; anonimato es no ser identificable", 
+                    "Anonimato solo se aplica a comunicaciones, privacidad a datos almacenados",
+                    "Privacidad requiere tecnología avanzada, anonimato es solo procedural"
+                ],
+                correct: 1,
+                explanation: "Privacidad se refiere al control selectivo sobre la divulgación de información personal, mientras anonimato es la condición de no ser identificable dentro de un grupo. Son conceptos complementarios pero distintos."
+            },
+            {
+                question: "¿Cuál de los siguientes NO es uno de los 7 principios de Privacy by Design?",
+                options: [
+                    "Privacidad como Default",
+                    "Seguridad End-to-End",
+                    "Máximo Rendimiento del Sistema",
+                    "Respeto por la Privacidad del Usuario"
+                ],
+                correct: 2,
+                explanation: "Los 7 principios de Privacy by Design se enfocan en privacidad, no en rendimiento del sistema. El rendimiento puede ser considerado pero no es uno de los principios fundamentales."
+            },
+            {
+                question: "¿Qué técnica de fingerprinting es generalmente considerada la más precisa para identificar usuarios?",
+                options: [
+                    "Canvas Fingerprinting",
+                    "WebGL Fingerprinting",
+                    "Font Fingerprinting",
+                    "User Agent String Analysis"
+                ],
+                correct: 1,
+                explanation: "WebGL fingerprinting es generalmente más preciso que canvas fingerprinting porque proporciona información detallada sobre hardware gráfico, drivers y capacidades de rendering que son altamente específicas."
+            },
+            {
+                question: "Bajo GDPR, ¿cuál es el tiempo máximo para notificar una brecha de datos a las autoridades?",
+                options: [
+                    "24 horas",
+                    "72 horas",
+                    "7 días",
+                    "30 días"
+                ],
+                correct: 1,
+                explanation: "GDPR requiere notificación de brechas de datos a las autoridades supervisoras dentro de 72 horas de tomar conocimiento de la brecha, cuando sea probable que resulte en riesgo para derechos y libertades."
+            }
+        ];
+
+        // Initialize page
+        function initializePage() {
+            updateProgress();
+            console.log('Módulo 4: Privacidad en Línea cargado');
+        }
+
+        function updateProgress() {
+            const progressBar = document.getElementById('moduleProgress');
+            if (progressBar) {
+                progressBar.style.width = moduleProgress + '%';
+            }
+        }
+
+        function goBack() {
+            if (confirm('¿Estás seguro de que quieres volver? Tu progreso se guardará automáticamente.')) {
+                window.location.href = "index.html"; 
+            }
+        }
+
+        function loadChapter(chapterNum) {
+            alert(`Cargando Capítulo ${chapterNum}...\n\nEn una implementación real, esto cargaría el contenido específico del capítulo.`);
+            
+            // Update active chapter
+            document.querySelectorAll('.chapter-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            if (event && event.target) {
+                event.target.closest('.chapter-link').classList.add('active');
+            }
+        }
+
+        function nextChapter() {
+            if (quizScore >= 80) {
+                alert('Excelente trabajo! Procediendo al Capítulo 2: Hardening de Navegadores\n\nEn una implementación real, esto cargaría el siguiente capítulo.');
+                moduleProgress = Math.min(moduleProgress + 12, 100);
+                updateProgress();
+            } else {
+                alert('Completa el quiz con al menos 80% de aciertos para continuar.');
+            }
+        }
+
+        // Privacy Scanner Functions
+        function runPrivacyScan() {
+            const output = document.getElementById('scannerOutput');
+            const selectedScans = getSelectedScans();
+            privacyScore = 0;
+            
+            output.innerHTML += `
+> Iniciando Privacy Assessment...
+> Módulos seleccionados: ${selectedScans.length}/8
+> 
+> === ANÁLISIS EN PROGRESO ===`;
+
+            selectedScans.forEach(scan => {
+                const analysis = analyzeScanModule(scan);
+                output.innerHTML += `
+> ${analysis.name}: ${analysis.status}
+>   Vulnerabilidades: ${analysis.issues}
+>   Score: ${analysis.score}/100
+>   Recomendaciones: ${analysis.recommendations}`;
+                privacyScore += analysis.score;
+            });
+
+            const averageScore = selectedScans.length > 0 ? Math.round(privacyScore / selectedScans.length) : 0;
+
+            output.innerHTML += `
+> 
+> === RESULTADOS CONSOLIDADOS ===
+> Privacy Score Promedio: ${averageScore}/100
+> Risk Level: ${getPrivacyRiskLevel(averageScore)}
+> Compliance Status: ${averageScore >= 75 ? 'ACCEPTABLE' : 'REQUIRES IMPROVEMENT'}
+> 
+> Generando recomendaciones específicas...`;
+
+            document.getElementById('privacyScore').textContent = averageScore;
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function getSelectedScans() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            return Array.from(checkboxes).map(cb => cb.id.replace('scan-', ''));
+        }
+
+        function analyzeScanModule(module) {
+            const moduleConfigs = {
+                browser: { 
+                    name: '🌐 Browser Privacy Analysis', 
+                    issues: 'Fingerprinting, Cookies, WebRTC leaks', 
+                    score: 65, 
+                    recommendations: 'uBlock Origin, fingerprint resistance'
+                },
+                network: { 
+                    name: '🔒 Network Privacy Assessment', 
+                    issues: 'DNS leaks, IP exposure, ISP tracking', 
+                    score: 45, 
+                    recommendations: 'VPN, DNS over HTTPS, Tor'
+                },
+                mobile: { 
+                    name: '📱 Mobile Privacy Audit', 
+                    issues: 'App permissions, location tracking, advertising ID', 
+                    score: 50, 
+                    recommendations: 'GrapheneOS, permission review, location services off'
+                },
+                social: { 
+                    name: '👥 Social Media Analysis', 
+                    issues: 'Public posts, tagged photos, friend networks', 
+                    score: 30, 
+                    recommendations: 'Privacy settings review, profile limitation'
+                },
+                databrokers: { 
+                    name: '💼 Data Broker Search', 
+                    issues: 'Found in 12 databases, detailed profiles', 
+                    score: 25, 
+                    recommendations: 'Opt-out requests, regular monitoring'
+                },
+                search: { 
+                    name: '🔍 Search Engine Privacy', 
+                    issues: 'Search history logging, personalization', 
+                    score: 70, 
+                    recommendations: 'DuckDuckGo, StartPage, search anonymization'
+                },
+                email: { 
+                    name: '📧 Email Security Assessment', 
+                    issues: 'Unencrypted communications, metadata exposure', 
+                    score: 55, 
+                    recommendations: 'ProtonMail, encrypted email, alias usage'
+                },
+                communication: { 
+                    name: '💬 Communication Privacy', 
+                    issues: 'Unencrypted messaging, metadata leaks', 
+                    score: 60, 
+                    recommendations: 'Signal, Matrix, encrypted voice calls'
+                }
+            };
+            
+            return moduleConfigs[module] || { name: 'Unknown Module', issues: 'N/A', score: 0, recommendations: 'None' };
+        }
+
+        function getPrivacyRiskLevel(score) {
+            if (score >= 80) return 'LOW RISK';
+            if (score >= 60) return 'MODERATE RISK';
+            if (score >= 40) return 'HIGH RISK';
+            return 'CRITICAL RISK';
+        }
+
+        function generateReport() {
+            const output = document.getElementById('scannerOutput');
+            
+            output.innerHTML += `
+> 
+> === PRIVACY ASSESSMENT REPORT ===
+> Generated: ${new Date().toLocaleString()}
+> Assessment Scope: Personal Privacy Audit
+> 
+> EXECUTIVE SUMMARY:
+> • Overall Privacy Score: ${privacyScore > 0 ? Math.round(privacyScore/getSelectedScans().length) : 0}/100
+> • Primary Concerns: Data broker presence, social media exposure
+> • Immediate Actions: VPN setup, browser hardening, opt-out requests
+> • Long-term Strategy: Identity compartmentation, regular auditing
+> 
+> DETAILED FINDINGS:
+> • Browser fingerprinting highly unique - implement spoofing
+> • Multiple data broker profiles found - initiate removal process
+> • Social media oversharing detected - review privacy settings
+> • Email communications unencrypted - migrate to secure providers
+> 
+> IMPLEMENTATION ROADMAP:
+> Week 1: Browser hardening, VPN setup
+> Week 2: Email migration, messaging apps
+> Week 3: Data broker opt-outs
+> Week 4: Social media cleanup
+> Monthly: Regular privacy audits`;
+
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function recommendTools() {
+            const output = document.getElementById('scannerOutput');
+            
+            output.innerHTML += `
+> 
+> === HERRAMIENTAS RECOMENDADAS ===
+> Basado en tu perfil de riesgo actual
+> 
+> NAVEGACIÓN:
+> • Primary: Firefox + arkenfox user.js
+> • Alternative: Tor Browser para sesiones sensibles
+> • Extensions: uBlock Origin, ClearURLs, Privacy Badger
+> 
+> NETWORK PRIVACY:
+> • VPN: Mullvad (anonymous payments)
+> • DNS: Quad9 o 1.1.1.1 con DoH
+> • Tor: Para anonimato strong cuando necesario
+> 
+> COMUNICACIONES:
+> • Mensajería: Signal (primary), Element/Matrix (groups)
+> • Email: ProtonMail o Tutanota
+> • Voice: Signal calls, Jami para P2P
+> 
+> MOBILE:
+> • OS: GrapheneOS (Pixel devices)
+> • Apps: F-Droid store, Aurora Store
+> • Network: Orbot para Tor en mobile
+> 
+> SISTEMA OPERATIVO:
+> • Daily use: Linux (Ubuntu Privacy Remix)
+> • High security: Qubes OS
+> • Portable: Tails para sesiones amnésicas`;
+
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function resetScanner() {
+            document.getElementById('scannerOutput').innerHTML = `> Privacy Assessment Suite iniciado
+> Cargando módulos de análisis...
+> 
+> === CONFIGURACIÓN DE ASSESSMENT ===
+> Target: Personal Privacy Audit
+> Scope: Browser, Network, Mobile, Social Media
+> Methodology: OWASP Privacy Risks + Custom Checks
+> 
+> === CATEGORÍAS DE EVALUACIÓN ===
+> [✓] Browser Configuration
+> [✓] Network Privacy
+> [✓] Mobile Device Settings
+> [✓] Social Media Exposure
+> [✓] Data Broker Presence
+> [✓] Search Engine Privacy
+> [✓] Email Security
+> [✓] Communication Privacy
+> 
+> Utiliza los controles para iniciar diferentes módulos de assessment...`;
+            
+            // Reset checkboxes
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            
+            privacyScore = 0;
+            document.getElementById('privacyScore').textContent = '0';
+        }
+
+        // Quiz functions
+        function selectOption(element, isCorrect) {
+            // Reset previous selections
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            element.classList.add('selected');
+            selectedOption = { element, isCorrect };
+        }
+
+        function checkAnswer() {
+            if (!selectedOption) {
+                alert('Por favor selecciona una respuesta.');
+                return;
+            }
+
+            const feedback = document.getElementById('quizFeedback');
+            const checkBtn = document.getElementById('checkBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            if (selectedOption.isCorrect) {
+                selectedOption.element.classList.add('correct');
+                feedback.innerHTML = '<div style="color: #10b981; font-weight: 600;">¡Correcto! ' + quizQuestions[currentQuestionIndex].explanation + '</div>';
+                quizScore += Math.floor(100 / quizQuestions.length);
+            } else {
+                selectedOption.element.classList.add('incorrect');
+                // Show correct answer
+                document.querySelectorAll('.quiz-option').forEach((opt, index) => {
+                    if (index === quizQuestions[currentQuestionIndex].correct) {
+                        opt.classList.add('correct');
+                    }
+                });
+                feedback.innerHTML = '<div style="color: #ef4444; font-weight: 600;">Incorrecto. ' + quizQuestions[currentQuestionIndex].explanation + '</div>';
+            }
+
+            feedback.style.display = 'block';
+            checkBtn.style.display = 'none';
+            nextBtn.style.display = 'inline-flex';
+
+            // Disable further selection
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < quizQuestions.length) {
+                loadQuestion(currentQuestionIndex);
+            } else {
+                showQuizResults();
+            }
+        }
+
+        function loadQuestion(index) {
+            const question = quizQuestions[index];
+            document.getElementById('currentQuestion').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('quizOptions');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, i) => {
+                const li = document.createElement('li');
+                li.className = 'quiz-option';
+                li.textContent = String.fromCharCode(65 + i) + ') ' + option;
+                li.onclick = () => selectOption(li, i === question.correct);
+                optionsContainer.appendChild(li);
+            });
+
+            // Reset UI
+            document.getElementById('quizFeedback').style.display = 'none';
+            document.getElementById('checkBtn').style.display = 'inline-flex';
+            document.getElementById('nextBtn').style.display = 'none';
+            selectedOption = null;
+        }
+
+        function showQuizResults() {
+            const percentage = (quizScore / 100) * 100;
+            alert(`Quiz Completado!\n\nPuntuación: ${quizScore}/100 puntos (${percentage}%)\n\n${percentage >= 80 ? '¡Excelente trabajo! Puedes continuar al siguiente capítulo.' : 'Considera revisar el material antes de continuar.'}`);
+            
+            if (percentage >= 80) {
+                moduleProgress = Math.min(moduleProgress + 15, 100);
+                updateProgress();
+            }
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', initializePage);
+    </script>
+    
+</body>
+</html>

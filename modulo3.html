@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Técnicas de Protección y Defensa - CyberSec Elite Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #1e293b;
+            --accent-color: #10b981;
+            --gold-color: #f59e0b;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+            --light-bg: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--light-bg);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gold-color), #fbbf24);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .breadcrumb {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--gold-color);
+            text-decoration: none;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Main Container */
+        .main-container {
+            margin-top: 80px;
+            display: flex;
+            min-height: calc(100vh - 80px);
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            border-right: 1px solid var(--border-color);
+            padding: 2rem 0;
+            width: 320px;
+            min-width: 320px;
+            max-width: 320px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            position: sticky;
+            top: 80px;
+        }
+
+        .module-info {
+            padding: 0 2rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .module-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--success-color), #34d399);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .module-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .module-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .progress-section {
+            padding: 0 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .progress-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--success-color), #34d399);
+            width: 10%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Chapter Navigation */
+        .chapter-nav {
+            list-style: none;
+            padding: 0 1rem;
+        }
+
+        .chapter-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .chapter-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .chapter-link:hover {
+            background: var(--light-bg);
+            color: var(--primary-color);
+        }
+
+        .chapter-link.active {
+            background: linear-gradient(135deg, var(--success-color), #34d399);
+            color: white;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .chapter-status {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+
+        .chapter-status.completed {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .chapter-status.current {
+            background: var(--success-color);
+            color: white;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            padding: 2rem;
+            max-width: calc(100vw - 320px);
+            overflow-x: hidden;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-header {
+            margin-bottom: 3rem;
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--success-color), #34d399);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .content-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .content-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .chapter-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--success-color);
+        }
+
+        .meta-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--success-color);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-content {
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .section-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .section-content strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Defense Strategy Box */
+        .defense-strategy {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(52, 211, 153, 0.1));
+            border: 2px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .defense-strategy h4 {
+            color: var(--success-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .defense-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .defense-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--success-color);
+        }
+
+        .defense-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .defense-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .defense-level {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .level-basic {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .level-advanced {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .level-expert {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* Security Architecture */
+        .architecture-diagram {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .architecture-layer {
+            background: linear-gradient(135deg, var(--success-color), #34d399);
+            color: white;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .architecture-layer::after {
+            content: '↓';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: var(--success-color);
+        }
+
+        .architecture-layer:last-child::after {
+            display: none;
+        }
+
+        /* Interactive Defense Lab */
+        .defense-lab {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border: none;
+        }
+
+        .lab-title {
+            color: var(--gold-color);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lab-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .defense-simulator {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .simulator-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .security-dashboard {
+            background: #000;
+            color: #00ff00;
+            padding: 1.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            height: 300px;
+            overflow-y: auto;
+            margin: 1rem 0;
+            border: 1px solid #333;
+        }
+
+        .lab-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .lab-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lab-btn-primary {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .lab-btn-primary:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        .lab-btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .lab-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Security Maturity Model */
+        .maturity-model {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .maturity-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .maturity-level {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .maturity-level:hover {
+            border-color: var(--success-color);
+            transform: translateY(-2px);
+        }
+
+        .level-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--success-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .level-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .level-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--success-color);
+        }
+
+        .quiz-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-options {
+            list-style: none;
+        }
+
+        .quiz-option {
+            background: var(--light-bg);
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background: #e0e7ff;
+            border-color: var(--success-color);
+        }
+
+        .quiz-option.selected {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: var(--success-color);
+        }
+
+        .quiz-option.correct {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: var(--success-color);
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: var(--danger-color);
+        }
+
+        /* Navigation Buttons */
+        .content-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-btn-primary {
+            background: linear-gradient(135deg, var(--success-color), #34d399);
+            color: white;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .nav-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .nav-btn-secondary {
+            background: white;
+            color: var(--text-secondary);
+            border: 2px solid var(--border-color);
+        }
+
+        .nav-btn-secondary:hover {
+            border-color: var(--success-color);
+            color: var(--success-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .main-container {
+                max-width: 100%;
+            }
+            
+            .content-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                top: 0;
+            }
+
+            .content-area {
+                max-width: 100%;
+            }
+
+            .chapter-meta {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .content-area {
+                padding: 1rem;
+            }
+
+            .content-title {
+                font-size: 2rem;
+            }
+
+            .defense-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lab-controls {
+                flex-direction: column;
+            }
+
+            .content-navigation {
+                flex-direction: column;
+            }
+
+            .chapter-meta {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .simulator-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .maturity-levels {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chapter-meta {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-section {
+                padding: 1.5rem;
+            }
+            
+            .defense-lab {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="goBack()">
+                <div class="logo-icon">🛡️</div>
+                <div class="logo-text">CyberSec Elite</div>
+            </a>
+            <div class="breadcrumb">
+                <a href="#" onclick="goBack()">Inicio</a> / <a href="#" onclick="goBack()">Módulos</a> / Técnicas de Protección y Defensa
+            </div>
+            <a href="#" class="back-btn" onclick="goBack()">
+                ← Volver al Inicio
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="module-info">
+                <div class="module-number">3</div>
+                <h2 class="module-title">Técnicas de Protección y Defensa</h2>
+                <div class="module-meta">
+                    ⏱️ 12 semanas • 🎯 Avanzado • 📚 18 capítulos
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-title">Progreso del Módulo</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="moduleProgress"></div>
+                </div>
+                <div class="progress-text">1 de 18 capítulos completados (10%)</div>
+            </div>
+
+            <ul class="chapter-nav">
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link active" onclick="loadChapter(1)">
+                        <div class="chapter-status current">1</div>
+                        <span>Arquitectura de Seguridad Multicapa</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(2)">
+                        <div class="chapter-status">2</div>
+                        <span>Perímetro de Seguridad</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(3)">
+                        <div class="chapter-status">3</div>
+                        <span>Seguridad de Red Avanzada</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(4)">
+                        <div class="chapter-status">4</div>
+                        <span>Firewalls de Nueva Generación</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(5)">
+                        <div class="chapter-status">5</div>
+                        <span>Sistemas de Detección IDS/IPS</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(6)">
+                        <div class="chapter-status">6</div>
+                        <span>SIEM y Correlación de Eventos</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(7)">
+                        <div class="chapter-status">7</div>
+                        <span>Zero Trust Architecture</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(8)">
+                        <div class="chapter-status">8</div>
+                        <span>Endpoint Detection & Response</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(9)">
+                        <div class="chapter-status">9</div>
+                        <span>Seguridad en la Nube</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(10)">
+                        <div class="chapter-status">10</div>
+                        <span>Identity & Access Management</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(11)">
+                        <div class="chapter-status">11</div>
+                        <span>Criptografía Aplicada</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(12)">
+                        <div class="chapter-status">12</div>
+                        <span>Security Orchestration (SOAR)</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(13)">
+                        <div class="chapter-status">13</div>
+                        <span>Threat Hunting Proactivo</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(14)">
+                        <div class="chapter-status">14</div>
+                        <span>Backup & Disaster Recovery</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(15)">
+                        <div class="chapter-status">15</div>
+                        <span>Security Awareness Training</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(16)">
+                        <div class="chapter-status">16</div>
+                        <span>Hardening de Sistemas</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(17)">
+                        <div class="chapter-status">17</div>
+                        <span>DevSecOps y Secure SDLC</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#" class="chapter-link" onclick="loadChapter(18)">
+                        <div class="chapter-status">18</div>
+                        <span>Proyecto Final: SOC Design</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <div class="content-wrapper">
+                <header class="content-header">
+                    <div class="chapter-badge">🛡️ Capítulo 1</div>
+                    <h1 class="content-title">Arquitectura de Seguridad Multicapa</h1>
+                    <p class="content-description">
+                        Domina los principios fundamentales de arquitectura de seguridad defensiva en profundidad, 
+                        implementando capas múltiples de protección para crear ecosistemas resilientes contra 
+                        amenazas avanzadas persistentes.
+                    </p>
+                    
+                    <div class="chapter-meta">
+                        <div class="meta-item">
+                            <div class="meta-value">120</div>
+                            <div class="meta-label">Minutos</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-value">5</div>
+                            <div class="meta-label">Laboratorios</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-value">3</div>
+                            <div class="meta-label">Simuladores</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-value">92%</div>
+                            <div class="meta-label">Tasa de Éxito</div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Content Sections -->
+                <section class="content-section">
+                    <h2 class="section-title">🎯 Objetivos de Aprendizaje</h2>
+                    <div class="section-content">
+                        <p>Al completar este capítulo, serás capaz de:</p>
+                        <ul>
+                            <li>Diseñar arquitecturas de seguridad multicapa robustas y escalables</li>
+                            <li>Implementar el principio de defensa en profundidad (Defense in Depth)</li>
+                            <li>Evaluar y seleccionar controles de seguridad apropiados por capa</li>
+                            <li>Integrar tecnologías de seguridad en arquitecturas empresariales complejas</li>
+                            <li>Establecer métricas de efectividad para cada capa defensiva</li>
+                            <li>Diseñar arquitecturas Zero Trust desde cero</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2 class="section-title">🏗️ Principios de Defensa en Profundidad</h2>
+                    <div class="section-content">
+                        <p>
+                            La <strong>Defensa en Profundidad</strong> es una estrategia de seguridad que emplea 
+                            múltiples capas de controles de seguridad distribuidos a lo largo de un sistema de TI. 
+                            Este enfoque reconoce que ningún control individual es perfecto, por lo que múltiples 
+                            capas proporcionan redundancia defensiva.
+                        </p>
+                        
+                        <h3>Filosofía Core de la Defensa Multicapa</h3>
+                        <p>
+                            El concepto se origina en estrategias militares donde múltiples líneas de defensa 
+                            ralentizan y debilitan al atacante. En ciberseguridad, cada capa tiene objetivos 
+                            específicos: <strong>prevenir, detectar, contener y recuperar</strong>.
+                        </p>
+                        
+                        <h3>Ventajas Estratégicas</h3>
+                        <ul>
+                            <li><strong>Redundancia:</strong> Fallo de una capa no compromete la seguridad total</li>
+                            <li><strong>Diversidad:</strong> Diferentes tipos de controles cubren vectores variados</li>
+                            <li><strong>Complejidad para Atacantes:</strong> Múltiples sistemas que evadir</li>
+                            <li><strong>Visibilidad Mejorada:</strong> Más puntos de monitoreo y detección</li>
+                            <li><strong>Tiempo de Respuesta:</strong> Oportunidades múltiples de intervención</li>
+                        </ul>
+
+                        <h3>Desafíos de Implementación</h3>
+                        <p>
+                            La implementación efectiva requiere balance entre seguridad y usabilidad, 
+                            gestión de complejidad operacional, y coordinación entre múltiples tecnologías 
+                            y equipos. El sobre-engineering puede crear puntos únicos de falla paradójicos.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Arquitectura Visual -->
+                <div class="architecture-diagram">
+                    <h3>Modelo de Seguridad de 7 Capas</h3>
+                    <div class="architecture-layer">
+                        <strong>Capa 7: Humana</strong><br>
+                        Políticas, Procedures, Security Awareness, Social Engineering Defense
+                    </div>
+                    <div class="architecture-layer">
+                        <strong>Capa 6: Aplicación</strong><br>
+                        WAF, RASP, Code Analysis, Input Validation, Session Management
+                    </div>
+                    <div class="architecture-layer">
+                        <strong>Capa 5: Datos</strong><br>
+                        DLP, Encryption, Tokenization, Database Security, Rights Management
+                    </div>
+                    <div class="architecture-layer">
+                        <strong>Capa 4: Host/Endpoint</strong><br>
+                        EDR, Antivirus, HIPS, Application Whitelisting, Patch Management
+                    </div>
+                    <div class="architecture-layer">
+                        <strong>Capa 3: Red Interna</strong><br>
+                        Network Segmentation, IDS/IPS, Network Analytics, Micro-segmentation
+                    </div>
+                    <div class="architecture-layer">
+                        <strong>Capa 2: Perímetro</strong><br>
+                        NGFW, Proxy, VPN, Email Security, Web Filtering
+                    </div>
+                    <div class="architecture-layer">
+                        <strong>Capa 1: Física</strong><br>
+                        Facility Security, Environmental Controls, Hardware Security Modules
+                    </div>
+                </div>
+
+                <!-- Defense Strategy Box -->
+                <div class="defense-strategy">
+                    <h4>🛡️ Estrategias Defensivas por Capa</h4>
+                    <div class="defense-grid">
+                        <div class="defense-item">
+                            <div class="defense-name">Preventiva (Preventive)</div>
+                            <div class="defense-description">
+                                Controles que impiden que ocurran incidentes de seguridad. Incluyen 
+                                firewalls, control de acceso, encriptación y hardening de sistemas. 
+                                Son la primera línea de defensa.
+                            </div>
+                            <span class="defense-level level-basic">BÁSICO</span>
+                        </div>
+                        <div class="defense-item">
+                            <div class="defense-name">Detectiva (Detective)</div>
+                            <div class="defense-description">
+                                Controles que identifican incidentes cuando ocurren o después. SIEM, 
+                                IDS/IPS, log monitoring y análisis de comportamiento. Proveen visibilidad 
+                                y alertas tempranas.
+                            </div>
+                            <span class="defense-level level-advanced">AVANZADO</span>
+                        </div>
+                        <div class="defense-item">
+                            <div class="defense-name">Correctiva (Corrective)</div>
+                            <div class="defense-description">
+                                Controles que limitan el impacto de incidentes una vez detectados. 
+                                Incluyen respuesta automatizada, aislamiento de sistemas y 
+                                procedimientos de recuperación.
+                            </div>
+                            <span class="defense-level level-expert">EXPERTO</span>
+                        </div>
+                        <div class="defense-item">
+                            <div class="defense-name">Compensatoria (Compensating)</div>
+                            <div class="defense-description">
+                                Controles alternativos cuando los controles primarios no pueden 
+                                implementarse. Monitoreo adicional, procesos manuales de verificación 
+                                y controles administrativos reforzados.
+                            </div>
+                            <span class="defense-level level-advanced">AVANZADO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="content-section">
+                    <h2 class="section-title">🌐 Arquitectura Zero Trust</h2>
+                    <div class="section-content">
+                        <p>
+                            <strong>Zero Trust Architecture (ZTA)</strong> representa un cambio paradigmático 
+                            desde el modelo tradicional de "confiar pero verificar" hacia "nunca confiar, 
+                            siempre verificar". Este enfoque trata todos los tráficos de red como hostiles, 
+                            independientemente de su ubicación.
+                        </p>
+                        
+                        <h3>Principios Fundamentales de Zero Trust</h3>
+                        <ul>
+                            <li><strong>Verificación Explícita:</strong> Autenticar y autorizar basado en todos los puntos de datos disponibles</li>
+                            <li><strong>Acceso de Menor Privilegio:</strong> Limitar acceso con Just-In-Time y Just-Enough-Access</li>
+                            <li><strong>Asumir Brecha:</strong> Minimizar radio de impacto y verificar cifrado end-to-end</li>
+                        </ul>
+                        
+                        <h3>Componentes Core de ZTA</h3>
+                        <ul>
+                            <li><strong>Policy Engine (PE):</strong> Cerebro que toma decisiones de acceso</li>
+                            <li><strong>Policy Administrator (PA):</strong> Ejecuta decisiones del PE</li>
+                            <li><strong>Policy Enforcement Point (PEP):</strong> Habilita/deshabilita acceso a recursos</li>
+                            <li><strong>Control Plane:</strong> Gestiona políticas y configuraciones</li>
+                            <li><strong>Data Plane:</strong> Donde ocurre el tráfico real de aplicaciones</li>
+                        </ul>
+
+                        <h3>Implementación Práctica</h3>
+                        <p>
+                            La implementación exitosa de ZTA requiere identity-centric security, 
+                            micro-segmentación de red, endpoint compliance verification, y 
+                            continuous monitoring. Las organizaciones típicamente adoptan un 
+                            enfoque faseado, comenzando con casos de uso críticos.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Interactive Defense Lab -->
+                <section class="defense-lab">
+                    <h2 class="lab-title">🧪 Laboratorio: Diseño de Arquitectura Defensiva</h2>
+                    <p class="lab-description">
+                        Diseña una arquitectura de seguridad multicapa para una organización fintech 
+                        de 500 empleados con operaciones híbridas (on-premise + cloud).
+                    </p>
+                    
+                    <div class="defense-simulator">
+                        <div class="simulator-header">
+                            <div class="simulator-title">🏗️ Security Architecture Designer v3.1</div>
+                            <div>Score de Seguridad: <span id="securityScore">0</span>/100</div>
+                        </div>
+                        
+                        <div class="security-dashboard" id="dashboardOutput">
+> Security Architecture Designer iniciado
+> Cargando perfil organizacional...
+> 
+> === PERFIL DE ORGANIZACIÓN ===
+> Nombre: TechBank Corp
+> Empleados: 500
+> Industria: Fintech/Banking
+> Compliance: PCI DSS, SOX, PSD2
+> Arquitectura: Híbrida (60% Cloud, 40% On-Prem)
+> Budget: $2.5M USD anual
+> 
+> === REQUISITOS DE DISEÑO ===
+> • Alta Disponibilidad (99.9% uptime)
+> • Procesamiento de pagos en tiempo real
+> • Datos de 2M+ clientes
+> • Trabajo remoto para 70% del staff
+> • Integración con 15+ APIs bancarias externas
+> 
+> Utiliza los controles para seleccionar capas de seguridad...
+                        </div>
+                        
+                        <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 6px;">
+                            <h4>Capas Disponibles para Implementar:</h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; font-size: 0.9rem; margin: 1rem 0;">
+                                <label><input type="checkbox" id="layer-physical"> 🏢 Seguridad Física</label>
+                                <label><input type="checkbox" id="layer-network"> 🌐 Perímetro de Red</label>
+                                <label><input type="checkbox" id="layer-internal"> 🔗 Red Interna</label>
+                                <label><input type="checkbox" id="layer-endpoint"> 💻 Endpoint Security</label>
+                                <label><input type="checkbox" id="layer-application"> 📱 Application Security</label>
+                                <label><input type="checkbox" id="layer-data"> 🗄️ Data Protection</label>
+                                <label><input type="checkbox" id="layer-identity"> 👤 Identity Management</label>
+                                <label><input type="checkbox" id="layer-monitoring"> 📊 Monitoring & SIEM</label>
+                            </div>
+                        </div>
+                        
+                        <div class="lab-controls">
+                            <button class="lab-btn lab-btn-primary" onclick="analyzeArchitecture()">Analizar Arquitectura</button>
+                            <button class="lab-btn lab-btn-secondary" onclick="generateBudget()">Calcular Presupuesto</button>
+                            <button class="lab-btn lab-btn-secondary" onclick="runThreatModel()">Threat Modeling</button>
+                            <button class="lab-btn lab-btn-secondary" onclick="resetDesigner()">Reset</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2 class="section-title">⚙️ Controles de Seguridad por Capa</h2>
+                    <div class="section-content">
+                        <h3>Capa 1: Seguridad Física</h3>
+                        <p>
+                            La base de toda seguridad digital comienza con protección física. 
+                            Controles incluyen perímetros seguros, CCTV, biometría, y sistemas 
+                            de detección de intrusos. Hardware Security Modules (HSMs) protegen 
+                            claves criptográficas críticas.
+                        </p>
+                        
+                        <h3>Capa 2: Perímetro de Red</h3>
+                        <p>
+                            Next Generation Firewalls (NGFW), sistemas anti-DDoS, web application 
+                            firewalls (WAF), y secure email gateways forman la primera línea de 
+                            defensa digital. DNS filtering y reputation-based blocking añaden 
+                            protección proactiva.
+                        </p>
+                        
+                        <h3>Capa 3: Segmentación de Red Interna</h3>
+                        <p>
+                            Micro-segmentación mediante VLANs, software-defined networking (SDN), 
+                            y network access control (NAC). IDS/IPS internos detectan movimiento 
+                            lateral. Network behavior analytics identifican anomalías de tráfico.
+                        </p>
+                        
+                        <h3>Capa 4: Endpoint Protection</h3>
+                        <p>
+                            Endpoint Detection and Response (EDR), next-gen antivirus, application 
+                            whitelisting, y device compliance enforcement. Mobile Device Management 
+                            (MDM) y Privileged Access Management (PAM) controlan acceso.
+                        </p>
+
+                        <h3>Capa 5: Protección de Datos</h3>
+                        <p>
+                            Data Loss Prevention (DLP), encryption at-rest y in-transit, 
+                            tokenización de datos sensibles, y database activity monitoring. 
+                            Information Rights Management (IRM) controla uso de documentos.
+                        </p>
+
+                        <h3>Capa 6: Seguridad de Aplicaciones</h3>
+                        <p>
+                            Runtime Application Self-Protection (RASP), static/dynamic code analysis, 
+                            secure coding practices, y API security gateways. Container security 
+                            y serverless protection para arquitecturas modernas.
+                        </p>
+
+                        <h3>Capa 7: Factor Humano</h3>
+                        <p>
+                            Security awareness training continuo, phishing simulation, incident 
+                            response training, y clear security policies. Behavioral analytics 
+                            detectan actividades anómalas de usuarios.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Security Maturity Model -->
+                <div class="maturity-model">
+                    <h3>Modelo de Madurez en Seguridad Defensiva</h3>
+                    <div class="maturity-levels">
+                        <div class="maturity-level">
+                            <div class="level-number">1</div>
+                            <div class="level-name">INICIAL</div>
+                            <div class="level-description">Controles básicos, reactivo, sin coordinación entre capas</div>
+                        </div>
+                        <div class="maturity-level">
+                            <div class="level-number">2</div>
+                            <div class="level-name">GESTIONADO</div>
+                            <div class="level-description">Políticas documentadas, algunos controles automatizados</div>
+                        </div>
+                        <div class="maturity-level">
+                            <div class="level-number">3</div>
+                            <div class="level-name">DEFINIDO</div>
+                            <div class="level-description">Procesos estandarizados, arquitectura coherente</div>
+                        </div>
+                        <div class="maturity-level">
+                            <div class="level-number">4</div>
+                            <div class="level-name">CUANTITATIVO</div>
+                            <div class="level-description">Métricas de efectividad, mejora basada en datos</div>
+                        </div>
+                        <div class="maturity-level">
+                            <div class="level-number">5</div>
+                            <div class="level-name">OPTIMIZADO</div>
+                            <div class="level-description">Automatización avanzada, adaptación continua</div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="content-section">
+                    <h2 class="section-title">📊 Métricas y KPIs de Efectividad</h2>
+                    <div class="section-content">
+                        <p>
+                            La medición de efectividad de arquitecturas defensivas requiere métricas 
+                            cuantitativas y cualitativas que demuestren reducción de riesgo y 
+                            retorno de inversión en seguridad.
+                        </p>
+                        
+                        <h3>Métricas Preventivas</h3>
+                        <ul>
+                            <li><strong>Block Rate:</strong> Porcentaje de amenazas bloqueadas por capa</li>
+                            <li><strong>Vulnerability Density:</strong> Vulnerabilidades por sistema/aplicación</li>
+                            <li><strong>Compliance Score:</strong> Adherencia a frameworks regulatorios</li>
+                            <li><strong>Security Posture Index:</strong> Score agregado de controles</li>
+                        </ul>
+                        
+                        <h3>Métricas Detectivas</h3>
+                        <ul>
+                            <li><strong>Mean Time to Detection (MTTD):</strong> Tiempo promedio de detección</li>
+                            <li><strong>False Positive Rate:</strong> Alertas falsas vs. verdaderas</li>
+                            <li><strong>Coverage Percentage:</strong> Porcentaje de assets monitoreados</li>
+                            <li><strong>Alert Fidelity:</strong> Calidad y precisión de alertas</li>
+                        </ul>
+                        
+                        <h3>Métricas de Respuesta</h3>
+                        <ul>
+                            <li><strong>Mean Time to Response (MTTR):</strong> Tiempo de respuesta a incidentes</li>
+                            <li><strong>Containment Effectiveness:</strong> Éxito en limitar propagación</li>
+                            <li><strong>Recovery Time Objective (RTO):</strong> Tiempo de restauración de servicios</li>
+                            <li><strong>Lessons Learned Implementation:</strong> Mejoras post-incidente aplicadas</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Quiz Section -->
+                <section class="quiz-section">
+                    <h2 class="section-title">🎯 Quiz de Evaluación</h2>
+                    <div id="quizContainer">
+                        <div class="quiz-question" id="currentQuestion">
+                            ¿Cuál es el principio fundamental que distingue Zero Trust Architecture de modelos tradicionales de seguridad?
+                        </div>
+                        <ul class="quiz-options" id="quizOptions">
+                            <li class="quiz-option" onclick="selectOption(this, false)">
+                                A) Usar solo tecnologías cloud-native
+                            </li>
+                            <li class="quiz-option" onclick="selectOption(this, true)">
+                                B) Nunca confiar, siempre verificar cada transacción
+                            </li>
+                            <li class="quiz-option" onclick="selectOption(this, false)">
+                                C) Eliminar completamente los firewalls perimetrales
+                            </li>
+                            <li class="quiz-option" onclick="selectOption(this, false)">
+                                D) Centralizar todos los controles en una sola capa
+                            </li>
+                        </ul>
+                        <div style="margin-top: 1.5rem;">
+                            <button class="lab-btn lab-btn-primary" onclick="checkAnswer()" id="checkBtn">Verificar Respuesta</button>
+                            <button class="lab-btn lab-btn-secondary" onclick="nextQuestion()" id="nextBtn" style="display: none;">Siguiente Pregunta</button>
+                        </div>
+                        <div id="quizFeedback" style="margin-top: 1rem; display: none;"></div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2 class="section-title">🚀 Tendencias Emergentes en Arquitectura Defensiva</h2>
+                    <div class="section-content">
+                        <p>
+                            La arquitectura de seguridad evoluciona continuamente para abordar nuevas 
+                            amenazas y aprovechar tecnologías emergentes. Las organizaciones líderes 
+                            están adoptando enfoques innovadores.
+                        </p>
+                        
+                        <h3>AI-Powered Defense</h3>
+                        <p>
+                            Machine Learning integrado en cada capa para detección de anomalías, 
+                            análisis de comportamiento y respuesta automatizada. AI/ML permite 
+                            detección de zero-day attacks y ataques de living-off-the-land.
+                        </p>
+                        
+                        <h3>Cloud-Native Security</h3>
+                        <p>
+                            Controles diseñados específicamente para arquitecturas cloud: Cloud 
+                            Security Posture Management (CSPM), Container Runtime Protection, 
+                            Serverless Security, y Infrastructure as Code (IaC) scanning.
+                        </p>
+                        
+                        <h3>Extended Detection and Response (XDR)</h3>
+                        <p>
+                            Integración de datos de seguridad a través de endpoints, red, email, 
+                            cloud y aplicaciones en una plataforma unificada para detección y 
+                            respuesta holística.
+                        </p>
+                        
+                        <h3>Quantum-Ready Cryptography</h3>
+                        <p>
+                            Preparación para la era post-cuántica mediante algoritmos resistentes 
+                            a computación cuántica, hybrid classical-quantum systems, y crypto-agility.
+                        </p>
+                        
+                        <h3>Recomendaciones de Implementación</h3>
+                        <ul>
+                            <li>Adoptar enfoque faseado con quick wins tempranos</li>
+                            <li>Invertir en automation y orchestration desde el inicio</li>
+                            <li>Establecer centro de excelencia en arquitectura de seguridad</li>
+                            <li>Implementar continuous security assessment y mejora</li>
+                            <li>Desarrollar partnerships estratégicos con proveedores clave</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Navigation -->
+                <div class="content-navigation">
+                    <a href="#" class="nav-btn nav-btn-secondary" onclick="goBack()">
+                        ← Volver a Módulos
+                    </a>
+                    <a href="#" class="nav-btn nav-btn-primary" onclick="nextChapter()">
+                        Capítulo 2: Perímetro de Seguridad →
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Progress tracking
+        let moduleProgress = 10;
+        let securityScore = 0;
+        let currentQuestionIndex = 0;
+        let quizScore = 0;
+        let selectedOption = null;
+
+        // Quiz data
+        const quizQuestions = [
+            {
+                question: "¿Cuál es el principio fundamental que distingue Zero Trust Architecture de modelos tradicionales de seguridad?",
+                options: [
+                    "Usar solo tecnologías cloud-native",
+                    "Nunca confiar, siempre verificar cada transacción", 
+                    "Eliminar completamente los firewalls perimetrales",
+                    "Centralizar todos los controles en una sola capa"
+                ],
+                correct: 1,
+                explanation: "Zero Trust se basa en el principio 'never trust, always verify', tratando cada transacción como potencialmente hostil, independientemente de su origen o ubicación en la red."
+            },
+            {
+                question: "¿Cuál de las siguientes NO es una ventaja de la arquitectura de defensa en profundidad?",
+                options: [
+                    "Proporciona redundancia si falla un control",
+                    "Simplifica la gestión de seguridad",
+                    "Aumenta la complejidad para los atacantes",
+                    "Mejora la visibilidad de amenazas"
+                ],
+                correct: 1,
+                explanation: "La defensa en profundidad en realidad aumenta la complejidad de gestión al requerir coordinación entre múltiples capas y tecnologías, aunque esto se compensa con mayor seguridad."
+            },
+            {
+                question: "¿Qué componente de Zero Trust Architecture toma las decisiones de acceso?",
+                options: [
+                    "Policy Enforcement Point (PEP)",
+                    "Policy Engine (PE)",
+                    "Policy Administrator (PA)",
+                    "Control Plane"
+                ],
+                correct: 1,
+                explanation: "El Policy Engine (PE) es el 'cerebro' de ZTA que analiza todas las señales disponibles y toma decisiones de acceso basadas en políticas definidas."
+            }
+        ];
+
+        // Initialize page
+        function initializePage() {
+            updateProgress();
+            console.log('Módulo 3: Técnicas de Protección y Defensa cargado');
+        }
+
+        function updateProgress() {
+            const progressBar = document.getElementById('moduleProgress');
+            if (progressBar) {
+                progressBar.style.width = moduleProgress + '%';
+            }
+        }
+
+        function goBack() {
+            if (confirm('¿Estás seguro de que quieres volver? Tu progreso se guardará automáticamente.')) {
+                window.location.href = "index.html"; 
+            }
+        }
+
+        function loadChapter(chapterNum) {
+            alert(`Cargando Capítulo ${chapterNum}...\n\nEn una implementación real, esto cargaría el contenido específico del capítulo.`);
+            
+            // Update active chapter
+            document.querySelectorAll('.chapter-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            if (event && event.target) {
+                event.target.closest('.chapter-link').classList.add('active');
+            }
+        }
+
+        function nextChapter() {
+            if (quizScore >= 80) {
+                alert('Excelente trabajo! Procediendo al Capítulo 2: Perímetro de Seguridad\n\nEn una implementación real, esto cargaría el siguiente capítulo.');
+                moduleProgress = Math.min(moduleProgress + 10, 100);
+                updateProgress();
+            } else {
+                alert('Completa el quiz con al menos 80% de aciertos para continuar.');
+            }
+        }
+
+        // Defense Architecture Simulator
+        function analyzeArchitecture() {
+            const output = document.getElementById('dashboardOutput');
+            const layers = getSelectedLayers();
+            securityScore = 0;
+            
+            output.innerHTML += `
+> Analizando arquitectura seleccionada...
+> Capas implementadas: ${layers.length}/8
+> 
+> === ANÁLISIS DE CAPAS ===`;
+
+            layers.forEach(layer => {
+                const analysis = analyzeLayer(layer);
+                output.innerHTML += `
+> ${analysis.name}: ${analysis.status}
+>   Coverage: ${analysis.coverage}%
+>   Cost: ${analysis.cost}K
+>   Risk Reduction: ${analysis.riskReduction}%`;
+                securityScore += analysis.score;
+            });
+
+            output.innerHTML += `
+> 
+> === EVALUACIÓN GENERAL ===
+> Security Score: ${securityScore}/100
+> Risk Level: ${getRiskLevel(securityScore)}
+> Compliance Ready: ${securityScore >= 80 ? 'YES' : 'NO'}
+> 
+> Recomendaciones: ${getRecommendations(layers)}`;
+
+            document.getElementById('securityScore').textContent = securityScore;
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function getSelectedLayers() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            return Array.from(checkboxes).map(cb => cb.id.replace('layer-', ''));
+        }
+
+        function analyzeLayer(layer) {
+            const layerConfigs = {
+                physical: { name: '🏢 Física', coverage: 95, cost: 150, riskReduction: 15, score: 10 },
+                network: { name: '🌐 Perímetro', coverage: 85, cost: 200, riskReduction: 25, score: 15 },
+                internal: { name: '🔗 Red Interna', coverage: 75, cost: 180, riskReduction: 20, score: 12 },
+                endpoint: { name: '💻 Endpoints', coverage: 90, cost: 120, riskReduction: 18, score: 13 },
+                application: { name: '📱 Aplicaciones', coverage: 70, cost: 250, riskReduction: 22, score: 14 },
+                data: { name: '🗄️ Datos', coverage: 85, cost: 300, riskReduction: 30, score: 18 },
+                identity: { name: '👤 Identidad', coverage: 80, cost: 160, riskReduction: 25, score: 16 },
+                monitoring: { name: '📊 Monitoreo', coverage: 95, cost: 220, riskReduction: 28, score: 17 }
+            };
+            
+            return layerConfigs[layer] || { name: 'Unknown', coverage: 0, cost: 0, riskReduction: 0, score: 0 };
+        }
+
+        function getRiskLevel(score) {
+            if (score >= 90) return 'VERY LOW';
+            if (score >= 75) return 'LOW';
+            if (score >= 60) return 'MEDIUM';
+            if (score >= 40) return 'HIGH';
+            return 'CRITICAL';
+        }
+
+        function getRecommendations(layers) {
+            const missing = ['physical', 'network', 'internal', 'endpoint', 'application', 'data', 'identity', 'monitoring']
+                .filter(layer => !layers.includes(layer));
+            
+            if (missing.length === 0) return 'Arquitectura completa implementada';
+            
+            const critical = ['data', 'identity', 'monitoring'];
+            const criticalMissing = missing.filter(layer => critical.includes(layer));
+            
+            if (criticalMissing.length > 0) {
+                return `CRÍTICO: Implementar ${criticalMissing.join(', ')} inmediatamente`;
+            }
+            
+            return `Considerar agregar: ${missing.slice(0, 2).join(', ')}`;
+        }
+
+        function generateBudget() {
+            const output = document.getElementById('dashboardOutput');
+            const layers = getSelectedLayers();
+            let totalCost = 0;
+            
+            output.innerHTML += `
+> 
+> === ANÁLISIS DE PRESUPUESTO ===
+> Calculando costos de implementación...`;
+
+            layers.forEach(layer => {
+                const config = analyzeLayer(layer);
+                totalCost += config.cost;
+                output.innerHTML += `
+> ${config.name}: ${config.cost}K USD`;
+            });
+
+            const yearlyOperational = totalCost * 0.3;
+            const roi = calculateROI(securityScore);
+
+            output.innerHTML += `
+> 
+> CAPEX Total: ${totalCost}K USD
+> OPEX Anual: ${yearlyOperational.toFixed(0)}K USD
+> ROI Proyectado: ${roi}% en 3 años
+> Tiempo de Implementación: ${Math.ceil(layers.length * 1.5)} meses`;
+
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function calculateROI(score) {
+            const riskReduction = score * 0.8;
+            const costAvoidance = riskReduction * 25; // $25K per point of risk reduced
+            return Math.round(costAvoidance / 10); // Simplified ROI calculation
+        }
+
+        function runThreatModel() {
+            const output = document.getElementById('dashboardOutput');
+            const layers = getSelectedLayers();
+            
+            output.innerHTML += `
+> 
+> === THREAT MODELING ANALYSIS ===
+> Ejecutando simulación de ataques...
+> 
+> Vectores de Ataque Evaluados:
+> • Phishing/Social Engineering: ${layers.includes('identity') ? 'MITIGATED' : 'VULNERABLE'}
+> • Malware/Ransomware: ${layers.includes('endpoint') ? 'MITIGATED' : 'VULNERABLE'}
+> • Network Intrusion: ${layers.includes('network') ? 'MITIGATED' : 'VULNERABLE'}
+> • Data Breach: ${layers.includes('data') ? 'MITIGATED' : 'VULNERABLE'}
+> • Insider Threats: ${layers.includes('monitoring') ? 'DETECTED' : 'BLIND SPOT'}
+> • APT Campaigns: ${layers.length >= 6 ? 'DEFENDED' : 'AT RISK'}
+> 
+> === MITRE ATT&CK COVERAGE ===`;
+
+            const mitrePhases = [
+                'Initial Access', 'Execution', 'Persistence', 'Privilege Escalation',
+                'Defense Evasion', 'Credential Access', 'Discovery', 'Lateral Movement',
+                'Collection', 'Command & Control', 'Exfiltration', 'Impact'
+            ];
+
+            mitrePhases.forEach(phase => {
+                const coverage = calculateMitreCoverage(phase, layers);
+                output.innerHTML += `
+> ${phase}: ${coverage}% coverage`;
+            });
+
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function calculateMitreCoverage(phase, layers) {
+            const coverageMap = {
+                'Initial Access': layers.includes('network') ? 75 : 25,
+                'Execution': layers.includes('endpoint') ? 80 : 20,
+                'Persistence': layers.includes('monitoring') ? 70 : 30,
+                'Privilege Escalation': layers.includes('identity') ? 85 : 35,
+                'Defense Evasion': layers.length >= 5 ? 75 : 45,
+                'Credential Access': layers.includes('identity') ? 80 : 25,
+                'Discovery': layers.includes('monitoring') ? 90 : 40,
+                'Lateral Movement': layers.includes('internal') ? 75 : 30,
+                'Collection': layers.includes('data') ? 85 : 25,
+                'Command & Control': layers.includes('network') ? 80 : 35,
+                'Exfiltration': layers.includes('data') ? 90 : 30,
+                'Impact': layers.length >= 6 ? 80 : 40
+            };
+            
+            return coverageMap[phase] || 50;
+        }
+
+        function resetDesigner() {
+            document.getElementById('dashboardOutput').innerHTML = `> Security Architecture Designer iniciado
+> Cargando perfil organizacional...
+> 
+> === PERFIL DE ORGANIZACIÓN ===
+> Nombre: TechBank Corp
+> Empleados: 500
+> Industria: Fintech/Banking
+> Compliance: PCI DSS, SOX, PSD2
+> Arquitectura: Híbrida (60% Cloud, 40% On-Prem)
+> Budget: $2.5M USD anual
+> 
+> === REQUISITOS DE DISEÑO ===
+> • Alta Disponibilidad (99.9% uptime)
+> • Procesamiento de pagos en tiempo real
+> • Datos de 2M+ clientes
+> • Trabajo remoto para 70% del staff
+> • Integración con 15+ APIs bancarias externas
+> 
+> Utiliza los controles para seleccionar capas de seguridad...`;
+            
+            // Reset checkboxes
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            
+            securityScore = 0;
+            document.getElementById('securityScore').textContent = '0';
+        }
+
+        // Quiz functions
+        function selectOption(element, isCorrect) {
+            // Reset previous selections
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            element.classList.add('selected');
+            selectedOption = { element, isCorrect };
+        }
+
+        function checkAnswer() {
+            if (!selectedOption) {
+                alert('Por favor selecciona una respuesta.');
+                return;
+            }
+
+            const feedback = document.getElementById('quizFeedback');
+            const checkBtn = document.getElementById('checkBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            if (selectedOption.isCorrect) {
+                selectedOption.element.classList.add('correct');
+                feedback.innerHTML = '<div style="color: #10b981; font-weight: 600;">¡Correcto! ' + quizQuestions[currentQuestionIndex].explanation + '</div>';
+                quizScore += Math.floor(100 / quizQuestions.length);
+            } else {
+                selectedOption.element.classList.add('incorrect');
+                // Show correct answer
+                document.querySelectorAll('.quiz-option').forEach((opt, index) => {
+                    if (index === quizQuestions[currentQuestionIndex].correct) {
+                        opt.classList.add('correct');
+                    }
+                });
+                feedback.innerHTML = '<div style="color: #ef4444; font-weight: 600;">Incorrecto. ' + quizQuestions[currentQuestionIndex].explanation + '</div>';
+            }
+
+            feedback.style.display = 'block';
+            checkBtn.style.display = 'none';
+            nextBtn.style.display = 'inline-flex';
+
+            // Disable further selection
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < quizQuestions.length) {
+                loadQuestion(currentQuestionIndex);
+            } else {
+                showQuizResults();
+            }
+        }
+
+        function loadQuestion(index) {
+            const question = quizQuestions[index];
+            document.getElementById('currentQuestion').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('quizOptions');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, i) => {
+                const li = document.createElement('li');
+                li.className = 'quiz-option';
+                li.textContent = String.fromCharCode(65 + i) + ') ' + option;
+                li.onclick = () => selectOption(li, i === question.correct);
+                optionsContainer.appendChild(li);
+            });
+
+            // Reset UI
+            document.getElementById('quizFeedback').style.display = 'none';
+            document.getElementById('checkBtn').style.display = 'inline-flex';
+            document.getElementById('nextBtn').style.display = 'none';
+            selectedOption = null;
+        }
+
+        function showQuizResults() {
+            const percentage = (quizScore / 100) * 100;
+            alert(`Quiz Completado!\n\nPuntuación: ${quizScore}/100 puntos (${percentage}%)\n\n${percentage >= 80 ? '¡Excelente trabajo! Puedes continuar al siguiente capítulo.' : 'Considera revisar el material antes de continuar.'}`);
+            
+            if (percentage >= 80) {
+                moduleProgress = Math.min(moduleProgress + 15, 100);
+                updateProgress();
+            }
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', initializePage);
+    </script>
+    
+</body>
+</html>

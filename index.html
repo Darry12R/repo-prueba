@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSec Elite Academy - Universidad de Ciberseguridad</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #1e293b;
+            --accent-color: #3b82f6;
+            --gold-color: #f59e0b;
+            --success-color: #10b981;
+            --light-bg: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--gold-color), #fbbf24);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .logo-subtitle {
+            font-size: 0.8rem;
+            color: var(--gold-color);
+            font-weight: 400;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--gold-color);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 80px 0;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.15) 0%, transparent 50%);
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold-color), #fbbf24);
+            color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, var(--gold-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold-color);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-color), #fbbf24);
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .university-logo {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            font-size: 6rem;
+        }
+
+        /* Course Overview Section */
+        .course-overview {
+            background: white;
+            padding: 6rem 0;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-color), var(--gold-color));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Module Cards */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .module-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .module-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .module-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-color), var(--gold-color));
+            color: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .module-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .module-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .module-topics {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .module-topics li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .module-topics li::before {
+            content: '✓';
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .module-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .module-duration {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .module-difficulty {
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .difficulty-beginner {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .difficulty-intermediate {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .difficulty-advanced {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-title {
+            color: var(--gold-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🛡️</div>
+                <div>
+                    <div class="logo-text">CyberSec Elite</div>
+                    <div class="logo-subtitle">Academy</div>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#modulos" class="nav-link">Módulos</a></li>
+                <li><a href="#recursos" class="nav-link">Recursos</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="inicio">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">🎖️ Universidad de Élite en Ciberseguridad</div>
+                <h1 class="hero-title">Domina la Ciberseguridad del Futuro</h1>
+                <p class="hero-subtitle">
+                    Formación académica de nivel mundial diseñada por expertos para crear 
+                    los próximos líderes en ciberseguridad global.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Módulos Elite</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Horas de Contenido</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Casos Prácticos</div>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#modulos" class="btn-primary">
+                        🚀 Comenzar Ahora
+                    </a>
+                    <a href="#recursos" class="btn-secondary">
+                        📚 Ver Recursos
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="university-logo">
+                    🎓
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Overview -->
+    <section class="course-overview" id="modulos">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-badge">📖 Programa Académico</div>
+                <h2 class="section-title">Módulos de Formación Elite</h2>
+                <p class="section-subtitle">
+                    Cada módulo ha sido diseñado meticulosamente para construir 
+                    conocimiento sólido y aplicable en el mundo real.
+                </p>
+            </div>
+
+            <div class="modules-grid">
+                <!-- Módulo 1 - FUNCIONAL -->
+                <div class="module-card" onclick="goToModule(1)" style="position: relative;">
+                    <div class="module-number">1</div>
+                    <h3 class="module-title">Fundamentos de Ciberseguridad</h3>
+                    <p class="module-description">
+                        Domina los principios fundamentales, marcos regulatorios 
+                        y conceptos esenciales que rigen toda la disciplina.
+                    </p>
+                    <ul class="module-topics">
+                        <li>Tríada CIA y principios avanzados</li>
+                        <li>Marcos NIST, ISO 27001, GDPR</li>
+                        <li>Métricas de seguridad empresarial</li>
+                        <li>Gestión de riesgos y compliance</li>
+                    </ul>
+                    <div class="module-footer">
+                        <span class="module-duration">⏱️ 8 semanas</span>
+                        <span class="module-difficulty difficulty-beginner">Principiante</span>
+                    </div>
+                    <div style="position: absolute; top: 1rem; right: 1rem; background: #10b981; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600;">
+                        DISPONIBLE
+                    </div>
+                </div>
+
+                <!-- Módulo 2 - BLOQUEADO -->
+                <div class="module-card" onclick="moduleBlocked(2)" style="position: relative; opacity: 0.6; cursor: not-allowed;">
+                    <div class="module-number">2</div>
+                    <h3 class="module-title">Amenazas y Vectores de Ataque</h3>
+                    <p class="module-description">
+                        Análisis profundo de las amenazas actuales, técnicas 
+                        de ataque sofisticadas y patrones de comportamiento malicioso.
+                    </p>
+                    <ul class="module-topics">
+                        <li>Phishing avanzado y ingeniería social</li>
+                        <li>Malware contemporáneo y APTs</li>
+                        <li>Ataques de red y web (OWASP Top 10)</li>
+                        <li>Amenazas internas y supply chain</li>
+                    </ul>
+                    <div class="module-footer">
+                        <span class="module-duration">⏱️ 10 semanas</span>
+                        <span class="module-difficulty difficulty-intermediate">Intermedio</span>
+                    </div>
+                    <div style="position: absolute; top: 1rem; right: 1rem; background: #94a3b8; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600;">
+                        🔒 BLOQUEADO
+                    </div>
+                </div>
+
+                <!-- Módulo 3 - BLOQUEADO -->
+                <div class="module-card" onclick="moduleBlocked(3)" style="position: relative; opacity: 0.6; cursor: not-allowed;">
+                    <div class="module-number">3</div>
+                    <h3 class="module-title">Herramientas y Prácticas Defensivas</h3>
+                    <p class="module-description">
+                        Arsenal completo de tecnologías defensivas, desde 
+                        antivirus de nueva generación hasta arquitecturas Zero Trust.
+                    </p>
+                    <ul class="module-topics">
+                        <li>NGFW y sistemas de prevención</li>
+                        <li>SIEM, SOAR y threat hunting</li>
+                        <li>Gestión de vulnerabilidades</li>
+                        <li>Autenticación multifactor avanzada</li>
+                    </ul>
+                    <div class="module-footer">
+                        <span class="module-duration">⏱️ 12 semanas</span>
+                        <span class="module-difficulty difficulty-advanced">Avanzado</span>
+                    </div>
+                    <div style="position: absolute; top: 1rem; right: 1rem; background: #94a3b8; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600;">
+                        🔒 BLOQUEADO
+                    </div>
+                </div>
+
+                <!-- Módulo 4 - BLOQUEADO -->
+                <div class="module-card" onclick="moduleBlocked(4)" style="position: relative; opacity: 0.6; cursor: not-allowed;">
+                    <div class="module-number">4</div>
+                    <h3 class="module-title">Privacidad en Línea</h3>
+                    <p class="module-description">
+                        Protección avanzada de la privacidad digital, técnicas 
+                        de anonimato y contramedidas anti-fingerprinting.
+                    </p>
+                    <ul class="module-topics">
+                        <li>Hardening de navegadores y sistemas</li>
+                        <li>VPNs, Tor y redes de anonimato</li>
+                        <li>Privacidad en dispositivos móviles</li>
+                        <li>Contramedidas anti-tracking</li>
+                    </ul>
+                    <div class="module-footer">
+                        <span class="module-duration">⏱️ 6 semanas</span>
+                        <span class="module-difficulty difficulty-intermediate">Intermedio</span>
+                    </div>
+                    <div style="position: absolute; top: 1rem; right: 1rem; background: #94a3b8; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600;">
+                        🔒 BLOQUEADO
+                    </div>
+                </div>
+
+                <!-- Módulo 5 - BLOQUEADO -->
+                <div class="module-card" onclick="moduleBlocked(5)" style="position: relative; opacity: 0.6; cursor: not-allowed;">
+                    <div class="module-number">5</div>
+                    <h3 class="module-title">Aplicación Práctica</h3>
+                    <p class="module-description">
+                        Implementación real de conocimientos a través de 
+                        simulaciones, casos de estudio y proyectos hands-on.
+                    </p>
+                    <ul class="module-topics">
+                        <li>Simulaciones de phishing y respuesta</li>
+                        <li>Penetration testing profesional</li>
+                        <li>Implementación Zero Trust</li>
+                        <li>Casos de estudio reales</li>
+                    </ul>
+                    <div class="module-footer">
+                        <span class="module-duration">⏱️ 14 semanas</span>
+                        <span class="module-difficulty difficulty-advanced">Avanzado</span>
+                    </div>
+                    <div style="position: absolute; top: 1rem; right: 1rem; background: #94a3b8; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600;">
+                        🔒 BLOQUEADO
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="section-container">
+            <h3 class="footer-title">CyberSec Elite Academy</h3>
+            <p class="footer-text">
+                Formando la próxima generación de líderes en ciberseguridad global. 
+                Nuestro compromiso es brindar educación de clase mundial que prepare 
+                profesionales para los desafíos del futuro digital.
+            </p>
+            
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; margin-top: 2rem; color: rgba(255, 255, 255, 0.6);">
+                <p>&copy; 2025 CyberSec Elite Academy. Todos los derechos reservados.</p>
+                <p>Acreditación Internacional | ISO 27001 Certified | SOC 2 Type II</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Función para navegar a módulos
+        function goToModule(moduleNumber) {
+            if (moduleNumber === 1) {
+                // Redirige directamente a modulo1.html
+                window.location.href = "modulo1.html";
+                
+                // Puedes mantener o quitar la lógica de localStorage si no la usas en este contexto
+                localStorage.setItem('currentModule', '1');
+                localStorage.setItem('moduleProgress', JSON.stringify({
+                    module1: { unlocked: true, progress: 25 },
+                    module2: { unlocked: false, progress: 0 },
+                    module3: { unlocked: false, progress: 0 },
+                    module4: { unlocked: false, progress: 0 },
+                    module5: { unlocked: false, progress: 0 }
+                }));
+                
+            } else {
+                moduleBlocked(moduleNumber);
+            }
+        }
+
+        function moduleBlocked(moduleNumber) {
+            alert(`❌ Módulo ${moduleNumber} Bloqueado\n\nDebes completar el módulo anterior para desbloquear este contenido.\n\nProgreso requerido:\n• Módulo 1: Completar con 80% o más\n• Realizar todos los laboratorios\n• Aprobar quiz final`);
+        }
+
+        // Verificar progreso al cargar la página
+        function checkModuleProgress() {
+            const progress = JSON.parse(localStorage.getItem('moduleProgress') || '{}');
+            
+            // Aquí puedes agregar lógica para desbloquear módulos basado en progreso
+            if (progress.module1 && progress.module1.progress >= 80) {
+                // Desbloquear módulo 2
+                const module2Card = document.querySelector('.module-card:nth-child(2)');
+                if (module2Card) {
+                    module2Card.style.opacity = '1';
+                    module2Card.style.cursor = 'pointer';
+                    module2Card.onclick = () => goToModule(2);
+                }
+            }
+        }
+
+        // Inicializar página
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('CyberSec Elite Academy cargado correctamente');
+            checkModuleProgress();
+        });
+    </script>
+</body>
+</html>
