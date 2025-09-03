@@ -373,6 +373,15 @@
             font-weight: 600;
         }
 
+        .section-content code {
+            background: #f1f5f9;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--danger-color);
+        }
+
         /* Threat Alert Box */
         .threat-alert {
             background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(245, 158, 11, 0.1));
@@ -721,6 +730,99 @@
             font-size: 0.9rem;
         }
 
+        /* MITRE ATT&CK Section */
+        .mitre-section {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(16, 185, 129, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .mitre-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .mitre-tactic {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .mitre-id {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .mitre-name {
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        .mitre-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Case Study Section */
+        .case-study {
+            background: #fafafa;
+            border-left: 4px solid var(--warning-color);
+            border-radius: 0 8px 8px 0;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .case-study-title {
+            color: var(--warning-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-study-content {
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* IOC Table */
+        .ioc-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .ioc-table th,
+        .ioc-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .ioc-table th {
+            background: var(--light-bg);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .ioc-table code {
+            background: #f1f5f9;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.85rem;
+        }
+
         /* Responsive Design */
         @media (max-width: 1200px) {
             .main-container {
@@ -840,7 +942,7 @@
                 <div class="module-number">2</div>
                 <h2 class="module-title">Amenazas y Vectores de Ataque</h2>
                 <div class="module-meta">
-                    ⏱️ 10 semanas • 🎯 Intermedio • 📚 15 capítulos
+                    ⏱️ 10 semanas • 🎯 Elite • 📚 15 capítulos
                 </div>
             </div>
 
@@ -849,98 +951,98 @@
                 <div class="progress-bar">
                     <div class="progress-fill" id="moduleProgress"></div>
                 </div>
-                <div class="progress-text">2 de 15 capítulos completados (15%)</div>
+                <div class="progress-text">1 de 15 capítulos completados (7%)</div>
             </div>
 
             <ul class="chapter-nav">
                 <li class="chapter-item">
                     <a href="#" class="chapter-link active" onclick="loadChapter(1)">
                         <div class="chapter-status current">1</div>
-                        <span>Panorama de Amenazas 2024</span>
+                        <span>Panorama de Amenazas 2025</span>
                     </a>
                 </li>
                 <li class="chapter-item">
                     <a href="#" class="chapter-link" onclick="loadChapter(2)">
                         <div class="chapter-status">2</div>
-                        <span>Ingeniería Social Avanzada</span>
+                        <span>Phishing Avanzado & Social Engineering</span>
                     </a>
                 </li>
                 <li class="chapter-item">
                     <a href="#" class="chapter-link" onclick="loadChapter(3)">
                         <div class="chapter-status">3</div>
-                        <span>Phishing y Spear Phishing</span>
+                        <span>Malware Contemporáneo & APTs</span>
                     </a>
                 </li>
                 <li class="chapter-item">
                     <a href="#" class="chapter-link" onclick="loadChapter(4)">
                         <div class="chapter-status">4</div>
-                        <span>Malware Contemporáneo</span>
+                        <span>Ransomware-as-a-Service</span>
                     </a>
                 </li>
                 <li class="chapter-item">
                     <a href="#" class="chapter-link" onclick="loadChapter(5)">
                         <div class="chapter-status">5</div>
-                        <span>Ransomware y Extorsión</span>
+                        <span>Living Off The Land</span>
                     </a>
                 </li>
                 <li class="chapter-item">
                     <a href="#" class="chapter-link" onclick="loadChapter(6)">
                         <div class="chapter-status">6</div>
-                        <span>APTs y Ataques Dirigidos</span>
+                        <span>OWASP Top 10 - Vulnerabilidades Web</span>
                     </a>
                 </li>
                 <li class="chapter-item">
                     <a href="#" class="chapter-link" onclick="loadChapter(7)">
                         <div class="chapter-status">7</div>
-                        <span>Ataques de Red</span>
+                        <span>Supply Chain Attacks</span>
                     </a>
                 </li>
                 <li class="chapter-item">
                     <a href="#" class="chapter-link" onclick="loadChapter(8)">
                         <div class="chapter-status">8</div>
-                        <span>Vulnerabilidades Web (OWASP)</span>
+                        <span>Amenazas Internas & Insider Threats</span>
                     </a>
                 </li>
                 <li class="chapter-item">
                     <a href="#" class="chapter-link" onclick="loadChapter(9)">
                         <div class="chapter-status">9</div>
-                        <span>Ataques a Aplicaciones</span>
+                        <span>AI-Powered Attacks & Deepfakes</span>
                     </a>
                 </li>
                 <li class="chapter-item">
                     <a href="#" class="chapter-link" onclick="loadChapter(10)">
                         <div class="chapter-status">10</div>
-                        <span>Amenazas Internas</span>
+                        <span>Cloud Native Attacks</span>
                     </a>
                 </li>
                 <li class="chapter-item">
                     <a href="#" class="chapter-link" onclick="loadChapter(11)">
                         <div class="chapter-status">11</div>
-                        <span>Supply Chain Attacks</span>
+                        <span>TTPs y MITRE ATT&CK Framework</span>
                     </a>
                 </li>
                 <li class="chapter-item">
                     <a href="#" class="chapter-link" onclick="loadChapter(12)">
                         <div class="chapter-status">12</div>
-                        <span>Ataques a IoT y Cloud</span>
+                        <span>Threat Intelligence & CTI</span>
                     </a>
                 </li>
                 <li class="chapter-item">
                     <a href="#" class="chapter-link" onclick="loadChapter(13)">
                         <div class="chapter-status">13</div>
-                        <span>AI/ML en Ciberataques</span>
+                        <span>Detección y Respuesta (EDR/XDR)</span>
                     </a>
                 </li>
                 <li class="chapter-item">
                     <a href="#" class="chapter-link" onclick="loadChapter(14)">
                         <div class="chapter-status">14</div>
-                        <span>Threat Intelligence</span>
+                        <span>Casos de Estudio Reales</span>
                     </a>
                 </li>
                 <li class="chapter-item">
                     <a href="#" class="chapter-link" onclick="loadChapter(15)">
                         <div class="chapter-status">15</div>
-                        <span>Análisis de Campañas APT</span>
+                        <span>Stack Defensivo Moderno</span>
                     </a>
                 </li>
             </ul>
@@ -950,28 +1052,28 @@
         <main class="content-area">
             <div class="content-wrapper">
                 <header class="content-header">
-                    <div class="chapter-badge">⚠️ Capítulo 1</div>
-                    <h1 class="content-title">Panorama de Amenazas 2024</h1>
+                    <div class="chapter-badge">🚨 Capítulo 1</div>
+                    <h1 class="content-title">Panorama de Amenazas 2025</h1>
                     <p class="content-description">
-                        Análisis profundo del ecosistema de amenazas actual, tendencias emergentes y 
-                        la evolución de los vectores de ataque en el panorama cibernético contemporáneo.
+                        Análisis elite del ecosistema de amenazas actual: actores, vectores sofisticados, 
+                        tendencias críticas y la evolución de las técnicas de ataque en el ciberespacio moderno.
                     </p>
                     
                     <div class="chapter-meta">
                         <div class="meta-item">
-                            <div class="meta-value">90</div>
+                            <div class="meta-value">120</div>
                             <div class="meta-label">Minutos</div>
                         </div>
                         <div class="meta-item">
-                            <div class="meta-value">4</div>
+                            <div class="meta-value">6</div>
                             <div class="meta-label">Simuladores</div>
                         </div>
                         <div class="meta-item">
-                            <div class="meta-value">2</div>
+                            <div class="meta-value">3</div>
                             <div class="meta-label">Quizzes</div>
                         </div>
                         <div class="meta-item">
-                            <div class="meta-value">87%</div>
+                            <div class="meta-value">94%</div>
                             <div class="meta-label">Tasa de Éxito</div>
                         </div>
                     </div>
@@ -979,15 +1081,43 @@
 
                 <!-- Content Sections -->
                 <section class="content-section">
-                    <h2 class="section-title">🎯 Objetivos de Aprendizaje</h2>
+                    <h2 class="section-title">🎯 Objetivos de Aprendizaje Elite</h2>
                     <div class="section-content">
-                        <p>Al completar este capítulo, serás capaz de:</p>
+                        <p>Al dominar este capítulo, serás capaz de:</p>
                         <ul>
-                            <li>Identificar las principales familias de amenazas cibernéticas actuales</li>
-                            <li>Analizar tendencias y patrones en el panorama de amenazas global</li>
-                            <li>Evaluar la sofisticación y evolución de los actores de amenazas</li>
-                            <li>Correlacionar amenazas con vectores de ataque específicos</li>
-                            <li>Aplicar inteligencia de amenazas para fortalecer defensas organizacionales</li>
+                            <li><strong>Identificar y clasificar</strong> actores de amenazas según sofisticación, motivación y TTPs</li>
+                            <li><strong>Analizar tendencias emergentes</strong> en el panorama global de ciberseguridad</li>
+                            <li><strong>Mapear amenazas a MITRE ATT&CK</strong> para mejorar defensas organizacionales</li>
+                            <li><strong>Evaluar la industrialización</strong> del cibercrimen y modelos CaaS</li>
+                            <li><strong>Aplicar threat intelligence</strong> para predicción y mitigación proactiva</li>
+                            <li><strong>Correlacionar geopolítica</strong> con operaciones cibernéticas estatales</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Resumen Ejecutivo -->
+                <section class="content-section">
+                    <h2 class="section-title">📋 Resumen Ejecutivo</h2>
+                    <div class="section-content">
+                        <p>
+                            <strong>Las amenazas actuales combinan actores muy distintos</strong> (ciberdelincuentes organizados, 
+                            grupos APT estatales, insiders, script kiddies) con <strong>vectores más sofisticados</strong>: 
+                            phishing avanzado & suplantación (incluyendo deepfakes), malware moderno y APTs, explotación de 
+                            aplicaciones web (OWASP Top 10), ataques a la cadena de suministro y amenazas internas.
+                        </p>
+                        <p>
+                            Estos ataques aprovechan tanto <strong>fallos técnicos</strong> (vulnerabilidades, 
+                            malas configuraciones) como <strong>humanos</strong> (ingeniería social, negligencia), 
+                            creando un ecosistema híbrido de amenazas que requiere defensas multicapa y 
+                            respuestas adaptativas.
+                        </p>
+                        
+                        <h3>Fuentes de Referencia Elite</h3>
+                        <ul>
+                            <li><strong>OWASP.org</strong> - Vulnerabilidades de aplicaciones web</li>
+                            <li><strong>MITRE ATT&CK</strong> - Framework de técnicas y tácticas</li>
+                            <li><strong>CISA.gov</strong> - Alertas y guías gubernamentales</li>
+                            <li><strong>Unit 42, CrowdStrike, Mandiant</strong> - Threat intelligence comercial</li>
                         </ul>
                     </div>
                 </section>
@@ -997,12 +1127,12 @@
                     <div class="stat-card">
                         <div class="stat-number">68%</div>
                         <div class="stat-label">Incremento en Ataques Dirigidos</div>
-                        <div class="stat-description">Comparado con 2023</div>
+                        <div class="stat-description">Comparado con 2024</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">4.45M</div>
+                        <div class="stat-number">$4.45M</div>
                         <div class="stat-label">Costo Promedio de Brecha</div>
-                        <div class="stat-description">USD en 2024</div>
+                        <div class="stat-description">USD según IBM Security</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">277</div>
@@ -1016,126 +1146,191 @@
                     </div>
                 </div>
 
+                <!-- Tendencias Críticas -->
                 <section class="content-section">
-                    <h2 class="section-title">📊 Estado Actual del Panorama de Amenazas</h2>
+                    <h2 class="section-title">📈 Tendencias Críticas 2025</h2>
                     <div class="section-content">
+                        <h3>Dominancia del Ransomware y Extorsión</h3>
                         <p>
-                            El panorama de amenazas cibernéticas en 2024 se caracteriza por una 
-                            <strong>democratización de herramientas avanzadas</strong>, la proliferación 
-                            de servicios de cibercriminalidad como servicio (CaaS), y el surgimiento de 
-                            amenazas híbridas que combinan múltiples vectores de ataque.
+                            <strong>Grupos RaaS (Ransomware-as-a-Service)</strong> combinan herramientas sofisticadas 
+                            con modelos comerciales. LockBit, BlackCat (ALPHV), y Conti han democratizado el ransomware, 
+                            permitiendo que afiliados sin conocimientos técnicos lancen campañas devastadoras.
                         </p>
                         
-                        <h3>Tendencias Críticas 2024</h3>
+                        <h3>Supply Chain Attacks</h3>
                         <p>
-                            Según informes de inteligencia de amenazas de organizaciones líderes como 
-                            Mandiant, CrowdStrike y Microsoft, observamos un incremento del <strong>68% 
-                            en ataques dirigidos</strong> y una sofisticación creciente en técnicas de 
-                            evasión y persistencia.
+                            <strong>Actualizaciones o componentes comprometidos</strong> son extremadamente peligrosos 
+                            por su alcance masivo. Casos como SolarWinds (SUNBURST) y Kaseya demuestran cómo un 
+                            solo punto de compromiso puede afectar miles de organizaciones downstream.
                         </p>
                         
-                        <h3>Factores de Evolución</h3>
-                        <ul>
-                            <li><strong>Inteligencia Artificial:</strong> Automatización de reconocimiento y evasión</li>
-                            <li><strong>Geopolítica:</strong> Conflictos estatales que se extienden al ciberespacio</li>
-                            <li><strong>Trabajo Remoto:</strong> Expansión masiva de la superficie de ataque</li>
-                            <li><strong>Cloud-First:</strong> Migración de activos críticos a infraestructuras cloud</li>
-                            <li><strong>IoT/Edge Computing:</strong> Millones de dispositivos conectados vulnerables</li>
-                        </ul>
-                        
-                        <h3>Actores de Amenazas Emergentes</h3>
+                        <h3>Malware "Living-off-the-Land" y Fileless</h3>
                         <p>
-                            La aparición de nuevos grupos estatales y organizaciones criminales ha 
-                            expandido significativamente el ecosistema de amenazas. Observamos la 
-                            profesionalización de grupos criminales que operan como verdaderas 
-                            corporaciones, con departamentos de I+D, soporte técnico y programas de 
-                            afiliados sofisticados.
+                            <strong>Abuso de herramientas legítimas</strong> como PowerShell, WMI, PsExec para 
+                            permanecer furtivos. Estas técnicas evaden la detección tradicional basada en 
+                            firmas, requiriendo análisis comportamental avanzado.
+                        </p>
+                        
+                        <h3>Phishing Cada Vez Más Personalizado</h3>
+                        <p>
+                            <strong>Spear phishing, BEC, y ahora deepfakes</strong> que evitan filtros genéricos. 
+                            La integración de IA generativa permite crear contenido convincente a escala masiva.
                         </p>
                     </div>
                 </section>
 
                 <!-- Threat Alert Box -->
                 <div class="threat-alert">
-                    <h4>🚨 Amenazas Críticas Actuales</h4>
+                    <h4>🚨 Amenazas Críticas Actuales - Análisis Elite</h4>
                     <div class="threat-grid">
                         <div class="threat-item">
                             <div class="threat-name">Ransomware-as-a-Service (RaaS)</div>
                             <div class="threat-description">
-                                Plataformas comerciales que permiten a criminales sin conocimientos técnicos 
-                                lanzar ataques de ransomware sofisticados. Conti, LockBit y BlackCat han 
-                                democratizado estos ataques.
+                                Ecosistema criminal profesionalizado: Conti, LockBit, BlackCat operan como 
+                                corporaciones con I+D, soporte 24/7, y programas de afiliados sofisticados. 
+                                Democratizan ataques de alto impacto.
                             </div>
                             <span class="threat-severity severity-critical">CRÍTICA</span>
                         </div>
                         <div class="threat-item">
-                            <div class="threat-name">Living Off The Land (LOL)</div>
+                            <div class="threat-name">Living Off The Land (LOTL)</div>
                             <div class="threat-description">
-                                Técnicas que utilizan herramientas legítimas del sistema para actividades 
-                                maliciosas, evadiendo la detección tradicional. PowerShell, WMI y herramientas 
-                                de administración son weaponizadas.
+                                Weaponización de herramientas administrativas legítimas (PowerShell, WMI, WMIC) 
+                                para evadir EDR tradicional. Técnicas como process hollowing y DLL sideloading.
                             </div>
                             <span class="threat-severity severity-high">ALTA</span>
                         </div>
                         <div class="threat-item">
-                            <div class="threat-name">AI-Powered Attacks</div>
+                            <div class="threat-name">AI-Powered Social Engineering</div>
                             <div class="threat-description">
-                                Utilización de machine learning para automatizar reconocimiento, generar 
-                                phishing personalizado y evadir sistemas de detección basados en 
-                                comportamiento.
+                                Deepfakes de voz/video para BEC, ChatGPT para phishing personalizado, 
+                                automatización de OSINT para spear phishing dirigido a executives.
                             </div>
                             <span class="threat-severity severity-high">ALTA</span>
                         </div>
                         <div class="threat-item">
-                            <div class="threat-name">Cloud Native Attacks</div>
+                            <div class="threat-name">Supply Chain Compromise</div>
                             <div class="threat-description">
-                                Ataques específicamente diseñados para infraestructuras cloud: 
-                                misconfiguraciones, privilege escalation en contenedores, y abuso de 
-                                servicios serverless.
+                                Inserción de backdoors en pipelines de software (SolarWinds), compromiso de 
+                                MSPs (Kaseya), y ataques a dependencias de código abierto (Log4Shell).
                             </div>
-                            <span class="threat-severity severity-medium">MEDIA</span>
+                            <span class="threat-severity severity-critical">CRÍTICA</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- Framework Kill Chain -->
+                <section class="content-section">
+                    <h2 class="section-title">🔗 Kill Chain y Modelos de Ataque</h2>
+                    <div class="section-content">
+                        <h3>Cyber Kill Chain / Adversary Lifecycle</h3>
+                        <p>
+                            Entender las fases de un ataque permite implementar defensas en profundidad:
+                        </p>
+                        <ul>
+                            <li><strong>Reconocimiento:</strong> OSINT, scanning, identificación de objetivos</li>
+                            <li><strong>Gaining Initial Access:</strong> Phishing, exploits, credenciales comprometidas</li>
+                            <li><strong>Execution:</strong> Malware deployment, scripts, living-off-the-land</li>
+                            <li><strong>Persistence:</strong> Registry keys, scheduled tasks, service installation</li>
+                            <li><strong>Privilege Escalation:</strong> Exploit vulnerabilities, credential dumping</li>
+                            <li><strong>Lateral Movement:</strong> Network traversal, SMB, RDP abuse</li>
+                            <li><strong>Exfiltration:</strong> Data theft, staging, covert channels</li>
+                            <li><strong>Impact:</strong> Ransomware, destruction, disruption</li>
+                        </ul>
+                        
+                        <h3>MITRE ATT&CK Framework</h3>
+                        <p>
+                            <strong>Biblioteca pública de técnicas/tácticas reales</strong> para mapear y detectar 
+                            comportamientos adversos. Imprescindible para threat hunting y detección basada 
+                            en comportamientos. Permite priorizar inversiones defensivas según TTPs observados.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- MITRE ATT&CK Interactive Section -->
+                <div class="mitre-section">
+                    <h3>🎯 Técnicas MITRE ATT&CK Más Observadas</h3>
+                    <p>Mapeo de las tácticas más utilizadas por grupos APT y cibercriminales:</p>
+                    <div class="mitre-grid">
+                        <div class="mitre-tactic">
+                            <div class="mitre-id">T1566.001</div>
+                            <div class="mitre-name">Spearphishing Attachment</div>
+                            <div class="mitre-description">Emails maliciosos con archivos adjuntos weaponizados (Office macros, PDFs)</div>
+                        </div>
+                        <div class="mitre-tactic">
+                            <div class="mitre-id">T1059.001</div>
+                            <div class="mitre-name">PowerShell</div>
+                            <div class="mitre-description">Ejecución de comandos y scripts PowerShell para post-explotación</div>
+                        </div>
+                        <div class="mitre-tactic">
+                            <div class="mitre-id">T1055</div>
+                            <div class="mitre-name">Process Injection</div>
+                            <div class="mitre-description">Inyección de código malicioso en procesos legítimos</div>
+                        </div>
+                        <div class="mitre-tactic">
+                            <div class="mitre-id">T1071.001</div>
+                            <div class="mitre-name">Web Protocols</div>
+                            <div class="mitre-description">C2 usando HTTP/HTTPS para evadir detección de tráfico</div>
+                        </div>
+                        <div class="mitre-tactic">
+                            <div class="mitre-id">T1003.001</div>
+                            <div class="mitre-name">LSASS Memory</div>
+                            <div class="mitre-description">Dumping de credenciales desde LSASS (Mimikatz)</div>
+                        </div>
+                        <div class="mitre-tactic">
+                            <div class="mitre-id">T1082</div>
+                            <div class="mitre-name">System Information Discovery</div>
+                            <div class="mitre-description">Reconocimiento interno para lateral movement</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Geografia de Amenazas -->
                 <section class="content-section">
                     <h2 class="section-title">🌍 Geografía de las Amenazas</h2>
                     <div class="section-content">
                         <p>
-                            El cibercrimen ha desarrollado una geografía específica, con diferentes 
+                            <strong>El cibercrimen ha desarrollado una geografía específica</strong>, con diferentes 
                             regiones especializándose en tipos particulares de amenazas y desarrollando 
                             ecosistemas criminales únicos.
                         </p>
                         
-                        <h3>Regiones de Alto Riesgo</h3>
+                        <h3>Regiones de Alto Riesgo y Especialización</h3>
                         <ul>
-                            <li><strong>Europa del Este:</strong> Ransomware, fraude bancario y carding</li>
-                            <li><strong>Asia-Pacífico:</strong> APTs estatales, espionaje industrial</li>
-                            <li><strong>América Latina:</strong> Fraude móvil, banking trojans</li>
-                            <li><strong>Oriente Medio:</strong> Hacktivismo, ataques destructivos</li>
-                            <li><strong>África:</strong> Fraude de CEO, scams de romance</li>
+                            <li><strong>Europa del Este (Rusia, Ucrania, Romania):</strong> Ransomware, fraude bancario, carding, botnets</li>
+                            <li><strong>Asia-Pacífico (China, Corea del Norte):</strong> APTs estatales, espionaje industrial, zero-days</li>
+                            <li><strong>América Latina (Brasil, México):</strong> Fraude móvil, banking trojans, POS malware</li>
+                            <li><strong>Oriente Medio (Irán):</strong> Hacktivismo, ataques destructivos, wiper malware</li>
+                            <li><strong>África Occidental (Nigeria):</strong> Fraude de CEO, romance scams, BEC</li>
                         </ul>
                         
-                        <h3>Factores Geopolíticos</h3>
+                        <h3>Factores Geopolíticos y APTs Estatales</h3>
                         <p>
-                            Los conflictos geopolíticos han intensificado las operaciones cibernéticas 
-                            estatales. Grupos como APT28 (Rusia), Lazarus (Corea del Norte), APT40 (China) 
-                            y Phosphorus (Irán) han incrementado sus actividades en un 340% desde 2022.
+                            Los conflictos geopolíticos han intensificado las operaciones cibernéticas estatales. 
+                            <strong>Grupos como APT28 (Fancy Bear - Rusia), Lazarus (Corea del Norte), APT40 
+                            (China) y Phosphorus (Irán)</strong> han incrementado sus actividades en un 340% desde 2022.
+                        </p>
+                        
+                        <h3>Ecosistemas Underground</h3>
+                        <p>
+                            Mercados criminales operan con sofisticación comparable a plataformas de e-commerce: 
+                            sistemas de reputación, soporte 24/7, garantías de producto, y programas de fidelización.
                         </p>
                     </div>
                 </section>
 
                 <!-- Timeline de Amenazas -->
                 <section class="content-section">
-                    <h2 class="section-title">📅 Evolución Temporal de Amenazas</h2>
+                    <h2 class="section-title">📅 Evolución Temporal de Amenazas 2024-2025</h2>
                     <div class="timeline">
                         <div class="timeline-item">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
                                 <div class="timeline-date">Q1 2024</div>
-                                <div class="timeline-title">Surge del AI-Powered Phishing</div>
+                                <div class="timeline-title">Explosión de AI-Powered Phishing</div>
                                 <div class="timeline-description">
-                                    ChatGPT y herramientas similares comienzan a ser utilizadas masivamente 
-                                    para crear emails de phishing más convincentes y personalizados.
+                                    ChatGPT y LLMs utilizados masivamente para crear emails convincentes, 
+                                    automatizar OSINT y generar contenido personalizado a escala industrial.
                                 </div>
                             </div>
                         </div>
@@ -1143,10 +1338,10 @@
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
                                 <div class="timeline-date">Q2 2024</div>
-                                <div class="timeline-title">Explosión de RaaS</div>
+                                <div class="timeline-title">Peak de RaaS Operations</div>
                                 <div class="timeline-description">
-                                    LockBit y BlackCat alcanzan su pico de operaciones, con más de 200 
-                                    afiliados activos y ataques automatizados.
+                                    LockBit y BlackCat alcanzan máxima operatividad con +200 afiliados activos, 
+                                    ataques automatizados y doble extorsión como estándar.
                                 </div>
                             </div>
                         </div>
@@ -1154,10 +1349,10 @@
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
                                 <div class="timeline-date">Q3 2024</div>
-                                <div class="timeline-title">Ataques a Supply Chain Críticas</div>
+                                <div class="timeline-title">Supply Chain Crisis</div>
                                 <div class="timeline-description">
-                                    Serie de ataques dirigidos a proveedores de software crítico, 
-                                    afectando miles de organizaciones downstream.
+                                    Serie coordinada de ataques a proveedores críticos de software, 
+                                    afectando miles de organizaciones downstream simultáneamente.
                                 </div>
                             </div>
                         </div>
@@ -1167,8 +1362,19 @@
                                 <div class="timeline-date">Q4 2024</div>
                                 <div class="timeline-title">Weaponización de Deepfakes</div>
                                 <div class="timeline-description">
-                                    Primeros casos documentados de deepfakes utilizados en ataques 
-                                    de ingeniería social dirigidos a CEOs y CFOs.
+                                    Primeros casos documentados de deepfakes de video utilizados en 
+                                    ataques dirigidos a CEOs para transferencias fraudulentas millonarias.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">Q1 2025</div>
+                                <div class="timeline-title">Cloud-Native Attack Surge</div>
+                                <div class="timeline-description">
+                                    Ataques específicamente diseñados para infraestructuras cloud: 
+                                    container escapes, serverless abuse, y misconfiguration exploitation.
                                 </div>
                             </div>
                         </div>
@@ -1177,103 +1383,230 @@
 
                 <!-- Interactive Simulator -->
                 <section class="simulator-section">
-                    <h2 class="simulator-title">🧪 Simulador: Análisis de Threat Intelligence</h2>
+                    <h2 class="simulator-title">🧪 Simulador Elite: Threat Intelligence Analyzer</h2>
                     <p class="simulator-description">
-                        Utiliza herramientas de threat intelligence para analizar indicadores de compromiso 
-                        (IoCs) y determinar la familia de malware y el grupo APT responsable.
+                        Utiliza herramientas profesionales de threat intelligence para analizar indicadores 
+                        de compromiso (IoCs), identificar familias de malware y determinar grupos APT responsables.
                     </p>
                     
                     <div class="attack-simulator">
                         <div class="simulator-header">
-                            <div class="simulator-title">🔍 TI Analyzer v2.4</div>
+                            <div class="simulator-title">🔍 CyberSec TI Analyzer v3.1</div>
                             <div>Confianza: <span id="confidenceScore">0%</span></div>
                         </div>
                         
                         <div class="terminal-output" id="tiOutput">
-                            > Threat Intelligence Analyzer iniciado
-                            > Conectando a feeds de amenazas globales...
-                            > [OK] MITRE ATT&CK Framework cargado
-                            > [OK] Base de datos de IoCs actualizada
-                            > [OK] Perfiles de APT sincronizados
-                            > 
-                            > Esperando datos de entrada...
-                            > 
-                            > Utiliza los controles para cargar IoCs sospechosos
+> CyberSec Elite Threat Intelligence Analyzer v3.1
+> Copyright 2025 - Advanced Threat Research Division
+> ================================================
+> 
+> [INIT] Cargando módulos de análisis...
+> [OK] MITRE ATT&CK Framework v14.1 sincronizado
+> [OK] Base de datos de IoCs actualizada (2.4M indicadores)
+> [OK] Perfiles de APT y malware families cargados
+> [OK] Feeds de threat intelligence activos (15 fuentes)
+> [OK] Machine Learning models initialized
+> 
+> Sistema listo para análisis avanzado de amenazas
+> Utiliza los controles para cargar muestras sospechosas
                         </div>
                         
                         <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 6px;">
-                            <h4>Indicadores Disponibles:</h4>
+                            <h4>🔍 Indicadores de Muestra Disponibles:</h4>
                             <div style="font-family: monospace; font-size: 0.8rem; margin: 0.5rem 0;">
+                                <strong>Archivo Sospechoso:</strong><br>
                                 • Hash MD5: 5d41402abc4b2a76b9719d911017c592<br>
+                                • Hash SHA256: 2cf24dba4f21d4288094c8b2c50cdd1<br>
+                                • Tamaño: 847KB | PE32 executable<br><br>
+                                <strong>Infraestructura C2:</strong><br>
                                 • IP: 185.220.101.33 (TOR Exit Node)<br>
-                                • Domain: secure-banking-update.com<br>
-                                • C2 Callback: /api/v1/beacon<br>
-                                • User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+                                • Domain: secure-banking-update[.]com<br>
+                                • C2 Endpoint: /api/v1/beacon/status<br>
+                                • User-Agent: Mozilla/5.0 (Windows NT 10.0; x64)<br><br>
+                                <strong>Técnicas Observadas:</strong><br>
+                                • Process Injection detectado<br>
+                                • PowerShell execution con base64<br>
+                                • Registry persistence keys
                             </div>
                         </div>
                         
                         <div class="simulator-controls">
-                            <button class="sim-btn sim-btn-primary" onclick="analyzeThreat()">Analizar IoCs</button>
-                            <button class="sim-btn sim-btn-secondary" onclick="queryMitre()">Consultar MITRE</button>
-                            <button class="sim-btn sim-btn-secondary" onclick="checkReputations()">Check Reputaciones</button>
-                            <button class="sim-btn sim-btn-secondary" onclick="resetTIAnalyzer()">Reset</button>
+                            <button class="sim-btn sim-btn-primary" onclick="analyzeThreat()">🔍 Analizar IoCs</button>
+                            <button class="sim-btn sim-btn-secondary" onclick="queryMitre()">🎯 MITRE Mapping</button>
+                            <button class="sim-btn sim-btn-secondary" onclick="checkReputations()">🔍 Multi-Source Check</button>
+                            <button class="sim-btn sim-btn-secondary" onclick="generateYARA()">📝 Generate YARA</button>
+                            <button class="sim-btn sim-btn-secondary" onclick="resetTIAnalyzer()">🔄 Reset</button>
                         </div>
                     </div>
                 </section>
 
+                <!-- Industrialización del Cibercrimen -->
                 <section class="content-section">
                     <h2 class="section-title">🏭 Industrialización del Cibercrimen</h2>
                     <div class="section-content">
                         <p>
-                            El cibercrimen moderno ha adoptado modelos de negocio legítimos, creando 
-                            verdaderas industrias criminales con estructuras corporativas, especialización 
-                            y cadenas de suministro complejas.
+                            <strong>El cibercrimen moderno ha adoptado modelos de negocio legítimos</strong>, 
+                            creando verdaderas industrias criminales con estructuras corporativas, 
+                            especialización profesional y cadenas de suministro complejas.
                         </p>
                         
                         <h3>Modelo de Criminalidad como Servicio (CaaS)</h3>
                         <ul>
-                            <li><strong>Malware-as-a-Service:</strong> Suscripciones mensuales para acceso a malware actualizado</li>
-                            <li><strong>Ransomware-as-a-Service:</strong> Programas de afiliados con división de ganancias</li>
-                            <li><strong>Phishing-as-a-Service:</strong> Plantillas, hosting y gestión de campañas</li>
-                            <li><strong>Bulletproof Hosting:</strong> Infraestructura resistente a takedowns</li>
-                            <li><strong>Cash-out Services:</strong> Monetización de datos robados</li>
+                            <li><strong>Malware-as-a-Service:</strong> Suscripciones mensuales ($50-500) para acceso a malware actualizado</li>
+                            <li><strong>Ransomware-as-a-Service:</strong> Programas de afiliados con división 70/30 de ganancias</li>
+                            <li><strong>Phishing-as-a-Service:</strong> Plantillas, hosting bulletproof y gestión de campañas</li>
+                            <li><strong>Bulletproof Hosting:</strong> Infraestructura resistente a takedowns ($200-2000/mes)</li>
+                            <li><strong>Cash-out Services:</strong> Monetización de datos robados (10-20% comisión)</li>
+                            <li><strong>Credential Marketplaces:</strong> Venta de accesos comprometidos ($5-5000 según valor)</li>
                         </ul>
                         
-                        <h3>Ecosistema Underground</h3>
+                        <h3>Especialización Profesional en el Underground</h3>
                         <p>
-                            Los mercados underground operan con sofisticación comparable a plataformas 
-                            de e-commerce legítimas: sistemas de reputación, soporte al cliente 24/7, 
-                            garantías de producto y programas de fidelización.
+                            Roles claramente definidos han emergido en el ecosistema criminal:
+                        </p>
+                        <ul>
+                            <li><strong>Core Developers:</strong> Creadores de malware y exploits</li>
+                            <li><strong>Botnet Operators:</strong> Gestión de infraestructura comprometida</li>
+                            <li><strong>Initial Access Brokers:</strong> Venta de credenciales y accesos</li>
+                            <li><strong>Money Mules & Cashiers:</strong> Lavado y extracción de fondos</li>
+                            <li><strong>Carders & Fraudsters:</strong> Especialistas en fraude financiero</li>
+                            <li><strong>Technical Support:</strong> Soporte 24/7 para afiliados criminales</li>
+                        </ul>
+                        
+                        <h3>Métricas del Ecosistema Criminal</h3>
+                        <p>
+                            Los mercados underground generan ingresos estimados en <strong>$6-8 mil millones 
+                            anuales</strong>, con márgenes de ganancia superiores al 1000% en algunos servicios.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Casos de Estudio -->
+                <div class="case-study">
+                    <div class="case-study-title">📚 Caso de Estudio: SolarWinds SUNBURST (2020)</div>
+                    <div class="case-study-content">
+                        <p>
+                            <strong>Contexto:</strong> Supply chain attack que introdujo el backdoor SUNBURST en 
+                            actualizaciones legítimas de SolarWinds Orion, afectando ~18,000 organizaciones 
+                            incluyendo agencias gubernamentales y Fortune 500.
+                        </p>
+                        <p>
+                            <strong>Técnicas MITRE:</strong> T1195.002 (Supply Chain Compromise), T1027 (Obfuscated Files), 
+                            T1071.001 (Web Protocols)
+                        </p>
+                        <p>
+                            <strong>Lecciones:</strong> Necesidad de SBOM (Software Bill of Materials), firma 
+                            verificable de builds, y monitorización de telemetría post-actualización.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="case-study">
+                    <div class="case-study-title">📚 Caso de Estudio: Kaseya/REvil (2021)</div>
+                    <div class="case-study-content">
+                        <p>
+                            <strong>Contexto:</strong> REvil distribuyó ransomware a través de un hotfix comprometido 
+                            de Kaseya VSA, afectando ~1,500 empresas downstream a través de MSPs.
+                        </p>
+                        <p>
+                            <strong>Impacto:</strong> Demonstró el valor de MSPs como "high-value targets" - un solo 
+                            compromiso permitió acceso masivo a clientes finales.
+                        </p>
+                        <p>
+                            <strong>Lecciones:</strong> Segmentación de redes, vetting riguroso de proveedores, 
+                            y planes de respuesta específicos para supply chain attacks.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- IOCs y Patrones -->
+                <section class="content-section">
+                    <h2 class="section-title">🔍 Indicadores de Compromiso (IOCs) - Guía Práctica</h2>
+                    <div class="section-content">
+                        <p>
+                            <strong>Señales clave que indican actividad maliciosa</strong> en tu entorno. 
+                            Esta tabla te ayuda a priorizar alertas y respuestas.
                         </p>
                         
-                        <h3>Especialización Profesional</h3>
-                        <p>
-                            Diferentes roles se han profesionalizado: desarrolladores de malware, 
-                            operadores de botnet, money mules, carders especialistas, y brokers de 
-                            acceso inicial que venden credenciales comprometidas.
-                        </p>
+                        <table class="ioc-table">
+                            <thead>
+                                <tr>
+                                    <th>Indicador</th>
+                                    <th>Señal de Alerta</th>
+                                    <th>Amenaza Probable</th>
+                                    <th>Acción Inmediata</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Login Atípico</td>
+                                    <td>Geolocalización inusual + horarios extraños</td>
+                                    <td>Credencial comprometida</td>
+                                    <td>Forzar reset de password, revisar MFA</td>
+                                </tr>
+                                <tr>
+                                    <td>Tráfico DNS</td>
+                                    <td>Consultas largas con datos base64</td>
+                                    <td>DNS tunneling / C2</td>
+                                    <td>Bloquear domain, aislar host</td>
+                                </tr>
+                                <tr>
+                                    <td>Ejecutables</td>
+                                    <td>Archivos sin firma en <code>%TEMP%</code></td>
+                                    <td>Dropper / malware stage 1</td>
+                                    <td>Cuarentena, análisis sandbox</td>
+                                </tr>
+                                <tr>
+                                    <td>Archivos Masivos</td>
+                                    <td>Renombrado rápido + extensiones inusuales</td>
+                                    <td>Ransomware activo</td>
+                                    <td>Aislar inmediatamente, restore backups</td>
+                                </tr>
+                                <tr>
+                                    <td>Outbound HTTPS</td>
+                                    <td>Beacons regulares a IPs/domains extraños</td>
+                                    <td>C2 beacon / exfiltración</td>
+                                    <td>Bloquear tráfico, hunt lateral movement</td>
+                                </tr>
+                                <tr>
+                                    <td>PowerShell</td>
+                                    <td>Comandos con <code>-EncodedCommand</code></td>
+                                    <td>Living-off-the-land attack</td>
+                                    <td>Decode payload, buscar persistence</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <h3>Logs Críticos para Monitorear</h3>
+                        <ul>
+                            <li><strong>Endpoint Telemetry:</strong> Process execution, file system, registry</li>
+                            <li><strong>Network Logs:</strong> Proxy, firewall, DNS queries</li>
+                            <li><strong>Authentication:</strong> VPN, AD, cloud identity providers</li>
+                            <li><strong>Email Security:</strong> ATP alerts, URL detonation</li>
+                            <li><strong>Cloud:</strong> API calls, configuration changes, data access</li>
+                        </ul>
                     </div>
                 </section>
 
                 <!-- Quiz Section -->
                 <section class="quiz-section">
-                    <h2 class="section-title">🎯 Quiz de Evaluación</h2>
+                    <h2 class="section-title">🎯 Evaluación Elite de Conocimientos</h2>
                     <div id="quizContainer">
                         <div class="quiz-question" id="currentQuestion">
-                            ¿Cuál es la característica principal del modelo "Ransomware-as-a-Service" (RaaS)?
+                            ¿Cuál es la característica principal que distingue a los grupos RaaS modernos de las operaciones de ransomware tradicionales?
                         </div>
                         <ul class="quiz-options" id="quizOptions">
                             <li class="quiz-option" onclick="selectOption(this, false)">
-                                A) Solo grupos estatales pueden acceder a estas herramientas
+                                A) Utilizan exclusivamente zero-day exploits
                             </li>
                             <li class="quiz-option" onclick="selectOption(this, true)">
-                                B) Permite a criminales sin conocimientos técnicos lanzar ataques sofisticados
+                                B) Operan como corporaciones con modelos de negocio sofisticados y programas de afiliados
                             </li>
                             <li class="quiz-option" onclick="selectOption(this, false)">
-                                C) Requiere conocimientos avanzados de programación
+                                C) Solo atacan infraestructuras gubernamentales
                             </li>
                             <li class="quiz-option" onclick="selectOption(this, false)">
-                                D) Solo funciona en sistemas legacy sin actualizaciones
+                                D) Requieren conocimientos avanzados de criptografía para participar
                             </li>
                         </ul>
                         <div style="margin-top: 1.5rem;">
@@ -1284,39 +1617,129 @@
                     </div>
                 </section>
 
+                <!-- Stack Defensivo -->
                 <section class="content-section">
-                    <h2 class="section-title">🔮 Predicciones y Tendencias Futuras</h2>
+                    <h2 class="section-title">🛡️ Stack Defensivo Recomendado</h2>
                     <div class="section-content">
                         <p>
-                            Basándose en el análisis de tendencias actuales e inteligencia de amenazas, 
-                            se proyectan desarrollos significativos en el panorama de amenazas para 
-                            los próximos 18 meses.
+                            <strong>Herramientas y controles esenciales</strong> para defenderse del panorama 
+                            de amenazas moderno. Implementación basada en NIST Cybersecurity Framework.
                         </p>
                         
-                        <h3>Amenazas Emergentes 2025</h3>
+                        <h3>Detección y Respuesta</h3>
+                        <ul>
+                            <li><strong>EDR/XDR:</strong> CrowdStrike Falcon, SentinelOne, Microsoft Defender for Endpoint</li>
+                            <li><strong>SIEM + SOAR:</strong> Splunk, Elastic Security, QRadar con orquestación automatizada</li>
+                            <li><strong>NDR:</strong> Darktrace, ExtraHop para detección de lateral movement</li>
+                            <li><strong>UEBA:</strong> Análisis de comportamiento de usuarios y entidades</li>
+                        </ul>
+                        
+                        <h3>Protección de Aplicaciones</h3>
+                        <ul>
+                            <li><strong>WAF / RASP:</strong> Cloudflare, F5 para mitigar OWASP Top 10</li>
+                            <li><strong>API Security:</strong> Protección de APIs y microservicios</li>
+                            <li><strong>SCA:</strong> Snyk, Veracode para análisis de dependencias</li>
+                            <li><strong>DAST/SAST:</strong> Testing dinámico y estático de código</li>
+                        </ul>
+                        
+                        <h3>Controles Fundamentales</h3>
+                        <ul>
+                            <li><strong>Zero Trust Architecture:</strong> Verificación continua, least privilege</li>
+                            <li><strong>MFA + PAM:</strong> Autenticación multifactor y gestión de privilegios</li>
+                            <li><strong>Backup 3-2-1-1:</strong> Air-gapped backups con testing regular</li>
+                            <li><strong>Patch Management:</strong> Automatizado con priorización por CVSS</li>
+                            <li><strong>Network Segmentation:</strong> Microsegmentación y VLANs</li>
+                        </ul>
+                        
+                        <h3>Threat Intelligence</h3>
+                        <ul>
+                            <li><strong>CTI Feeds:</strong> MISP, ThreatConnect, commercial feeds</li>
+                            <li><strong>OSINT:</strong> Shodan, VirusTotal, passive DNS</li>
+                            <li><strong>Threat Hunting:</strong> Proactive search for TTPs</li>
+                            <li><strong>Incident Response:</strong> Playbooks documentados y simulacros</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Predicciones y Tendencias Futuras -->
+                <section class="content-section">
+                    <h2 class="section-title">🔮 Predicciones 2025-2026</h2>
+                    <div class="section-content">
+                        <p>
+                            <strong>Basándose en análisis de tendencias e intelligence</strong>, se proyectan 
+                            desarrollos significativos en el panorama para los próximos 18 meses.
+                        </p>
+                        
+                        <h3>Amenazas Emergentes</h3>
                         <ul>
                             <li><strong>Quantum-Resistant Cryptography:</strong> Preparación para amenazas post-cuánticas</li>
-                            <li><strong>AI vs AI:</strong> Batalla entre IA defensiva y ofensiva</li>
-                            <li><strong>5G/6G Attack Vectors:</strong> Nuevas superficies de ataque en redes móviles</li>
-                            <li><strong>Biometric Spoofing:</strong> Ataques avanzados a sistemas biométricos</li>
-                            <li><strong>Satellite Hacking:</strong> Amenazas a infraestructuras espaciales</li>
+                            <li><strong>AI vs AI Warfare:</strong> Batalla entre IA defensiva y ofensiva</li>
+                            <li><strong>5G/6G Attack Vectors:</strong> Nuevas superficies en redes móviles</li>
+                            <li><strong>Biometric Spoofing 2.0:</strong> Ataques avanzados con deepfakes</li>
+                            <li><strong>Satellite & Space Hacking:</strong> Amenazas a infraestructuras espaciales</li>
+                            <li><strong>Quantum Computing Threats:</strong> Ruptura de criptografía actual</li>
                         </ul>
                         
                         <h3>Evolución de Defensas</h3>
-                        <p>
-                            Las defensas también evolucionan: Zero Trust Architecture, XDR 
-                            (Extended Detection and Response), SOAR automatizado y threat hunting 
-                            proactivo se vuelven estándar en organizaciones maduras.
-                        </p>
+                        <ul>
+                            <li><strong>Autonomous SOCs:</strong> IA para respuesta automatizada</li>
+                            <li><strong>Predictive Analytics:</strong> ML para predicción de ataques</li>
+                            <li><strong>Behavioral DNA:</strong> Perfiles únicos de usuarios/entidades</li>
+                            <li><strong>Quantum-Safe Crypto:</strong> Algoritmos resistentes a computación cuántica</li>
+                            <li><strong>Immutable Infrastructure:</strong> Infraestructura tamper-proof</li>
+                        </ul>
                         
                         <h3>Recomendaciones Estratégicas</h3>
                         <ul>
                             <li>Inversión en threat intelligence contextual y accionable</li>
                             <li>Desarrollo de capacidades de respuesta automatizada</li>
-                            <li>Fortalecimiento de programas de awareness y training</li>
-                            <li>Implementación de arquitecturas resilientes y redundantes</li>
+                            <li>Fortalecimiento masivo de awareness y training continuo</li>
+                            <li>Arquitecturas resilientes con redundancia geográfica</li>
                             <li>Colaboración activa en comunidades de ciberseguridad</li>
+                            <li>Preparación para regulaciones de IA y quantum computing</li>
                         </ul>
+                    </div>
+                </section>
+
+                <!-- Segundo Simulador -->
+                <section class="simulator-section">
+                    <h2 class="simulator-title">🚨 Simulador: Incident Response Dashboard</h2>
+                    <p class="simulator-description">
+                        Practica la respuesta a incidentes con un escenario realista de brecha de seguridad. 
+                        Toma decisiones críticas y observa el impacto en tiempo real.
+                    </p>
+                    
+                    <div class="attack-simulator">
+                        <div class="simulator-header">
+                            <div class="simulator-title">🚨 SIEM Alert Dashboard - DEFCON 2</div>
+                            <div>Incidentes Activos: <span id="activeIncidents">3</span></div>
+                        </div>
+                        
+                        <div class="terminal-output" id="incidentOutput">
+> CYBERSEC ELITE - INCIDENT RESPONSE CENTER
+> ==========================================
+> TIEMPO: 2025-01-15 14:23:45 UTC
+> ESTADO: ALERTA CRÍTICA - POSIBLE BRECHA ACTIVA
+> 
+> [CRÍTICO] 14:20 - Múltiples logins fallidos desde TOR
+> [ALTO] 14:21 - PowerShell execution con base64 encoding
+> [CRÍTICO] 14:22 - Conexión C2 detectada: 185.220.101.33
+> [ALTO] 14:23 - Lateral movement detectado: \\FILE-SRV-01
+> 
+> IMPACTO ESTIMADO: ALTO
+> ACTIVOS COMPROMETIDOS: 3-5 hosts
+> DATOS EN RIESGO: Customer PII, Financial records
+> 
+> ¿Cuál es tu siguiente acción como Incident Commander?
+                        </div>
+                        
+                        <div class="simulator-controls">
+                            <button class="sim-btn sim-btn-primary" onclick="isolateHosts()">🔒 Aislar Hosts</button>
+                            <button class="sim-btn sim-btn-secondary" onclick="analyzeArtifacts()">🔍 Analizar Artefactos</button>
+                            <button class="sim-btn sim-btn-secondary" onclick="notifyStakeholders()">📞 Notificar Stakeholders</button>
+                            <button class="sim-btn sim-btn-secondary" onclick="activatePlaybook()">📋 Activar Playbook</button>
+                            <button class="sim-btn sim-btn-secondary" onclick="resetIncident()">🔄 Reset</button>
+                        </div>
                     </div>
                 </section>
 
@@ -1326,64 +1749,64 @@
                         ← Volver a Módulos
                     </a>
                     <a href="modulo3.html" class="nav-btn nav-btn-primary">
-                        Capítulo 2: Ingeniería Social →
+                        Capítulo 2: Phishing Avanzado →
                     </a>
-                    
                 </div>
             </div>
         </main>
     </div>
 
     <script>
-        // Progress tracking
-        let moduleProgress = 15;
+        // Global variables
+        let moduleProgress = 7;
         let tiScore = 0;
         let currentQuestionIndex = 0;
         let quizScore = 0;
         let selectedOption = null;
         let confidenceLevel = 0;
+        let incidentScore = 0;
 
-        // Quiz data
+        // Quiz data expanded
         const quizQuestions = [
             {
-                question: "¿Cuál es la característica principal del modelo 'Ransomware-as-a-Service' (RaaS)?",
+                question: "¿Cuál es la característica principal que distingue a los grupos RaaS modernos de las operaciones de ransomware tradicionales?",
                 options: [
-                    "Solo grupos estatales pueden acceder a estas herramientas",
-                    "Permite a criminales sin conocimientos técnicos lanzar ataques sofisticados", 
-                    "Requiere conocimientos avanzados de programación",
-                    "Solo funciona en sistemas legacy sin actualizaciones"
+                    "Utilizan exclusivamente zero-day exploits",
+                    "Operan como corporaciones con modelos de negocio sofisticados y programas de afiliados", 
+                    "Solo atacan infraestructuras gubernamentales",
+                    "Requieren conocimientos avanzados de criptografía para participar"
                 ],
                 correct: 1,
-                explanation: "RaaS democratiza el ransomware al ofrecer herramientas y infraestructura a cambio de una participación en las ganancias, permitiendo que criminales sin habilidades técnicas lancen ataques sofisticados."
+                explanation: "Los grupos RaaS (Ransomware-as-a-Service) han industrializado el cibercrimen, operando como verdaderas corporaciones con departamentos especializados, programas de afiliados, soporte técnico 24/7 y modelos de división de ganancias (típicamente 70/30), democratizando ataques sofisticados."
             },
             {
-                question: "¿Qué factor ha contribuido más significativamente al aumento de ataques dirigidos en 2024?",
+                question: "En el contexto de ataques Living-off-the-Land, ¿cuál es la ventaja principal para los atacantes?",
                 options: [
-                    "Aumento en el precio de las criptomonedas",
-                    "Democratización de herramientas de IA para ciberataques",
-                    "Disminución en los presupuestos de ciberseguridad",
-                    "Reducción en la colaboración internacional"
+                    "Permite ejecutar código malicioso sin ser detectado por soluciones tradicionales basadas en firmas",
+                    "Garantiza acceso administrativo inmediato",
+                    "Elimina la necesidad de command & control",
+                    "Proporciona persistencia permanente en el sistema"
                 ],
-                correct: 1,
-                explanation: "La democratización de herramientas de IA ha permitido que más actores maliciosos automaticen reconocimiento, personalicen ataques y evadan defensas tradicionales."
+                correct: 0,
+                explanation: "Las técnicas LOTL utilizan herramientas legítimas del sistema (PowerShell, WMI, PsExec) para actividades maliciosas, evadiendo la detección basada en firmas ya que estas herramientas son consideradas benignas por los sistemas de seguridad tradicionales."
             },
             {
-                question: "¿Cuál es el tiempo promedio para detectar una brecha de seguridad según las estadísticas de 2024?",
+                question: "Según el framework MITRE ATT&CK, ¿cuál es la técnica T1566.001 y por qué es tan prevalente?",
                 options: [
-                    "45 días",
-                    "123 días", 
-                    "277 días",
-                    "365 días"
+                    "Process Injection - porque es difícil de detectar",
+                    "PowerShell execution - porque está disponible en todos los sistemas Windows", 
+                    "Spearphishing Attachment - porque explota la confianza humana y evade controles técnicos",
+                    "Lateral Movement - porque permite acceso a sistemas críticos"
                 ],
                 correct: 2,
-                explanation: "El tiempo promedio de detección ha aumentado a 277 días, lo que demuestra la sofisticación de las técnicas de evasión y persistencia utilizadas por los atacantes modernos."
+                explanation: "T1566.001 (Spearphishing Attachment) es extremadamente prevalente porque combina ingeniería social sofisticada con evasión técnica. Los atacantes personalizan mensajes usando OSINT, evaden filtros de email, y explotan la confianza humana - el eslabón más débil en la cadena de seguridad."
             }
         ];
 
         // Initialize page
         function initializePage() {
             updateProgress();
-            console.log('Módulo 2: Amenazas y Vectores de Ataque cargado');
+            console.log('Módulo 2: Amenazas y Vectores de Ataque - Versión Elite cargado');
         }
 
         function updateProgress() {
@@ -1400,7 +1823,7 @@
         }
 
         function loadChapter(chapterNum) {
-            alert(`Cargando Capítulo ${chapterNum}...\n\nEn una implementación real, esto cargaría el contenido específico del capítulo.`);
+            alert(`Cargando Capítulo ${chapterNum}...\n\nEn una implementación completa, esto cargaría contenido específico con:\n• Videos explicativos\n• Labs interactivos\n• Casos de estudio detallados\n• Simuladores avanzados`);
             
             // Update active chapter
             document.querySelectorAll('.chapter-link').forEach(link => {
@@ -1413,11 +1836,11 @@
 
         function nextChapter() {
             if (quizScore >= 80) {
-                alert('Excelente trabajo! Procediendo al Capítulo 2: Ingeniería Social Avanzada\n\nEn una implementación real, esto cargaría el siguiente capítulo.');
-                moduleProgress = Math.min(moduleProgress + 10, 100);
+                alert('🎉 Excelente trabajo!\n\nHas completado el Capítulo 1 con éxito.\n\nProcediendo al Capítulo 2: Phishing Avanzado & Social Engineering\n\n• Deepfakes y vishing\n• BEC avanzado\n• OSINT para spear phishing\n• Técnicas de evasión');
+                moduleProgress = Math.min(moduleProgress + 13, 100);
                 updateProgress();
             } else {
-                alert('Completa el quiz con al menos 80% de aciertos para continuar.');
+                alert('📚 Completa el quiz con al menos 80% de aciertos para continuar al siguiente capítulo.\n\nActual: ' + quizScore + '%');
             }
         }
 
@@ -1427,87 +1850,274 @@
             confidenceLevel = 0;
             
             output.innerHTML += `
-> Analizando IoCs proporcionados...
-> [PROCESSING] Hash MD5: 5d41402abc4b2a76b9719d911017c592
-> [MATCH] Familia: Emotet (Confianza: 87%)
-> [PROCESSING] IP: 185.220.101.33
-> [MATCH] TOR Exit Node - Uso frecuente por APT28
-> [PROCESSING] Domain: secure-banking-update.com
-> [MATCH] Typosquatting detectado - Patrón típico de BazaLoader
 > 
-> === ANÁLISIS PRELIMINAR ===
-> Familia probable: Emotet/TrickBot
-> Grupo APT asociado: APT28 (Fancy Bear)
-> Táctica MITRE: T1566.001 (Spear Phishing Attachment)
-> Riesgo: ALTO
-> Confianza: 78%
+> ==================== ANÁLISIS INICIADO ====================
+> [PROCESSING] Analizando hash MD5: 5d41402abc4b2a76b9719d911017c592
+> [MATCH] ✓ Detectado en 45/67 engines (VirusTotal)
+> [CLASSIFICATION] Familia: TrickBot → Emotet (Confianza: 89%)
+> 
+> [PROCESSING] Analizando infraestructura C2...
+> [MATCH] ✓ IP 185.220.101.33 → TOR Exit Node (Abuse: 98%)
+> [GEOLOCATION] Rusia → Patrón típico de APT28/Fancy Bear
+> [THREAT ACTOR] Alta probabilidad: TA505 → Emotet Operations
+> 
+> [PROCESSING] Domain: secure-banking-update[.]com
+> [REPUTATION] ✗ Typosquatting detectado (Registrado: 2 días)
+> [PATTERN] Patrón típico de BazaLoader campaigns
+> 
+> === VEREDICTO PRELIMINAR ===
+> 🚨 AMENAZA ACTIVA CONFIRMADA
+> Familia: Emotet/TrickBot Hybrid
+> Actor: TA505 (Fin7 association)
+> Objetivo: Credential Harvesting + Ransomware Staging
+> Riesgo: CRÍTICO
+> Confianza: 89%
 `;
             
-            confidenceLevel = 78;
+            confidenceLevel = 89;
             document.getElementById('confidenceScore').textContent = confidenceLevel + '%';
             output.scrollTop = output.scrollHeight;
+            tiScore += 30;
         }
 
         function queryMitre() {
             const output = document.getElementById('tiOutput');
             output.innerHTML += `
-> Consultando MITRE ATT&CK Framework...
 > 
-> === TÉCNICAS IDENTIFICADAS ===
-> T1566.001 - Phishing: Spearphishing Attachment
-> T1059.001 - PowerShell
-> T1071.001 - Application Layer Protocol: Web Protocols  
-> T1055 - Process Injection
-> T1083 - File and Directory Discovery
-> T1082 - System Information Discovery
+> =============== MITRE ATT&CK MAPPING ===============
+> [FRAMEWORK] Analizando TTPs observadas...
 > 
-> Killchain: Reconnaissance -> Initial Access -> Execution
-> Probable objetivo: Credential Harvesting + Lateral Movement
+> 🎯 TÁCTICAS IDENTIFICADAS:
+> ┌─ Initial Access
+> │  └─ T1566.001: Spearphishing Attachment
+> ├─ Execution  
+> │  └─ T1059.001: PowerShell Commands
+> ├─ Persistence
+> │  └─ T1547.001: Registry Run Keys
+> ├─ Defense Evasion
+> │  ├─ T1055: Process Injection
+> │  └─ T1027: Obfuscated Files/Info
+> ├─ Discovery
+> │  ├─ T1082: System Information Discovery
+> │  └─ T1083: File/Directory Discovery
+> ├─ Command & Control
+> │  └─ T1071.001: Web Protocols (HTTPS)
+> └─ Exfiltration
+>    └─ T1041: Exfiltration Over C2
+> 
+> 🔍 KILL CHAIN STAGE: Execution → Persistence
+> 📊 SOPHISTICATION: Intermediate-Advanced
+> ⚡ PROBABLE NEXT: Credential Dumping (T1003)
 `;
             output.scrollTop = output.scrollHeight;
+            tiScore += 25;
         }
 
         function checkReputations() {
             const output = document.getElementById('tiOutput');
             output.innerHTML += `
-> Verificando reputación en múltiples fuentes...
 > 
-> [VirusTotal] Hash: 45/67 detecciones
-> [URLVoid] Domain: 8/30 blacklists
-> [AbuseIPDB] IP: 98% malicioso (234 reportes)
-> [Shodan] Puerto 443 abierto, certificado sospechoso
-> [PassiveTotal] Dominio registrado hace 3 días
+> ============= MULTI-SOURCE REPUTATION CHECK =============
+> [OSINT] Consultando 15+ fuentes de threat intelligence...
 > 
-> === VEREDICTO FINAL ===
-> AMENAZA CONFIRMADA - Campaña activa de malware
-> Recomendación: Bloqueo inmediato de IoCs
-> Alertar a threat hunting team
+> 🔍 RESULTADOS:
+> [VirusTotal] 45/67 detecciones → MALICIOSO
+> [AbuseIPDB] IP: 98% confianza maliciosa (347 reportes)
+> [URLVoid] Domain: 12/30 blacklists → SOSPECHOSO
+> [Shodan] Puerto 443: Certificado autofirmado (Red flag)
+> [PassiveTotal] Domain age: 2 días → FRESHLY REGISTERED
+> [ThreatCrowd] 23 samples relacionados → CAMPAIGN ACTIVA
+> [Hybrid Analysis] Sandbox: Keylogger + Screen capture
+> [Any.run] Behavioral: Registry persistence + C2 beacon
+> 
+> 🚨 VEREDICTO CONSOLIDADO:
+> ════════════════════════════════════════════════════════
+> AMENAZA CONFIRMADA - CAMPAÑA ACTIVA
+> Recomendación: BLOQUEO INMEDIATO
+> Alertar a: SOC, Threat Hunting Team, CISO
+> Escalar: Incident Response Level 2
+> 
+> ⚠️  ACCIONES CRÍTICAS:
+> 1. Block IoCs en todos los security layers
+> 2. Hunt for additional indicators
+> 3. Verificar lateral movement
+> 4. Preparar containment procedures
 `;
             output.scrollTop = output.scrollHeight;
             
-            tiScore += 25;
-            confidenceLevel = 95;
+            tiScore += 35;
+            confidenceLevel = 96;
             document.getElementById('confidenceScore').textContent = confidenceLevel + '%';
         }
 
+        function generateYARA() {
+            const output = document.getElementById('tiOutput');
+            output.innerHTML += `
+> 
+> ================ YARA RULE GENERATION ================
+> [AI-ASSISTED] Generando regla de detección...
+> 
+> rule Emotet_TrickBot_Hybrid_Campaign {
+>     meta:
+>         description = "Detecta variante Emotet/TrickBot"
+>         author = "CyberSec Elite TI Team"
+>         date = "2025-01-15"
+>         threat_actor = "TA505"
+>         confidence = "HIGH"
+>         mitre_attack = "T1566.001,T1055,T1059.001"
+> 
+>     strings:
+>         $c2_domain = "secure-banking-update.com" nocase
+>         $powershell_b64 = { 706f77657273686c6c2e657865202d456e63 }
+>         $inject_pattern = { 48 89 4C 24 08 48 83 EC 28 48 8B }
+>         $persistence_reg = "Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run"
+> 
+>     condition:
+>         2 of them or 
+>         ($c2_domain and filesize < 2MB)
+> }
+> 
+> ✅ REGLA GENERADA Y LISTA PARA DEPLOYMENT
+> 📤 Exportada para: SIEM, EDR, Network Detection
+`;
+            output.scrollTop = output.scrollHeight;
+            tiScore += 20;
+        }
+
         function resetTIAnalyzer() {
-            document.getElementById('tiOutput').innerHTML = `> Threat Intelligence Analyzer iniciado
-> Conectando a feeds de amenazas globales...
-> [OK] MITRE ATT&CK Framework cargado
-> [OK] Base de datos de IoCs actualizada
-> [OK] Perfiles de APT sincronizados
+            document.getElementById('tiOutput').innerHTML = `> CyberSec Elite Threat Intelligence Analyzer v3.1
+> Copyright 2025 - Advanced Threat Research Division
+> ================================================
 > 
-> Esperando datos de entrada...
+> [INIT] Cargando módulos de análisis...
+> [OK] MITRE ATT&CK Framework v14.1 sincronizado
+> [OK] Base de datos de IoCs actualizada (2.4M indicadores)
+> [OK] Perfiles de APT y malware families cargados
+> [OK] Feeds de threat intelligence activos (15 fuentes)
+> [OK] Machine Learning models initialized
 > 
-> Utiliza los controles para cargar IoCs sospechosos`;
+> Sistema listo para análisis avanzado de amenazas
+> Utiliza los controles para cargar muestras sospechosas`;
             
             confidenceLevel = 0;
             document.getElementById('confidenceScore').textContent = '0%';
+            tiScore = 0;
+        }
+
+        // Incident Response Simulator
+        function isolateHosts() {
+            const output = document.getElementById('incidentOutput');
+            output.innerHTML += `
+> 
+> [ACCIÓN] Ejecutando aislamiento de hosts...
+> [OK] Host WKS-001: Red desconectada, análisis forense iniciado
+> [OK] Host WKS-005: Cuarentena aplicada
+> [OK] Host FILE-SRV-01: Segmentación temporal activada
+> 
+> ✅ CONTENCIÓN EXITOSA - Lateral movement detenido
+> 📊 Impacto reducido de ALTO → MEDIO
+> ⏱️  Response time: 4 minutos (Excelente)
+> 
+> SIGUIENTE PASO RECOMENDADO: Análisis forense de artefactos
+`;
+            output.scrollTop = output.scrollHeight;
+            incidentScore += 40;
+            document.getElementById('activeIncidents').textContent = '2';
+        }
+
+        function analyzeArtifacts() {
+            const output = document.getElementById('incidentOutput');
+            output.innerHTML += `
+> 
+> [FORENSE] Analizando artefactos en hosts comprometidos...
+> [FINDING] Registry persistence: HKCU\\...\\Run\\SecurityUpdate
+> [FINDING] PowerShell log: Base64 encoded payload detectado
+> [FINDING] Prefetch: Ejecución de "invoice_Q4_2024.exe"
+> [FINDING] Network: Beacons C2 cada 300 segundos
+> 
+> 🔍 TIMELINE RECONSTRUCTED:
+> 14:15 - Email phishing recibido (CFO spoofed)
+> 14:18 - User abrió attachment malicioso  
+> 14:19 - PowerShell dropper ejecutado
+> 14:20 - C2 establecido, credential harvesting
+> 14:22 - Lateral movement via SMB
+> 
+> 💡 ROOT CAUSE: Spear phishing + macro habilitado
+`;
+            output.scrollTop = output.scrollHeight;
+            incidentScore += 30;
+        }
+
+        function notifyStakeholders() {
+            const output = document.getElementById('incidentOutput');
+            output.innerHTML += `
+> 
+> [COMUNICACIÓN] Notificando stakeholders críticos...
+> [SENT] CISO: Alert crítica + brief ejecutivo
+> [SENT] Legal: Posible brecha de PII - evaluar notificación
+> [SENT] PR Team: Preparar statement si necesario
+> [SENT] Business Units: Sistemas afectados identificados
+> 
+> 📞 BRIDGE CALL activado: War room establecido
+> 📋 DOCUMENTATION: Incident ticket INC-2025-0115-001
+> ⚠️  SLA Status: Dentro de ventana de 1 hora
+> 
+> STAKEHOLDERS INFORMADOS - Communications handled
+`;
+            output.scrollTop = output.scrollHeight;
+            incidentScore += 20;
+        }
+
+        function activatePlaybook() {
+            const output = document.getElementById('incidentOutput');
+            output.innerHTML += `
+> 
+> [PLAYBOOK] Activando "Malware Containment & Eradication"
+> [STEP 1] ✅ Containment completado
+> [STEP 2] ⏳ Forensic analysis en progreso...  
+> [STEP 3] 🕒 Eradication preparada
+> [STEP 4] 🕒 Recovery procedures standby
+> 
+> 📋 CHECKLIST AUTOMÁTICO:
+> ☑️ Preserved forensic images
+> ☑️ IoCs extracted and shared
+> ☑️ Threat hunting initiated  
+> ☐ Clean backup verification
+> ☐ System rebuild approval
+> ☐ Lessons learned session
+> 
+> 🎯 ESTIMATED RECOVERY: 8-12 horas
+> 💰 ESTIMATED IMPACT: $45,000-80,000
+> 
+> PLAYBOOK EXECUTION: 85% completado
+`;
+            output.scrollTop = output.scrollHeight;
+            incidentScore += 25;
+        }
+
+        function resetIncident() {
+            document.getElementById('incidentOutput').innerHTML = `> CYBERSEC ELITE - INCIDENT RESPONSE CENTER
+> ==========================================
+> TIEMPO: 2025-01-15 14:23:45 UTC
+> ESTADO: ALERTA CRÍTICA - POSIBLE BRECHA ACTIVA
+> 
+> [CRÍTICO] 14:20 - Múltiples logins fallidos desde TOR
+> [ALTO] 14:21 - PowerShell execution con base64 encoding
+> [CRÍTICO] 14:22 - Conexión C2 detectada: 185.220.101.33
+> [ALTO] 14:23 - Lateral movement detectado: \\FILE-SRV-01
+> 
+> IMPACTO ESTIMADO: ALTO
+> ACTIVOS COMPROMETIDOS: 3-5 hosts
+> DATOS EN RIESGO: Customer PII, Financial records
+> 
+> ¿Cuál es tu siguiente acción como Incident Commander?`;
+            
+            document.getElementById('activeIncidents').textContent = '3';
+            incidentScore = 0;
         }
 
         // Quiz functions
         function selectOption(element, isCorrect) {
-            // Reset previous selections
             document.querySelectorAll('.quiz-option').forEach(opt => {
                 opt.classList.remove('selected');
             });
@@ -1518,7 +2128,7 @@
 
         function checkAnswer() {
             if (!selectedOption) {
-                alert('Por favor selecciona una respuesta.');
+                alert('Por favor selecciona una respuesta antes de continuar.');
                 return;
             }
 
@@ -1528,24 +2138,22 @@
 
             if (selectedOption.isCorrect) {
                 selectedOption.element.classList.add('correct');
-                feedback.innerHTML = '<div style="color: #10b981; font-weight: 600;">¡Correcto! ' + quizQuestions[currentQuestionIndex].explanation + '</div>';
+                feedback.innerHTML = '<div style="color: #10b981; font-weight: 600;">✅ ¡Correcto! ' + quizQuestions[currentQuestionIndex].explanation + '</div>';
                 quizScore += Math.floor(100 / quizQuestions.length);
             } else {
                 selectedOption.element.classList.add('incorrect');
-                // Show correct answer
                 document.querySelectorAll('.quiz-option').forEach((opt, index) => {
                     if (index === quizQuestions[currentQuestionIndex].correct) {
                         opt.classList.add('correct');
                     }
                 });
-                feedback.innerHTML = '<div style="color: #ef4444; font-weight: 600;">Incorrecto. ' + quizQuestions[currentQuestionIndex].explanation + '</div>';
+                feedback.innerHTML = '<div style="color: #ef4444; font-weight: 600;">❌ Incorrecto. ' + quizQuestions[currentQuestionIndex].explanation + '</div>';
             }
 
             feedback.style.display = 'block';
             checkBtn.style.display = 'none';
             nextBtn.style.display = 'inline-flex';
 
-            // Disable further selection
             document.querySelectorAll('.quiz-option').forEach(opt => {
                 opt.style.pointerEvents = 'none';
             });
@@ -1576,7 +2184,6 @@
                 optionsContainer.appendChild(li);
             });
 
-            // Reset UI
             document.getElementById('quizFeedback').style.display = 'none';
             document.getElementById('checkBtn').style.display = 'inline-flex';
             document.getElementById('nextBtn').style.display = 'none';
@@ -1584,17 +2191,95 @@
         }
 
         function showQuizResults() {
-            const percentage = (quizScore / 100) * 100;
-            alert(`Quiz Completado!\n\nPuntuación: ${quizScore}/100 puntos (${percentage}%)\n\n${percentage >= 80 ? '¡Excelente trabajo! Puedes continuar al siguiente capítulo.' : 'Considera revisar el material antes de continuar.'}`);
+            const percentage = Math.round((quizScore / 100) * 100);
+            let message = `🎯 Quiz Completado!\n\nPuntuación: ${quizScore}/100 puntos (${percentage}%)\n\n`;
             
-            if (percentage >= 80) {
+            if (percentage >= 90) {
+                message += '🏆 EXCELENTE! Dominio elite de conceptos de amenazas.\n✅ Puedes continuar al siguiente capítulo con confianza.';
+                moduleProgress = Math.min(moduleProgress + 18, 100);
+            } else if (percentage >= 80) {
+                message += '👍 MUY BIEN! Buen entendimiento del panorama de amenazas.\n✅ Puedes continuar al siguiente capítulo.';
                 moduleProgress = Math.min(moduleProgress + 15, 100);
-                updateProgress();
+            } else {
+                message += '📚 NECESITAS MEJORAR. Revisa el material antes de continuar.\n⚠️ Recomendamos repasar los conceptos clave.';
             }
+            
+            alert(message);
+            updateProgress();
+        }
+
+        // Performance tracking
+        function trackProgress() {
+            const totalScore = tiScore + incidentScore + quizScore;
+            const performanceLevel = totalScore >= 200 ? 'Elite' : 
+                                   totalScore >= 150 ? 'Advanced' : 
+                                   totalScore >= 100 ? 'Intermediate' : 'Beginner';
+            
+            console.log(`Performance Level: ${performanceLevel} (Score: ${totalScore})`);
         }
 
         // Initialize on load
-        document.addEventListener('DOMContentLoaded', initializePage);
+        document.addEventListener('DOMContentLoaded', function() {
+            initializePage();
+            
+            // Add some interactive enhancements
+            document.querySelectorAll('.stat-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+                });
+            });
+            
+            // Auto-update progress periodically
+            setInterval(trackProgress, 30000);
+        });
+
+        // Add keyboard shortcuts for power users
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.key === 'r') {
+                event.preventDefault();
+                if (confirm('¿Resetear simuladores?')) {
+                    resetTIAnalyzer();
+                    resetIncident();
+                }
+            }
+        });
+
+        // Advanced functionality for elite users
+        function exportThreatReport() {
+            const report = {
+                timestamp: new Date().toISOString(),
+                threats_analyzed: ['Emotet/TrickBot', 'APT28', 'BazaLoader'],
+                confidence_level: confidenceLevel,
+                mitre_tactics: ['T1566.001', 'T1059.001', 'T1055'],
+                recommendations: [
+                    'Implement advanced email filtering',
+                    'Deploy behavioral analysis',
+                    'Enhance user awareness training',
+                    'Regular YARA rule updates'
+                ]
+            };
+            
+            console.log('Threat Intelligence Report:', JSON.stringify(report, null, 2));
+            alert('📊 Reporte exportado a consola del navegador\n\nEn una implementación real, esto se exportaría a formatos STIX/TAXII para sharing con la comunidad de threat intelligence.');
+        }
+
+        // Easter egg for power users
+        let konami = [];
+        document.addEventListener('keydown', function(e) {
+            konami.push(e.key);
+            if (konami.length > 10) konami.shift();
+            if (konami.join('') === 'ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba') {
+                alert('🔥 MODO ELITE ACTIVADO!\n\nAcceso a funciones avanzadas:\n• Export threat reports\n• Advanced YARA generation\n• Custom IoC hunting\n• API integrations');
+                // Unlock advanced features
+                document.body.classList.add('elite-mode');
+            }
+        });
     </script>
     
 </body>

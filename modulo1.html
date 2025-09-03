@@ -10,7 +10,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         :root {
             --primary-color: #0f172a;
             --secondary-color: #1e293b;
@@ -24,14 +23,12 @@
             --text-secondary: #64748b;
             --border-color: #e2e8f0;
         }
-
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.7;
             color: var(--text-primary);
             background: var(--light-bg);
         }
-
         /* Navigation */
         .navbar {
             position: fixed;
@@ -44,7 +41,6 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -53,7 +49,6 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .logo {
             display: flex;
             align-items: center;
@@ -61,7 +56,6 @@
             color: white;
             text-decoration: none;
         }
-
         .logo-icon {
             width: 40px;
             height: 40px;
@@ -72,23 +66,19 @@
             justify-content: center;
             font-size: 1.2rem;
         }
-
         .logo-text {
             font-size: 1.2rem;
             font-weight: 700;
             color: white;
         }
-
         .breadcrumb {
             color: rgba(255, 255, 255, 0.6);
             font-size: 0.9rem;
         }
-
         .breadcrumb a {
             color: var(--gold-color);
             text-decoration: none;
         }
-
         .back-btn {
             background: rgba(255, 255, 255, 0.1);
             color: white;
@@ -102,42 +92,37 @@
             gap: 0.5rem;
             transition: all 0.3s ease;
         }
-
         .back-btn:hover {
             background: rgba(255, 255, 255, 0.2);
         }
-
-        /* Main Container - FIX PRINCIPAL */
+        /* Main Container */
         .main-container {
             margin-top: 80px;
             display: flex;
             min-height: calc(100vh - 80px);
-            max-width: 1600px; /* Límite máximo de ancho */
+            max-width: 1600px;
             margin-left: auto;
             margin-right: auto;
         }
-
-        /* Sidebar - FIX */
+        /* Sidebar */
         .sidebar {
             background: white;
             border-right: 1px solid var(--border-color);
             padding: 2rem 0;
-            width: 320px; /* Ancho fijo más específico */
-            min-width: 320px; /* Evita que se encoja */
-            max-width: 320px; /* Evita que crezca */
+            width: 320px;
+            min-width: 320px;
+            max-width: 320px;
             height: calc(100vh - 80px);
             overflow-y: auto;
-            position: sticky; /* Cambiado de fixed a sticky */
-            top: 80px; /* Altura del navbar */
+            position: sticky;
+            top: 80px;
         }
-
         .module-info {
             padding: 0 2rem;
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 2rem;
             padding-bottom: 2rem;
         }
-
         .module-number {
             width: 50px;
             height: 50px;
@@ -151,32 +136,27 @@
             font-weight: bold;
             margin-bottom: 1rem;
         }
-
         .module-title {
             font-size: 1.3rem;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 0.5rem;
         }
-
         .module-meta {
             font-size: 0.9rem;
             color: var(--text-secondary);
             margin-bottom: 1rem;
         }
-
         .progress-section {
             padding: 0 2rem;
             margin-bottom: 2rem;
         }
-
         .progress-title {
             font-size: 0.9rem;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
-
         .progress-bar {
             width: 100%;
             height: 8px;
@@ -185,29 +165,24 @@
             overflow: hidden;
             margin-bottom: 0.5rem;
         }
-
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, var(--success-color), var(--accent-color));
             width: 25%;
             transition: width 0.3s ease;
         }
-
         .progress-text {
             font-size: 0.8rem;
             color: var(--text-secondary);
         }
-
         /* Chapter Navigation */
         .chapter-nav {
             list-style: none;
             padding: 0 1rem;
         }
-
         .chapter-item {
             margin-bottom: 0.5rem;
         }
-
         .chapter-link {
             display: flex;
             align-items: center;
@@ -219,18 +194,15 @@
             transition: all 0.3s ease;
             font-size: 0.9rem;
         }
-
         .chapter-link:hover {
             background: var(--light-bg);
             color: var(--primary-color);
         }
-
         .chapter-link.active {
             background: linear-gradient(135deg, var(--accent-color), var(--gold-color));
             color: white;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
-
         .chapter-status {
             width: 20px;
             height: 20px;
@@ -242,34 +214,28 @@
             font-size: 0.7rem;
             flex-shrink: 0;
         }
-
         .chapter-status.completed {
             background: var(--success-color);
             color: white;
         }
-
         .chapter-status.current {
             background: var(--warning-color);
             color: white;
         }
-
-        /* Content Area - FIX PRINCIPAL */
+        /* Content Area */
         .content-area {
-            flex: 1; /* Toma el espacio restante */
+            flex: 1;
             padding: 2rem;
-            max-width: calc(100vw - 320px); /* Evita desbordamiento */
-            overflow-x: hidden; /* Evita scroll horizontal */
+            max-width: calc(100vw - 320px);
+            overflow-x: hidden;
         }
-
         .content-wrapper {
-            max-width: 900px; /* Límite del contenido */
-            margin: 0 auto; /* Centrado automático */
+            max-width: 900px;
+            margin: 0 auto;
         }
-
         .content-header {
             margin-bottom: 3rem;
         }
-
         .chapter-badge {
             display: inline-block;
             background: linear-gradient(135deg, var(--accent-color), var(--gold-color));
@@ -280,7 +246,6 @@
             font-weight: 600;
             margin-bottom: 1rem;
         }
-
         .content-title {
             font-size: 2.5rem;
             font-weight: 800;
@@ -288,14 +253,12 @@
             margin-bottom: 1rem;
             line-height: 1.2;
         }
-
         .content-description {
             font-size: 1.1rem;
             color: var(--text-secondary);
             margin-bottom: 2rem;
             line-height: 1.6;
         }
-
         .chapter-meta {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -306,22 +269,18 @@
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
-
         .meta-item {
             text-align: center;
         }
-
         .meta-value {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--accent-color);
         }
-
         .meta-label {
             font-size: 0.9rem;
             color: var(--text-secondary);
         }
-
         /* Content Sections */
         .content-section {
             background: white;
@@ -331,7 +290,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             border-left: 4px solid var(--accent-color);
         }
-
         .section-title {
             font-size: 1.5rem;
             font-weight: 700;
@@ -341,33 +299,223 @@
             align-items: center;
             gap: 0.5rem;
         }
-
         .section-content {
             color: var(--text-primary);
             line-height: 1.7;
         }
-
         .section-content h3 {
             font-size: 1.2rem;
             font-weight: 600;
             color: var(--primary-color);
             margin: 2rem 0 1rem 0;
         }
-
         .section-content p {
             margin-bottom: 1.5rem;
         }
-
         .section-content ul {
             margin-bottom: 1.5rem;
             padding-left: 1.5rem;
         }
-
         .section-content li {
             margin-bottom: 0.5rem;
             color: var(--text-secondary);
         }
-
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-color);
+        }
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            flex: 1;
+        }
+        .timeline-year {
+            font-size: 0.9rem;
+            color: var(--gold-color);
+            font-weight: 600;
+        }
+        .timeline-event {
+            font-size: 1rem;
+            color: var(--primary-color);
+            margin-top: 0.25rem;
+        }
+        /* Pros/Cons Section */
+        .pros-cons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .pros-section, .cons-section {
+            padding: 2rem;
+            border-radius: 12px;
+        }
+        .pros-section {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+            border-left: 4px solid var(--success-color);
+        }
+        .cons-section {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
+            border-left: 4px solid var(--danger-color);
+        }
+        .pros-title, .cons-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .pros-title {
+            color: var(--success-color);
+        }
+        .cons-title {
+            color: var(--danger-color);
+        }
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .tool-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--accent-color);
+        }
+        .tool-category h4 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tool-list {
+            list-style: none;
+            padding: 0;
+        }
+        .tool-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tool-item:last-child {
+            border-bottom: none;
+        }
+        .tool-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .tool-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--gold-color);
+        }
+        /* Attack Types Grid */
+        .attacks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .attack-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--danger-color);
+        }
+        .attack-name {
+            font-weight: 600;
+            color: var(--danger-color);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .attack-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        /* Learning Path */
+        .learning-path {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+        .path-step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: var(--gold-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
         /* Key Concepts Box */
         .key-concepts {
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(245, 158, 11, 0.1));
@@ -376,39 +524,33 @@
             padding: 2rem;
             margin: 2rem 0;
         }
-
         .key-concepts h4 {
             color: var(--accent-color);
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 1rem;
         }
-
         .concepts-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
         }
-
         .concept-item {
             background: white;
             padding: 1rem;
             border-radius: 8px;
             border-left: 3px solid var(--gold-color);
         }
-
         .concept-term {
             font-weight: 600;
             color: var(--primary-color);
             font-size: 0.9rem;
         }
-
         .concept-definition {
             font-size: 0.8rem;
             color: var(--text-secondary);
             margin-top: 0.5rem;
         }
-
         /* Interactive Lab */
         .lab-section {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -418,7 +560,6 @@
             margin: 2rem 0;
             border: none;
         }
-
         .lab-title {
             color: var(--gold-color);
             font-size: 1.3rem;
@@ -428,12 +569,10 @@
             align-items: center;
             gap: 0.5rem;
         }
-
         .lab-description {
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 1.5rem;
         }
-
         .lab-simulator {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
@@ -441,7 +580,6 @@
             margin: 1.5rem 0;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-
         .simulator-header {
             display: flex;
             justify-content: space-between;
@@ -450,19 +588,16 @@
             flex-wrap: wrap;
             gap: 1rem;
         }
-
         .simulator-title {
             font-size: 1rem;
             font-weight: 600;
         }
-
         .lab-controls {
             display: flex;
             gap: 1rem;
             margin-top: 1.5rem;
             flex-wrap: wrap;
         }
-
         .lab-btn {
             padding: 0.75rem 1.5rem;
             border: none;
@@ -471,27 +606,22 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
         .lab-btn-primary {
             background: var(--gold-color);
             color: var(--primary-color);
         }
-
         .lab-btn-primary:hover {
             background: #fbbf24;
             transform: translateY(-2px);
         }
-
         .lab-btn-secondary {
             background: rgba(255, 255, 255, 0.1);
             color: white;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-
         .lab-btn-secondary:hover {
             background: rgba(255, 255, 255, 0.2);
         }
-
         /* Quiz Section */
         .quiz-section {
             background: white;
@@ -501,18 +631,15 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             border-left: 4px solid var(--success-color);
         }
-
         .quiz-question {
             font-size: 1.1rem;
             font-weight: 600;
             color: var(--primary-color);
             margin-bottom: 1.5rem;
         }
-
         .quiz-options {
             list-style: none;
         }
-
         .quiz-option {
             background: var(--light-bg);
             padding: 1rem;
@@ -522,27 +649,22 @@
             transition: all 0.3s ease;
             border: 2px solid transparent;
         }
-
         .quiz-option:hover {
             background: #e0e7ff;
             border-color: var(--accent-color);
         }
-
         .quiz-option.selected {
             background: rgba(59, 130, 246, 0.1);
             border-color: var(--accent-color);
         }
-
         .quiz-option.correct {
             background: rgba(16, 185, 129, 0.1);
             border-color: var(--success-color);
         }
-
         .quiz-option.incorrect {
             background: rgba(239, 68, 68, 0.1);
             border-color: var(--danger-color);
         }
-
         /* Navigation Buttons */
         .content-navigation {
             display: flex;
@@ -553,7 +675,6 @@
             flex-wrap: wrap;
             gap: 1rem;
         }
-
         .nav-btn {
             padding: 1rem 2rem;
             border: none;
@@ -566,45 +687,37 @@
             align-items: center;
             gap: 0.5rem;
         }
-
         .nav-btn-primary {
             background: linear-gradient(135deg, var(--accent-color), var(--gold-color));
             color: white;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
-
         .nav-btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
         }
-
         .nav-btn-secondary {
             background: white;
             color: var(--text-secondary);
             border: 2px solid var(--border-color);
         }
-
         .nav-btn-secondary:hover {
             border-color: var(--accent-color);
             color: var(--accent-color);
         }
-
-        /* Responsive Design - MEJORADO */
+        /* Responsive Design */
         @media (max-width: 1200px) {
             .main-container {
                 max-width: 100%;
             }
-            
             .content-title {
                 font-size: 2.2rem;
             }
         }
-
         @media (max-width: 1024px) {
             .main-container {
                 flex-direction: column;
             }
-
             .sidebar {
                 position: relative;
                 width: 100%;
@@ -612,63 +725,53 @@
                 height: auto;
                 top: 0;
             }
-
             .content-area {
                 max-width: 100%;
             }
-
             .chapter-meta {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .pros-cons-grid {
+                grid-template-columns: 1fr;
+            }
         }
-
         @media (max-width: 768px) {
             .nav-container {
                 padding: 0 1rem;
                 flex-wrap: wrap;
                 gap: 1rem;
             }
-
             .content-area {
                 padding: 1rem;
             }
-
             .content-title {
                 font-size: 2rem;
             }
-
             .concepts-grid {
                 grid-template-columns: 1fr;
             }
-
             .lab-controls {
                 flex-direction: column;
             }
-
             .content-navigation {
                 flex-direction: column;
             }
-
             .chapter-meta {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
             }
-
             .simulator-header {
                 flex-direction: column;
                 align-items: flex-start;
             }
         }
-
         @media (max-width: 480px) {
             .chapter-meta {
                 grid-template-columns: 1fr;
             }
-            
             .content-section {
                 padding: 1.5rem;
             }
-            
             .lab-section {
                 padding: 1.5rem;
             }
@@ -691,7 +794,6 @@
             </a>
         </div>
     </nav>
-
     <!-- Main Container -->
     <div class="main-container">
         <!-- Sidebar -->
@@ -700,170 +802,199 @@
                 <div class="module-number">1</div>
                 <h2 class="module-title">Fundamentos de Ciberseguridad</h2>
                 <div class="module-meta">
-                    ⏱️ 8 semanas • 🎯 Principiante • 📚 12 capítulos
+                    ⏱️ 12 semanas • 🎯 Principiante • 📚 15 secciones
                 </div>
             </div>
-
             <div class="progress-section">
                 <div class="progress-title">Progreso del Módulo</div>
                 <div class="progress-bar">
                     <div class="progress-fill" id="moduleProgress"></div>
                 </div>
-                <div class="progress-text">3 de 12 capítulos completados (25%)</div>
+                <div class="progress-text">1 de 15 secciones completadas (7%)</div>
             </div>
-
             <ul class="chapter-nav">
                 <li class="chapter-item">
-                    <a href="#" class="chapter-link active" onclick="loadChapter(1)">
+                    <a href="#intro" class="chapter-link active" onclick="scrollToSection('intro')">
                         <div class="chapter-status current">1</div>
                         <span>Introducción a la Ciberseguridad</span>
                     </a>
                 </li>
                 <li class="chapter-item">
-                    <a href="#" class="chapter-link" onclick="loadChapter(2)">
+                    <a href="#history" class="chapter-link" onclick="scrollToSection('history')">
                         <div class="chapter-status">2</div>
-                        <span>Tríada CIA</span>
+                        <span>Historia de la Ciberseguridad</span>
                     </a>
                 </li>
                 <li class="chapter-item">
-                    <a href="#" class="chapter-link" onclick="loadChapter(3)">
+                    <a href="#importance" class="chapter-link" onclick="scrollToSection('importance')">
                         <div class="chapter-status">3</div>
+                        <span>Importancia Actual</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#differences" class="chapter-link" onclick="scrollToSection('differences')">
+                        <div class="chapter-status">4</div>
+                        <span>Diferencias Clave</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#examples" class="chapter-link" onclick="scrollToSection('examples')">
+                        <div class="chapter-status">5</div>
+                        <span>Ejemplos Cotidianos</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#proscons" class="chapter-link" onclick="scrollToSection('proscons')">
+                        <div class="chapter-status">6</div>
+                        <span>Pros y Contras</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#tools" class="chapter-link" onclick="scrollToSection('tools')">
+                        <div class="chapter-status">7</div>
+                        <span>Herramientas</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#skills" class="chapter-link" onclick="scrollToSection('skills')">
+                        <div class="chapter-status">8</div>
+                        <span>Habilidades Necesarias</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#attacks" class="chapter-link" onclick="scrollToSection('attacks')">
+                        <div class="chapter-status">9</div>
+                        <span>Tipos de Ciberataques</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#roadmap" class="chapter-link" onclick="scrollToSection('roadmap')">
+                        <div class="chapter-status">10</div>
+                        <span>Roadmap de Aprendizaje</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#regulatory" class="chapter-link" onclick="scrollToSection('regulatory')">
+                        <div class="chapter-status">11</div>
                         <span>Marcos Regulatorios</span>
                     </a>
                 </li>
                 <li class="chapter-item">
-                    <a href="#" class="chapter-link" onclick="loadChapter(4)">
-                        <div class="chapter-status">4</div>
-                        <span>NIST Framework</span>
-                    </a>
-                </li>
-                <li class="chapter-item">
-                    <a href="#" class="chapter-link" onclick="loadChapter(5)">
-                        <div class="chapter-status">5</div>
-                        <span>ISO 27001</span>
-                    </a>
-                </li>
-                <li class="chapter-item">
-                    <a href="#" class="chapter-link" onclick="loadChapter(6)">
-                        <div class="chapter-status">6</div>
-                        <span>GDPR y Privacidad</span>
-                    </a>
-                </li>
-                <li class="chapter-item">
-                    <a href="#" class="chapter-link" onclick="loadChapter(7)">
-                        <div class="chapter-status">7</div>
-                        <span>Gestión de Riesgos</span>
-                    </a>
-                </li>
-                <li class="chapter-item">
-                    <a href="#" class="chapter-link" onclick="loadChapter(8)">
-                        <div class="chapter-status">8</div>
-                        <span>Métricas de Seguridad</span>
-                    </a>
-                </li>
-                <li class="chapter-item">
-                    <a href="#" class="chapter-link" onclick="loadChapter(9)">
-                        <div class="chapter-status">9</div>
-                        <span>Compliance</span>
-                    </a>
-                </li>
-                <li class="chapter-item">
-                    <a href="#" class="chapter-link" onclick="loadChapter(10)">
-                        <div class="chapter-status">10</div>
-                        <span>Auditorías de Seguridad</span>
-                    </a>
-                </li>
-                <li class="chapter-item">
-                    <a href="#" class="chapter-link" onclick="loadChapter(11)">
-                        <div class="chapter-status">11</div>
-                        <span>Políticas y Procedimientos</span>
-                    </a>
-                </li>
-                <li class="chapter-item">
-                    <a href="#" class="chapter-link" onclick="loadChapter(12)">
+                    <a href="#roles" class="chapter-link" onclick="scrollToSection('roles')">
                         <div class="chapter-status">12</div>
-                        <span>Proyecto Final</span>
+                        <span>Roles Profesionales</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#lab1" class="chapter-link" onclick="scrollToSection('lab1')">
+                        <div class="chapter-status">13</div>
+                        <span>Laboratorio: Evaluación</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#quiz" class="chapter-link" onclick="scrollToSection('quiz')">
+                        <div class="chapter-status">14</div>
+                        <span>Quiz Final</span>
+                    </a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#conclusion" class="chapter-link" onclick="scrollToSection('conclusion')">
+                        <div class="chapter-status">15</div>
+                        <span>Conclusión</span>
                     </a>
                 </li>
             </ul>
         </aside>
-
         <!-- Content Area -->
         <main class="content-area">
             <div class="content-wrapper">
                 <header class="content-header">
-                    <div class="chapter-badge">📖 Capítulo 1</div>
-                    <h1 class="content-title">Introducción a la Ciberseguridad</h1>
+                    <div class="chapter-badge">📖 Capítulo 1 - Versión Completa</div>
+                    <h1 class="content-title">Introducción Completa a la Ciberseguridad</h1>
                     <p class="content-description">
-                        Explora los fundamentos esenciales de la ciberseguridad, desde conceptos básicos 
-                        hasta principios avanzados que rigen la protección de activos digitales en el mundo moderno.
+                        Una guía exhaustiva que cubre todos los fundamentos esenciales de la ciberseguridad, 
+                        desde conceptos básicos hasta el roadmap completo para convertirse en un profesional del sector.
                     </p>
-                    
                     <div class="chapter-meta">
                         <div class="meta-item">
-                            <div class="meta-value">45</div>
+                            <div class="meta-value">120</div>
                             <div class="meta-label">Minutos</div>
                         </div>
                         <div class="meta-item">
-                            <div class="meta-value">3</div>
+                            <div class="meta-value">5</div>
                             <div class="meta-label">Laboratorios</div>
                         </div>
                         <div class="meta-item">
-                            <div class="meta-value">1</div>
-                            <div class="meta-label">Quiz</div>
+                            <div class="meta-value">15</div>
+                            <div class="meta-label">Secciones</div>
                         </div>
                         <div class="meta-item">
-                            <div class="meta-value">95%</div>
+                            <div class="meta-value">98%</div>
                             <div class="meta-label">Tasa de Éxito</div>
                         </div>
                     </div>
                 </header>
-
-                <!-- Content Sections -->
+                <!-- Objetivos de Aprendizaje -->
                 <section class="content-section">
                     <h2 class="section-title">🎯 Objetivos de Aprendizaje</h2>
                     <div class="section-content">
-                        <p>Al completar este capítulo, serás capaz de:</p>
+                        <p>Al completar este capítulo completo, serás capaz de:</p>
                         <ul>
-                            <li>Definir ciberseguridad y su importancia en el contexto actual</li>
-                            <li>Identificar los principales activos digitales que requieren protección</li>
-                            <li>Comprender el panorama de amenazas contemporáneo</li>
-                            <li>Reconocer los roles y responsabilidades en ciberseguridad</li>
-                            <li>Aplicar principios básicos de seguridad en escenarios reales</li>
+                            <li>Comprender completamente qué es la ciberseguridad y su evolución histórica</li>
+                            <li>Identificar la importancia crítica de la ciberseguridad en el mundo actual</li>
+                            <li>Distinguir entre seguridad de la información, seguridad informática y ciberseguridad</li>
+                            <li>Aplicar principios básicos de seguridad en tu vida cotidiana</li>
+                            <li>Evaluar las ventajas y desventajas de implementar ciberseguridad</li>
+                            <li>Conocer las herramientas fundamentales del sector</li>
+                            <li>Identificar las habilidades necesarias para ser un profesional en ciberseguridad</li>
+                            <li>Reconocer los principales tipos de ciberataques</li>
+                            <li>Seguir un roadmap estructurado de aprendizaje</li>
+                            <li>Entender los marcos regulatorios y roles profesionales</li>
                         </ul>
                     </div>
                 </section>
-
-                <section class="content-section">
-                    <h2 class="section-title">📚 ¿Qué es la Ciberseguridad?</h2>
+                <!-- Sección 1: Introducción -->
+                <section class="content-section" id="intro">
+                    <h2 class="section-title">🌐 ¿Qué es la Ciberseguridad?</h2>
                     <div class="section-content">
                         <p>
-                            La <strong>ciberseguridad</strong> es la práctica de proteger sistemas, redes y programas 
-                            de ataques digitales. Estos ataques generalmente tienen como objetivo acceder, cambiar 
-                            o destruir información confidencial, extorsionar dinero de los usuarios o interrumpir 
-                            procesos comerciales normales.
+                            La <strong>ciberseguridad</strong> es la disciplina que protege redes, sistemas, datos y 
+                            dispositivos conectados a internet contra ataques, robos y daños. Es mucho más que 
+                            simples contraseñas: es un ecosistema completo de prácticas, tecnologías y procesos 
+                            diseñados para salvaguardar nuestra vida digital.
                         </p>
-                        
-                        <h3>Evolución Histórica</h3>
+                        <h3>Definición Técnica</h3>
                         <p>
-                            La ciberseguridad ha evolucionado desde simples contraseñas en los años 70 hasta 
-                            sofisticados sistemas de inteligencia artificial y machine learning actuales. 
-                            Esta evolución responde a la creciente sofisticación de las amenazas cibernéticas.
+                            La ciberseguridad se basa en el modelo <strong>CIA (Confidencialidad, Integridad, Disponibilidad)</strong>, 
+                            conocido como la tríada de la seguridad de la información. Estos tres pilares fundamentales 
+                            garantizan que la información esté protegida contra accesos no autorizados, permanezca 
+                            íntegra y esté disponible cuando se necesite.
                         </p>
-                        
-                        <h3>Importancia en el Mundo Digital</h3>
+                        <h3>Alcance y Responsabilidades</h3>
                         <p>
-                            En 2024, el costo promedio de una violación de datos alcanzó los $4.45 millones USD. 
-                            Más allá del aspecto económico, las brechas de seguridad pueden destruir la reputación 
-                            de una organización y compreter la privacidad de millones de usuarios.
+                            La ciberseguridad abarca desde la protección de un teléfono móvil personal hasta la 
+                            defensa de infraestructuras críticas nacionales. Incluye la protección de datos 
+                            personales, sistemas financieros, redes eléctricas, hospitales, y todo lo que esté 
+                            conectado al mundo digital.
                         </p>
                     </div>
                 </section>
-
                 <!-- Key Concepts -->
                 <div class="key-concepts">
-                    <h4>🔑 Conceptos Clave</h4>
+                    <h4>🔑 Conceptos Fundamentales</h4>
                     <div class="concepts-grid">
+                        <div class="concept-item">
+                            <div class="concept-term">Confidencialidad</div>
+                            <div class="concept-definition">Garantiza que la información solo sea accesible a quienes están autorizados</div>
+                        </div>
+                        <div class="concept-item">
+                            <div class="concept-term">Integridad</div>
+                            <div class="concept-definition">Asegura que los datos no sean modificados de manera no autorizada</div>
+                        </div>
+                        <div class="concept-item">
+                            <div class="concept-term">Disponibilidad</div>
+                            <div class="concept-definition">Garantiza que los sistemas y datos estén accesibles cuando se necesiten</div>
+                        </div>
                         <div class="concept-item">
                             <div class="concept-term">Activo Digital</div>
                             <div class="concept-definition">Cualquier información o sistema con valor para una organización</div>
@@ -876,31 +1007,599 @@
                             <div class="concept-term">Vulnerabilidad</div>
                             <div class="concept-definition">Debilidad que puede ser explotada por una amenaza</div>
                         </div>
-                        <div class="concept-item">
-                            <div class="concept-term">Riesgo</div>
-                            <div class="concept-definition">Probabilidad de que una amenaza explote una vulnerabilidad</div>
-                        </div>
                     </div>
                 </div>
-
-                <!-- Interactive Lab -->
-                <section class="lab-section">
-                    <h2 class="lab-title">🧪 Laboratorio: Evaluación de Activos</h2>
+                <!-- Sección 2: Historia -->
+                <section class="content-section" id="history">
+                    <h2 class="section-title">📚 Historia Breve de la Ciberseguridad</h2>
+                    <div class="section-content">
+                        <p>
+                            La ciberseguridad ha evolucionado junto con la tecnología, desde las primeras 
+                            computadoras hasta los sistemas de inteligencia artificial actuales. Comprender 
+                            esta evolución nos ayuda a entender las amenazas actuales y futuras.
+                        </p>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot">40s</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-year">1940-1950</div>
+                                    <div class="timeline-event">Primeras computadoras militares, sin medidas de seguridad específicas. La seguridad se basaba en el control físico de acceso.</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot">70s</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-year">1971</div>
+                                    <div class="timeline-event">Nace el primer virus experimental "Creeper" que mostraba el mensaje "I'm the creeper, catch me if you can!" en computadoras infectadas.</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot">80s</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-year">1980-1990</div>
+                                    <div class="timeline-event">Se popularizan los virus caseros y nacen los primeros antivirus comerciales como respuesta a las crecientes amenazas.</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot">00s</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-year">2000 en adelante</div>
+                                    <div class="timeline-event">Aumentan exponencialmente los ataques globales, nace la ciberdelincuencia organizada y el espionaje digital entre naciones.</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot">Hoy</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-year">Actualidad</div>
+                                    <div class="timeline-event">La ciberseguridad es un sector multimillonario, fundamental para gobiernos, empresas y ciudadanos. Emergen amenazas con IA y computación cuántica.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Sección 3: Importancia -->
+                <section class="content-section" id="importance">
+                    <h2 class="section-title">⚡ Importancia Actual</h2>
+                    <div class="section-content">
+                        <p>
+                            En 2024, vivimos en una era donde la ciberseguridad no es un lujo, sino una 
+                            necesidad absoluta. Los datos son el nuevo petróleo, y protegerlos es crucial 
+                            para individuos, empresas y naciones.
+                        </p>
+                        <h3>Estadísticas Impactantes</h3>
+                        <ul>
+                            <li><strong>$4.45 millones USD:</strong> Costo promedio de una violación de datos en 2024</li>
+                            <li><strong>95%:</strong> De las brechas de seguridad exitosas se deben a errores humanos</li>
+                            <li><strong>43%:</strong> De los ciberataques se dirigen a pequeñas empresas</li>
+                            <li><strong>277 días:</strong> Tiempo promedio para detectar y contener una brecha</li>
+                        </ul>
+                        <h3>Áreas Críticas de Protección</h3>
+                        <ul>
+                            <li><strong>Datos personales y financieros:</strong> Información bancaria, números de tarjetas, datos biométricos</li>
+                            <li><strong>Infraestructura crítica:</strong> Hospitales, centrales eléctricas, sistemas de transporte</li>
+                            <li><strong>Comercio electrónico:</strong> Plataformas de compra, sistemas de pago, wallets digitales</li>
+                            <li><strong>Comunicaciones:</strong> Redes sociales, mensajería, correo electrónico</li>
+                            <li><strong>Servicios gubernamentales:</strong> Sistemas de identificación, registros civiles, datos fiscales</li>
+                        </ul>
+                        <h3>Ejemplo Real: WannaCry 2017</h3>
+                        <p>
+                            El ransomware WannaCry infectó más de 300,000 computadoras en 150 países, 
+                            paralizando hospitales del NHS británico, fábricas de automóviles, y sistemas 
+                            ferroviarios. Este incidente demostró cómo un solo ataque puede afectar 
+                            infraestructuras críticas mundiales.
+                        </p>
+                    </div>
+                </section>
+                <!-- Sección 4: Diferencias -->
+                <section class="content-section" id="differences">
+                    <h2 class="section-title">🔍 Diferencias Clave en Seguridad</h2>
+                    <div class="section-content">
+                        <p>
+                            Es fundamental distinguir entre los diferentes tipos de seguridad para 
+                            comprender el alcance específico de cada disciplina.
+                        </p>
+                        <h3>Seguridad de la Información</h3>
+                        <p>
+                            <strong>Alcance:</strong> Protege todo tipo de información, tanto digital como física 
+                            (documentos en papel, conversaciones, etc.). Es el concepto más amplio.
+                        </p>
+                        <p>
+                            <strong>Ejemplos:</strong> Cifrado de archivos, cajas fuertes físicas, políticas 
+                            de confidencialidad, controles de acceso a oficinas.
+                        </p>
+                        <h3>Seguridad Informática</h3>
+                        <p>
+                            <strong>Alcance:</strong> Se enfoca específicamente en la protección de sistemas 
+                            digitales y computacionales, independientemente de si están conectados a internet.
+                        </p>
+                        <p>
+                            <strong>Ejemplos:</strong> Antivirus, firewalls locales, copias de seguridad, 
+                            control de acceso a sistemas standalone.
+                        </p>
+                        <h3>Ciberseguridad</h3>
+                        <p>
+                            <strong>Alcance:</strong> Protege específicamente todo lo que está conectado a 
+                            internet o redes. Es el término más moderno y específico para amenazas online.
+                        </p>
+                        <p>
+                            <strong>Ejemplos:</strong> Protección contra ataques DDoS, phishing, malware 
+                            distribuido por internet, seguridad en la nube.
+                        </p>
+                    </div>
+                </section>
+                <!-- Sección 5: Ejemplos Cotidianos -->
+                <section class="content-section" id="examples">
+                    <h2 class="section-title">🏠 Ejemplos Cotidianos de Ciberseguridad</h2>
+                    <div class="section-content">
+                        <p>
+                            La ciberseguridad no es solo para expertos. Todos aplicamos (o deberíamos aplicar) 
+                            principios básicos de ciberseguridad en nuestra vida diaria.
+                        </p>
+                        <h3>Prácticas Básicas Diarias</h3>
+                        <ul>
+                            <li><strong>Contraseñas fuertes:</strong> Usar combinaciones complejas y únicas para cada cuenta</li>
+                            <li><strong>Verificación en dos pasos (2FA):</strong> Activar esta protección adicional en todas las cuentas importantes</li>
+                            <li><strong>Identificar phishing:</strong> No abrir correos sospechosos ni hacer clic en enlaces desconocidos</li>
+                            <li><strong>VPN en WiFi público:</strong> Usar redes privadas virtuales en cafeterías, aeropuertos, hoteles</li>
+                            <li><strong>Actualizaciones de software:</strong> Mantener sistemas operativos y aplicaciones siempre actualizados</li>
+                            <li><strong>Copias de seguridad:</strong> Realizar backups regulares de información importante</li>
+                            <li><strong>Navegación segura:</strong> Verificar que los sitios web usen HTTPS antes de ingresar datos</li>
+                        </ul>
+                        <h3>Escenarios Comunes</h3>
+                        <ul>
+                            <li><strong>Compras online:</strong> Verificar la legitimidad del vendedor y usar métodos de pago seguros</li>
+                            <li><strong>Redes sociales:</strong> Configurar adecuadamente la privacidad y ser cuidadoso con la información compartida</li>
+                            <li><strong>Banca móvil:</strong> Usar solo aplicaciones oficiales y nunca realizar operaciones en redes públicas</li>
+                            <li><strong>Trabajo remoto:</strong> Usar VPN corporativa y seguir políticas de seguridad de la empresa</li>
+                        </ul>
+                    </div>
+                </section>
+                <!-- Sección 6: Pros y Contras -->
+                <section class="content-section" id="proscons">
+                    <h2 class="section-title">⚖️ Ventajas y Desafíos de la Ciberseguridad</h2>
+                    <div class="section-content">
+                        <p>
+                            Como toda disciplina, la ciberseguridad presenta beneficios significativos 
+                            pero también desafíos importantes que debemos considerar.
+                        </p>
+                        <div class="pros-cons-grid">
+                            <div class="pros-section">
+                                <h3 class="pros-title">✅ Ventajas</h3>
+                                <ul>
+                                    <li><strong>Protección integral:</strong> Salvaguarda datos personales, financieros y corporativos</li>
+                                    <li><strong>Confianza digital:</strong> Permite el crecimiento seguro del comercio electrónico y servicios online</li>
+                                    <li><strong>Prevención de fraudes:</strong> Evita pérdidas económicas por cibercrimen</li>
+                                    <li><strong>Estabilidad nacional:</strong> Protege infraestructuras críticas y seguridad nacional</li>
+                                    <li><strong>Oportunidades laborales:</strong> Genera empleos muy bien remunerados en tecnología</li>
+                                    <li><strong>Innovación:</strong> Impulsa el desarrollo de nuevas tecnologías y soluciones</li>
+                                    <li><strong>Cumplimiento legal:</strong> Ayuda a cumplir regulaciones como GDPR, HIPAA, etc.</li>
+                                </ul>
+                            </div>
+                            <div class="cons-section">
+                                <h3 class="cons-title">❌ Desafíos</h3>
+                                <ul>
+                                    <li><strong>Costos elevados:</strong> Inversión significativa en infraestructura, software y personal especializado</li>
+                                    <li><strong>Evolución constante:</strong> Las amenazas cambian diariamente, requiriendo adaptación continua</li>
+                                    <li><strong>Capacitación perpetua:</strong> Necesidad de formación continua para mantenerse actualizado</li>
+                                    <li><strong>Complejidad técnica:</strong> Requiere conocimientos especializados y multidisciplinarios</li>
+                                    <li><strong>Impacto en usabilidad:</strong> Medidas de seguridad pueden reducir la comodidad del usuario</li>
+                                    <li><strong>Falsa sensación de seguridad:</strong> Ningún sistema es 100% seguro</li>
+                                    <li><strong>Escasez de talento:</strong> Alta demanda pero pocos profesionales cualificados</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Sección 7: Herramientas -->
+                <section class="content-section" id="tools">
+                    <h2 class="section-title">🛠️ Herramientas y Aplicaciones</h2>
+                    <div class="section-content">
+                        <p>
+                            El arsenal de herramientas en ciberseguridad es vasto y se divide en diferentes 
+                            categorías según el propósito y nivel de especialización.
+                        </p>
+                        <div class="tools-grid">
+                            <div class="tool-category">
+                                <h4>🔒 Protección Personal</h4>
+                                <ul class="tool-list">
+                                    <li class="tool-item">
+                                        <div>
+                                            <div class="tool-name">Bitdefender, Kaspersky, Avast</div>
+                                            <div class="tool-description">Antivirus y protección integral</div>
+                                        </div>
+                                    </li>
+                                    <li class="tool-item">
+                                        <div>
+                                            <div class="tool-name">LastPass, 1Password, Bitwarden</div>
+                                            <div class="tool-description">Gestores de contraseñas</div>
+                                        </div>
+                                    </li>
+                                    <li class="tool-item">
+                                        <div>
+                                            <div class="tool-name">NordVPN, ProtonVPN, ExpressVPN</div>
+                                            <div class="tool-description">Redes privadas virtuales</div>
+                                        </div>
+                                    </li>
+                                    <li class="tool-item">
+                                        <div>
+                                            <div class="tool-name">Comodo Firewall, ZoneAlarm</div>
+                                            <div class="tool-description">Cortafuegos personales</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tool-category">
+                                <h4>🏢 Herramientas Profesionales</h4>
+                                <ul class="tool-list">
+                                    <li class="tool-item">
+                                        <div>
+                                            <div class="tool-name">Kali Linux</div>
+                                            <div class="tool-description">Sistema operativo para pruebas de seguridad</div>
+                                        </div>
+                                    </li>
+                                    <li class="tool-item">
+                                        <div>
+                                            <div class="tool-name">Wireshark</div>
+                                            <div class="tool-description">Analizador de tráfico de red</div>
+                                        </div>
+                                    </li>
+                                    <li class="tool-item">
+                                        <div>
+                                            <div class="tool-name">Metasploit</div>
+                                            <div class="tool-description">Framework para pruebas de penetración</div>
+                                        </div>
+                                    </li>
+                                    <li class="tool-item">
+                                        <div>
+                                            <div class="tool-name">Nmap</div>
+                                            <div class="tool-description">Escaneo de redes y puertos</div>
+                                        </div>
+                                    </li>
+                                    <li class="tool-item">
+                                        <div>
+                                            <div class="tool-name">Burp Suite</div>
+                                            <div class="tool-description">Pruebas de seguridad en aplicaciones web</div>
+                                        </div>
+                                    </li>
+                                    <li class="tool-item">
+                                        <div>
+                                            <div class="tool-name">John the Ripper / Hashcat</div>
+                                            <div class="tool-description">Auditoría y recuperación de contraseñas</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tool-category">
+                                <h4>🎯 Plataformas de Aprendizaje</h4>
+                                <ul class="tool-list">
+                                    <li class="tool-item">
+                                        <div>
+                                            <div class="tool-name">Hack The Box (HTB)</div>
+                                            <div class="tool-description">Laboratorios de hacking ético avanzado</div>
+                                        </div>
+                                    </li>
+                                    <li class="tool-item">
+                                        <div>
+                                            <div class="tool-name">TryHackMe</div>
+                                            <div class="tool-description">Simulaciones guiadas para principiantes</div>
+                                        </div>
+                                    </li>
+                                    <li class="tool-item">
+                                        <div>
+                                            <div class="tool-name">OverTheWire</div>
+                                            <div class="tool-description">Retos de seguridad en Linux</div>
+                                        </div>
+                                    </li>
+                                    <li class="tool-item">
+                                        <div>
+                                            <div class="tool-name">VulnHub</div>
+                                            <div class="tool-description">Máquinas virtuales vulnerables para práctica</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Sección 8: Habilidades -->
+                <section class="content-section" id="skills">
+                    <h2 class="section-title">🧠 Habilidades Necesarias para un Experto</h2>
+                    <div class="section-content">
+                        <p>
+                            Convertirse en un profesional de ciberseguridad requiere una combinación 
+                            única de habilidades técnicas, analíticas y personales.
+                        </p>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>⚙️ Habilidades Técnicas</h4>
+                                <ul>
+                                    <li><strong>Redes:</strong> TCP/IP, DNS, HTTP/HTTPS, VPN, firewalls</li>
+                                    <li><strong>Sistemas Operativos:</strong> Linux (esencial), Windows, MacOS</li>
+                                    <li><strong>Programación:</strong> Python, Bash, PowerShell, C/C++, JavaScript</li>
+                                    <li><strong>Criptografía:</strong> Cifrado simétrico/asimétrico, hash, PKI</li>
+                                    <li><strong>Ethical Hacking:</strong> Penetration testing, vulnerability assessment</li>
+                                    <li><strong>Forense Digital:</strong> Análisis de malware, investigación de incidentes</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>🔍 Habilidades Analíticas</h4>
+                                <ul>
+                                    <li><strong>Detección de Amenazas:</strong> Identificar patrones sospechosos</li>
+                                    <li><strong>Análisis de Riesgos:</strong> Evaluar probabilidades e impactos</li>
+                                    <li><strong>Investigación:</strong> Seguir rastros digitales y evidencias</li>
+                                    <li><strong>Pensamiento Crítico:</strong> Evaluar información y tomar decisiones</li>
+                                    <li><strong>Resolución de Problemas:</strong> Encontrar soluciones creativas</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>👥 Habilidades Personales</h4>
+                                <ul>
+                                    <li><strong>Ética Profesional:</strong> Responsabilidad y confidencialidad</li>
+                                    <li><strong>Aprendizaje Continuo:</strong> Adaptación a nuevas amenazas</li>
+                                    <li><strong>Comunicación:</strong> Explicar conceptos técnicos a no técnicos</li>
+                                    <li><strong>Trabajo en Equipo:</strong> Colaboración interdisciplinaria</li>
+                                    <li><strong>Gestión de Proyectos:</strong> Planificación y ejecución de iniciativas de seguridad</li>
+                                    <li><strong>Presupuestos:</strong> ROI en seguridad, análisis costo-beneficio</li>
+                                    <li><strong>Liderazgo:</strong> Dirigir equipos técnicos y de seguridad</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>📋 Conocimientos de Gestión</h4>
+                                <ul>
+                                    <li><strong>Marcos de Trabajo:</strong> NIST, ISO 27001, COBIT</li>
+                                    <li><strong>Compliance:</strong> GDPR, HIPAA, PCI DSS, SOX</li>
+                                    <li><strong>Gestión de Proyectos:</strong> Planificación y ejecución de iniciativas de seguridad</li>
+                                    <li><strong>Presupuestos:</strong> ROI en seguridad, análisis costo-beneficio</li>
+                                    <li><strong>Liderazgo:</strong> Dirigir equipos técnicos y de seguridad</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Sección 9: Tipos de Ataques -->
+                <section class="content-section" id="attacks">
+                    <h2 class="section-title">🎯 Tipos de Ciberataques Más Comunes</h2>
+                    <div class="section-content">
+                        <p>
+                            Conocer los diferentes tipos de ciberataques es fundamental para desarrollar 
+                            defensas efectivas. Cada tipo requiere estrategias de protección específicas.
+                        </p>
+                        <div class="attacks-grid">
+                            <div class="attack-item">
+                                <div class="attack-name">Phishing (Suplantación)</div>
+                                <div class="attack-description">
+                                    Engaños por correo electrónico, SMS o sitios web falsos para robar credenciales 
+                                    o información personal. Es el vector de ataque más común.
+                                </div>
+                            </div>
+                            <div class="attack-item">
+                                <div class="attack-name">Ransomware (Secuestro de Datos)</div>
+                                <div class="attack-description">
+                                    Malware que cifra archivos de la víctima y exige pago para restaurar el acceso. 
+                                    Ha causado millones en daños globalmente.
+                                </div>
+                            </div>
+                            <div class="attack-item">
+                                <div class="attack-name">DDoS (Denegación de Servicio)</div>
+                                <div class="attack-description">
+                                    Ataques masivos para colapsar servidores web sobrecargándolos con tráfico falso, 
+                                    dejando servicios inaccesibles.
+                                </div>
+                            </div>
+                            <div class="attack-item">
+                                <div class="attack-name">Malware (Software Malicioso)</div>
+                                <div class="attack-description">
+                                    Virus, trojanos, spyware y otros programas diseñados para dañar sistemas 
+                                    o robar información sin conocimiento del usuario.
+                                </div>
+                            </div>
+                            <div class="attack-item">
+                                <div class="attack-name">Keylogger (Registro de Teclas)</div>
+                                <div class="attack-description">
+                                    Software que registra secretamente las teclas pulsadas para robar contraseñas 
+                                    y otra información confidencial.
+                                </div>
+                            </div>
+                            <div class="attack-item">
+                                <div class="attack-name">Ingeniería Social</div>
+                                <div class="attack-description">
+                                    Manipulación psicológica para engañar a las personas y obtener información 
+                                    confidencial o acceso a sistemas.
+                                </div>
+                            </div>
+                            <div class="attack-item">
+                                <div class="attack-name">Man-in-the-Middle (MITM)</div>
+                                <div class="attack-description">
+                                    Intercepción de comunicaciones entre dos partes para espiar o modificar 
+                                    la información transmitida.
+                                </div>
+                            </div>
+                            <div class="attack-item">
+                                <div class="attack-name">SQL Injection</div>
+                                <div class="attack-description">
+                                    Inserción de código malicioso en formularios web para acceder 
+                                    ilegalmente a bases de datos.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Sección 10: Roadmap de Aprendizaje -->
+                <section class="content-section" id="roadmap">
+                    <h2 class="section-title">🛣️ Camino de Aprendizaje (Roadmap)</h2>
+                    <div class="section-content">
+                        <p>
+                            Para convertirte en un profesional de ciberseguridad, es crucial seguir 
+                            una ruta estructurada que construya conocimientos de manera progresiva.
+                        </p>
+                        <div class="learning-path">
+                            <h3 style="color: var(--gold-color); margin-bottom: 2rem;">📚 Ruta Completa de Especialización</h3>
+                            <div class="path-step">
+                                <div class="step-number">1</div>
+                                <div>
+                                    <strong>Bases Sólidas en Informática</strong><br>
+                                    Fundamentos de hardware, software, redes básicas y sistemas operativos. 
+                                    Sin estas bases, el resto será difícil de comprender.
+                                </div>
+                            </div>
+                            <div class="path-step">
+                                <div class="step-number">2</div>
+                                <div>
+                                    <strong>Dominio de Linux y Windows</strong><br>
+                                    Linux es esencial (Ubuntu, CentOS, Kali). Windows para entornos empresariales. 
+                                    Comandos, administración de sistemas, scripting básico.
+                                </div>
+                            </div>
+                            <div class="path-step">
+                                <div class="step-number">3</div>
+                                <div>
+                                    <strong>Redes y Protocolos Avanzados</strong><br>
+                                    TCP/IP profundo, DNS, DHCP, HTTP/HTTPS, VPN, firewalls. 
+                                    Comprender cómo fluye la información es clave.
+                                </div>
+                            </div>
+                            <div class="path-step">
+                                <div class="step-number">4</div>
+                                <div>
+                                    <strong>Programación Aplicada</strong><br>
+                                    Python (recomendado como principal), Bash para automatización, 
+                                    PowerShell para Windows, conceptos de desarrollo seguro.
+                                </div>
+                            </div>
+                            <div class="path-step">
+                                <div class="step-number">5</div>
+                                <div>
+                                    <strong>Criptografía Práctica</strong><br>
+                                    Cifrado simétrico/asimétrico, funciones hash, PKI, certificados digitales, 
+                                    implementaciones prácticas de seguridad.
+                                </div>
+                            </div>
+                            <div class="path-step">
+                                <div class="step-number">6</div>
+                                <div>
+                                    <strong>Herramientas de Ciberseguridad</strong><br>
+                                    Wireshark, Nmap, Metasploit, Burp Suite, etc. 
+                                    Práctica intensiva con herramientas reales del sector.
+                                </div>
+                            </div>
+                            <div class="path-step">
+                                <div class="step-number">7</div>
+                                <div>
+                                    <strong>Laboratorios Prácticos Intensivos</strong><br>
+                                    HackTheBox, TryHackMe, VulnHub. Práctica real con máquinas vulnerables 
+                                    y escenarios del mundo real.
+                                </div>
+                            </div>
+                            <div class="path-step">
+                                <div class="step-number">8</div>
+                                <div>
+                                    <strong>Especialización Profesional</strong><br>
+                                    Elegir área: Hacking Ético, Seguridad en la Nube, Análisis Forense, 
+                                    Ciberdefensa, GRC (Governance, Risk & Compliance).
+                                </div>
+                            </div>
+                            <div class="path-step">
+                                <div class="step-number">9</div>
+                                <div>
+                                    <strong>Certificaciones Industriales</strong><br>
+                                    CEH, CISSP, CISM, CompTIA Security+, etc. 
+                                    Validación formal de conocimientos para empleadores.
+                                </div>
+                            </div>
+                            <div class="path-step">
+                                <div class="step-number">10</div>
+                                <div>
+                                    <strong>Experiencia Profesional</strong><br>
+                                    Prácticas, proyectos reales, contribución a comunidades open source, 
+                                    networking profesional y desarrollo continuo.
+                                </div>
+                            </div>
+                        </div>
+                        <h3>⏱️ Tiempo Estimado por Nivel</h3>
+                        <ul>
+                            <li><strong>Fundamentos (Pasos 1-3):</strong> 6-12 meses de estudio intensivo</li>
+                            <li><strong>Nivel Intermedio (Pasos 4-6):</strong> 8-12 meses adicionales</li>
+                            <li><strong>Nivel Avanzado (Pasos 7-8):</strong> 12-18 meses de práctica</li>
+                            <li><strong>Profesional (Pasos 9-10):</strong> Proceso continuo de años</li>
+                        </ul>
+                    </div>
+                </section>
+                <!-- Sección 11: Marcos Regulatorios -->
+                <section class="content-section" id="regulatory">
+                    <h2 class="section-title">🏛️ Panorama Regulatorio Global</h2>
+                    <div class="section-content">
+                        <p>
+                            El panorama regulatorio en ciberseguridad varía significativamente por región y sector. 
+                            Comprender estas regulaciones es crucial para cualquier profesional en el campo.
+                        </p>
+                        <h3>Principales Marcos Regulatorios</h3>
+                        <ul>
+                            <li><strong>GDPR (Europa):</strong> Regula el procesamiento de datos personales con multas hasta 4% de ingresos anuales</li>
+                            <li><strong>CCPA (California):</strong> Derechos de privacidad de los consumidores estadounidenses</li>
+                            <li><strong>SOX (Estados Unidos):</strong> Controles financieros y de TI para empresas públicas</li>
+                            <li><strong>PCI DSS:</strong> Estándar global para manejo seguro de datos de tarjetas de pago</li>
+                            <li><strong>HIPAA (Estados Unidos):</strong> Protección de información médica y de salud</li>
+                            <li><strong>NIST Framework:</strong> Marco voluntario para gestión de riesgos cibernéticos</li>
+                            <li><strong>ISO 27001:</strong> Estándar internacional para sistemas de gestión de seguridad</li>
+                        </ul>
+                        <h3>Impacto en las Organizaciones</h3>
+                        <p>
+                            El incumplimiento puede resultar en multas millonarias, pérdida de licencias, 
+                            daño reputacional irreversible y en algunos casos, responsabilidades penales 
+                            para ejecutivos. La conformidad no es opcional en el mundo digital actual.
+                        </p>
+                    </div>
+                </section>
+                <!-- Sección 12: Roles Profesionales -->
+                <section class="content-section" id="roles">
+                    <h2 class="section-title">👥 Roles Profesionales en Ciberseguridad</h2>
+                    <div class="section-content">
+                        <p>
+                            La ciberseguridad es un campo multidisciplinario con diversos roles especializados, 
+                            cada uno con responsabilidades y enfoques específicos.
+                        </p>
+                        <h3>Roles Técnicos Especializados</h3>
+                        <ul>
+                            <li><strong>Security Analyst:</strong> Monitoreo continuo, detección de amenazas, análisis de logs</li>
+                            <li><strong>Penetration Tester (Ethical Hacker):</strong> Evaluación proactiva de vulnerabilidades</li>
+                            <li><strong>Incident Response Specialist:</strong> Gestión de crisis, forense digital, recuperación</li>
+                            <li><strong>Security Architect:</strong> Diseño de arquitecturas seguras y resilientes</li>
+                            <li><strong>Malware Analyst:</strong> Análisis reverso de software malicioso</li>
+                            <li><strong>Cloud Security Engineer:</strong> Especialista en seguridad de servicios cloud</li>
+                            <li><strong>DevSecOps Engineer:</strong> Integración de seguridad en desarrollo ágil</li>
+                        </ul>
+                        <h3>Roles de Gestión y Liderazgo</h3>
+                        <ul>
+                            <li><strong>CISO (Chief Information Security Officer):</strong> Liderazgo estratégico de seguridad</li>
+                            <li><strong>Security Manager:</strong> Gestión de equipos y programas de seguridad</li>
+                            <li><strong>Risk Manager:</strong> Evaluación y gestión integral de riesgos</li>
+                            <li><strong>Compliance Officer:</strong> Asegurar cumplimiento de regulaciones</li>
+                            <li><strong>Security Consultant:</strong> Asesoría externa especializada</li>
+                        </ul>
+                        <h3>Rangos Salariales (Aproximados)</h3>
+                        <ul>
+                            <li><strong>Entry Level (0-2 años):</strong> $45,000 - $70,000 USD</li>
+                            <li><strong>Mid Level (3-5 años):</strong> $70,000 - $120,000 USD</li>
+                            <li><strong>Senior Level (5-10 años):</strong> $120,000 - $180,000 USD</li>
+                            <li><strong>Executive Level (10+ años):</strong> $180,000 - $300,000+ USD</li>
+                        </ul>
+                    </div>
+                </section>
+                <!-- Laboratorio 1: Evaluación de Activos -->
+                <section class="lab-section" id="lab1">
+                    <h2 class="lab-title">🧪 Laboratorio 1: Evaluación de Activos</h2>
                     <p class="lab-description">
                         En este laboratorio práctico, identificarás y clasificarás diferentes tipos de activos 
                         digitales según su valor y criticidad para una organización ficticia.
                     </p>
-                    
                     <div class="lab-simulator">
                         <div class="simulator-header">
                             <div class="simulator-title">📊 Simulador de Clasificación de Activos</div>
                             <div>Puntuación: <span id="labScore">0</span>/100</div>
                         </div>
-                        
                         <div id="labContent">
                             <p><strong>Escenario:</strong> TechCorp es una startup fintech con 200 empleados. 
                             Tu tarea es clasificar los siguientes activos por orden de criticidad:</p>
-                            
                             <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 6px;">
                                 <div style="margin-bottom: 0.5rem;">🔹 Base de datos de clientes (información PII)</div>
                                 <div style="margin-bottom: 0.5rem;">🔹 Sistema de procesamiento de pagos</div>
@@ -909,7 +1608,6 @@
                                 <div>🔹 Sistema de respaldos</div>
                             </div>
                         </div>
-                        
                         <div class="lab-controls">
                             <button class="lab-btn lab-btn-primary" onclick="startLab()">Comenzar Simulación</button>
                             <button class="lab-btn lab-btn-secondary" onclick="resetLab()">Reiniciar</button>
@@ -917,13 +1615,44 @@
                         </div>
                     </div>
                 </section>
-
-                <!-- Quiz Section -->
-                <section class="quiz-section">
-                    <h2 class="section-title">🎯 Quiz de Evaluación</h2>
+                <!-- Laboratorio 2: Análisis de Incidentes -->
+                <section class="lab-section">
+                    <h2 class="lab-title">🔬 Laboratorio 2: Análisis de Incidentes</h2>
+                    <p class="lab-description">
+                        Analiza un caso real de brecha de seguridad y identifica los fallos en los 
+                        controles de seguridad que permitieron el incidente.
+                    </p>
+                    <div class="lab-simulator">
+                        <div class="simulator-header">
+                            <div class="simulator-title">🔍 Caso de Estudio: Equifax 2017</div>
+                            <div>Progreso: <span id="caseProgress">0</span>/5</div>
+                        </div>
+                        <div id="caseStudyContent">
+                            <p><strong>Contexto:</strong> En septiembre de 2017, Equifax reveló una brecha masiva 
+                            que comprometió información personal de 147 millones de personas.</p>
+                            <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 6px;">
+                                <h4>Información comprometida:</h4>
+                                <ul style="margin: 0.5rem 0;">
+                                    <li>Nombres completos y números de seguro social</li>
+                                    <li>Fechas de nacimiento y direcciones</li>
+                                    <li>Números de licencias de conducir</li>
+                                    <li>Números de tarjetas de crédito (209,000 casos)</li>
+                                </ul>
+                            </div>
+                            <p><strong>Tu tarea:</strong> Identifica los fallos de seguridad que permitieron este incidente.</p>
+                        </div>
+                        <div class="lab-controls">
+                            <button class="lab-btn lab-btn-primary" onclick="startCaseStudy()">Iniciar Análisis</button>
+                            <button class="lab-btn lab-btn-secondary" onclick="showTimeline()">Ver Cronología</button>
+                        </div>
+                    </div>
+                </section>
+                <!-- Quiz Final -->
+                <section class="quiz-section" id="quiz">
+                    <h2 class="section-title">🎯 Quiz Final de Evaluación</h2>
                     <div id="quizContainer">
                         <div class="quiz-question" id="currentQuestion">
-                            ¿Cuál de los siguientes NO es uno de los pilares fundamentales de la ciberseguridad?
+                            ¿Cuál de los siguientes NO es uno de los pilares fundamentales de la ciberseguridad (Tríada CIA)?
                         </div>
                         <ul class="quiz-options" id="quizOptions">
                             <li class="quiz-option" onclick="selectOption(this, false)">
@@ -946,178 +1675,155 @@
                         <div id="quizFeedback" style="margin-top: 1rem; display: none;"></div>
                     </div>
                 </section>
-
-                <section class="content-section">
-                    <h2 class="section-title">🏛️ Panorama Regulatorio Global</h2>
+                <!-- Conclusión -->
+                <section class="content-section" id="conclusion">
+                    <h2 class="section-title">🎓 Conclusión</h2>
                     <div class="section-content">
                         <p>
-                            El panorama regulatorio en ciberseguridad varía significativamente por región y sector. 
-                            Comprender estas regulaciones es crucial para cualquier profesional en el campo.
+                            <strong>La ciberseguridad es el escudo de la era digital.</strong> Sin ella, gobiernos, 
+                            empresas y usuarios quedarían expuestos a pérdidas millonarias, robo de identidad 
+                            y caos digital generalizado.
                         </p>
-                        
-                        <h3>Principales Marcos Regulatorios</h3>
+                        <h3>Puntos Clave para Recordar</h3>
                         <ul>
-                            <li><strong>GDPR (Europa):</strong> Regula el procesamiento de datos personales</li>
-                            <li><strong>CCPA (California):</strong> Derechos de privacidad de los consumidores</li>
-                            <li><strong>SOX (Estados Unidos):</strong> Controles financieros y de TI</li>
-                            <li><strong>PCI DSS:</strong> Estándar para manejo de datos de tarjetas de pago</li>
-                            <li><strong>HIPAA (Estados Unidos):</strong> Protección de información médica</li>
+                            <li><strong>Universalidad:</strong> La ciberseguridad no es solo para expertos - todos debemos aplicar principios básicos</li>
+                            <li><strong>Evolución Constante:</strong> Las amenazas evolucionan diariamente, requiriendo aprendizaje continuo</li>
+                            <li><strong>Oportunidad Profesional:</strong> Es uno de los campos con mayor crecimiento y mejores salarios en tecnología</li>
+                            <li><strong>Impacto Social:</strong> Protege infraestructuras críticas y derechos fundamentales de privacidad</li>
+                            <li><strong>Responsabilidad Compartida:</strong> La seguridad es responsabilidad de todos, no solo del departamento de IT</li>
                         </ul>
-                        
-                        <h3>Impacto en las Organizaciones</h3>
+                        <h3>Próximos Pasos</h3>
                         <p>
-                            El incumplimiento de estas regulaciones puede resultar en multas de hasta el 4% 
-                            de los ingresos anuales globales, como en el caso del GDPR. Más allá de las 
-                            sanciones económicas, el incumplimiento puede generar pérdida de confianza 
-                            y daño reputacional irreversible.
+                            Si decides profesionalizarte en este campo, encontrarás un mundo lleno de retos 
+                            intelectuales, conocimiento en constante evolución, y la satisfacción de proteger 
+                            a personas y organizaciones de amenazas reales. El camino no es fácil, pero las 
+                            recompensas - tanto económicas como profesionales - son excepcionales.
                         </p>
-                    </div>
-                </section>
-
-                <!-- Interactive Lab 2 -->
-                <section class="lab-section">
-                    <h2 class="lab-title">🔬 Laboratorio: Análisis de Incidentes</h2>
-                    <p class="lab-description">
-                        Analiza un caso real de brecha de seguridad y identifica los fallos en los 
-                        controles de seguridad que permitieron el incidente.
-                    </p>
-                    
-                    <div class="lab-simulator">
-                        <div class="simulator-header">
-                            <div class="simulator-title">🔍 Caso de Estudio: Equifax 2017</div>
-                            <div>Progreso: <span id="caseProgress">0</span>/5</div>
-                        </div>
-                        
-                        <div id="caseStudyContent">
-                            <p><strong>Contexto:</strong> En septiembre de 2017, Equifax reveló una brecha masiva 
-                            que comprometió información personal de 147 millones de personas.</p>
-                            
-                            <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 6px;">
-                                <h4>Información comprometida:</h4>
-                                <ul style="margin: 0.5rem 0;">
-                                    <li>Nombres completos y números de seguro social</li>
-                                    <li>Fechas de nacimiento y direcciones</li>
-                                    <li>Números de licencias de conducir</li>
-                                    <li>Números de tarjetas de crédito (209,000 casos)</li>
-                                </ul>
-                            </div>
-                            
-                            <p><strong>Tu tarea:</strong> Identifica los fallos de seguridad que permitieron este incidente.</p>
-                        </div>
-                        
-                        <div class="lab-controls">
-                            <button class="lab-btn lab-btn-primary" onclick="startCaseStudy()">Iniciar Análisis</button>
-                            <button class="lab-btn lab-btn-secondary" onclick="showTimeline()">Ver Cronología</button>
+                        <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(245, 158, 11, 0.1)); 
+                                    border: 2px solid rgba(59, 130, 246, 0.2); border-radius: 12px; padding: 2rem; margin: 2rem 0;">
+                            <h4 style="color: var(--accent-color); margin-bottom: 1rem;">💡 Reflexión Final</h4>
+                            <p style="margin: 0; font-style: italic;">
+                                "En un mundo donde cada día se crean 2.5 quintillones de bytes de datos, 
+                                la ciberseguridad no es una opción - es una necesidad existencial para nuestra sociedad digital."
+                            </p>
                         </div>
                     </div>
                 </section>
-
-                <section class="content-section">
-                    <h2 class="section-title">🛡️ Roles en Ciberseguridad</h2>
-                    <div class="section-content">
-                        <p>
-                            La ciberseguridad es un campo multidisciplinario que requiere diversos 
-                            especialistas trabajando en conjunto para proteger los activos digitales.
-                        </p>
-                        
-                        <h3>Principales Roles Técnicos</h3>
-                        <ul>
-                            <li><strong>Security Analyst:</strong> Monitoreo y análisis de amenazas</li>
-                            <li><strong>Penetration Tester:</strong> Evaluación proactiva de vulnerabilidades</li>
-                            <li><strong>Incident Response Specialist:</strong> Gestión de crisis de seguridad</li>
-                            <li><strong>Security Architect:</strong> Diseño de arquitecturas seguras</li>
-                            <li><strong>Forensic Analyst:</strong> Investigación de incidentes</li>
-                        </ul>
-                        
-                        <h3>Roles de Gestión</h3>
-                        <ul>
-                            <li><strong>CISO (Chief Information Security Officer):</strong> Liderazgo estratégico</li>
-                            <li><strong>Security Manager:</strong> Gestión de equipos y proyectos</li>
-                            <li><strong>Risk Manager:</strong> Evaluación y gestión de riesgos</li>
-                            <li><strong>Compliance Officer:</strong> Cumplimiento regulatorio</li>
-                        </ul>
-                    </div>
-                </section>
-
                 <!-- Navigation -->
                 <div class="content-navigation">
                     <a href="#" class="nav-btn nav-btn-secondary" onclick="goBack()">
                         ← Volver a Módulos
                     </a>
                     <a href="modulo2.html" class="nav-btn nav-btn-primary">
-    Capítulo 2: Tríada CIA →
-               </a>
-
-
+                        Capítulo 2: Tríada CIA →
                     </a>
                 </div>
             </div>
         </main>
     </div>
-
     <script>
         // Progress tracking
-        let moduleProgress = 25;
+        let moduleProgress = 7;
         let labScore = 0;
         let currentQuestionIndex = 0;
         let quizScore = 0;
         let selectedOption = null;
-
-        // Quiz data
+        let completedSections = new Set();
+        // Quiz data - Expanded
         const quizQuestions = [
             {
-                question: "¿Cuál de los siguientes NO es uno de los pilares fundamentales de la ciberseguridad?",
+                question: "¿Cuál de los siguientes NO es uno de los pilares fundamentales de la ciberseguridad (Tríada CIA)?",
                 options: ["Confidencialidad", "Integridad", "Disponibilidad", "Rentabilidad"],
                 correct: 3,
                 explanation: "La tríada CIA (Confidencialidad, Integridad, Disponibilidad) son los tres pilares fundamentales. La rentabilidad, aunque importante para el negocio, no es un principio de ciberseguridad."
             },
             {
-                question: "¿Qué porcentaje de las brechas de seguridad son causadas por error humano según estudios recientes?",
-                options: ["25%", "45%", "65%", "85%"],
+                question: "¿En qué año apareció el primer virus informático conocido como 'Creeper'?",
+                options: ["1969", "1971", "1975", "1980"],
+                correct: 1,
+                explanation: "El virus 'Creeper' apareció en 1971 y mostraba el mensaje 'I'm the creeper, catch me if you can!' en las computadoras infectadas."
+            },
+            {
+                question: "¿Cuál es el costo promedio de una violación de datos en 2024?",
+                options: ["$2.1 millones", "$3.2 millones", "$4.45 millones", "$5.8 millones"],
                 correct: 2,
-                explanation: "Aproximadamente el 65% de las brechas de seguridad tienen como factor contribuyente el error humano, destacando la importancia de la capacitación en seguridad."
+                explanation: "Según estudios recientes, el costo promedio de una violación de datos alcanzó los $4.45 millones USD en 2024."
+            },
+            {
+                question: "¿Qué significa DDoS?",
+                options: ["Direct Denial of Service", "Distributed Denial of Service", "Digital Data of Security", "Dynamic Defense of Systems"],
+                correct: 1,
+                explanation: "DDoS significa Distributed Denial of Service (Denegación de Servicio Distribuida), un ataque que busca colapsar servidores con tráfico masivo."
+            },
+            {
+                question: "¿Cuál de estas herramientas es principalmente utilizada para análisis de tráfico de red?",
+                options: ["Metasploit", "Wireshark", "John the Ripper", "Burp Suite"],
+                correct: 1,
+                explanation: "Wireshark es la herramienta líder para captura y análisis de tráfico de red, permitiendo inspeccionar paquetes en tiempo real."
             }
         ];
-
         // Initialize page
         function initializePage() {
             updateProgress();
-            console.log('Módulo Fundamentos de Ciberseguridad cargado');
+            setupIntersectionObserver();
+            console.log('Módulo Fundamentos de Ciberseguridad (Versión Completa) cargado');
         }
-
+        // Intersection Observer for section tracking
+        function setupIntersectionObserver() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.chapter-link');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Update active navigation
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        const activeLink = document.querySelector(`[onclick*="${entry.target.id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                        // Mark section as completed
+                        completedSections.add(entry.target.id);
+                        updateProgress();
+                    }
+                });
+            }, { threshold: 0.5 });
+            sections.forEach(section => observer.observe(section));
+        }
         function updateProgress() {
+            const totalSections = 15;
+            const completed = completedSections.size;
+            const percentage = Math.min((completed / totalSections) * 100, 100);
             const progressBar = document.getElementById('moduleProgress');
             if (progressBar) {
-                progressBar.style.width = moduleProgress + '%';
+                progressBar.style.width = percentage + '%';
+            }
+            const progressText = document.querySelector('.progress-text');
+            if (progressText) {
+                progressText.textContent = `${completed} de ${totalSections} secciones completadas (${Math.round(percentage)}%)`;
             }
         }
-
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+                completedSections.add(sectionId);
+                updateProgress();
+            }
+        }
         function goBack() {
-    if (confirm('¿Estás seguro de que quieres volver? Tu progreso se guardará automáticamente.')) {
-        // Redirige a la página principal (cambia 'index.html' si tu página principal tiene otro nombre)
-        window.location.href = "index.html"; 
-    }
-}
-        
-
-        function loadChapter(chapterNum) {
-            alert(`Cargando Capítulo ${chapterNum}...\n\nEn una implementación real, esto cargaría el contenido específico del capítulo.`);
-            
-            // Update active chapter
-            document.querySelectorAll('.chapter-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            event.target.closest('.chapter-link').classList.add('active');
-        }
-
-        function nextChapter() {
-            if (quizScore >= 80) {
-                alert('Excelente trabajo! Procediendo al Capítulo 2: Tríada CIA\n\nEn una implementación real, esto cargaría el siguiente capítulo.');
-            } else {
-                alert('Completa el quiz con al menos 80% de aciertos para continuar.');
+            if (confirm('¿Estás seguro de que quieres volver? Tu progreso se guardará automáticamente.')) {
+                window.location.href = "index.html"; 
             }
         }
-
+        function nextChapter() {
+            if (quizScore >= 80 || completedSections.size >= 10) {
+                alert('¡Excelente trabajo! Has completado exitosamente el Capítulo 1.
+Procediendo al Capítulo 2: Tríada CIA
+En una implementación real, esto cargaría el siguiente capítulo.');
+            } else {
+                alert('Completa más secciones y obtén al menos 80% en el quiz para continuar al siguiente capítulo.');
+            }
+        }
         // Lab functions
         function startLab() {
             const labContent = document.getElementById('labContent');
@@ -1125,14 +1831,7 @@
                 <div style="margin: 1rem 0;">
                     <h4>Instrucciones:</h4>
                     <p>Arrastra los activos en orden de criticidad (del más crítico al menos crítico):</p>
-                    
                     <div id="assetList" style="margin: 1rem 0;">
-                        <div class="asset-item" draggable="true" onclick="selectAsset(this)" style="margin: 0.5rem 0; padding: 0.5rem; background: rgba(255,255,255,0.1); border-radius: 4px; cursor: pointer;">
-                            🏦 Sistema de procesamiento de pagos
-                        </div>
-                        <div class="asset-item" draggable="true" onclick="selectAsset(this)" style="margin: 0.5rem 0; padding: 0.5rem; background: rgba(255,255,255,0.1); border-radius: 4px; cursor: pointer;">
-                            👥 Base de datos de clientes (información PII)
-                        </div>
                         <div class="asset-item" draggable="true" onclick="selectAsset(this)" style="margin: 0.5rem 0; padding: 0.5rem; background: rgba(255,255,255,0.1); border-radius: 4px; cursor: pointer;">
                             💾 Sistema de respaldos
                         </div>
@@ -1143,12 +1842,10 @@
                             🌐 Página web corporativa
                         </div>
                     </div>
-                    
                     <button class="lab-btn lab-btn-primary" onclick="checkLabAnswer()" style="margin-top: 1rem;">Verificar Orden</button>
                 </div>
             `;
         }
-
         function selectAsset(element) {
             // Simple selection simulation
             document.querySelectorAll('.asset-item').forEach(item => {
@@ -1156,23 +1853,28 @@
             });
             element.style.background = 'rgba(245,158,11,0.3)';
         }
-
         function checkLabAnswer() {
             labScore = 85;
             document.getElementById('labScore').textContent = labScore;
-            alert('¡Excelente trabajo!\n\nOrden correcto identificado:\n1. Base de datos de clientes\n2. Sistema de procesamiento de pagos\n3. Sistema de respaldos\n4. Correos corporativos\n5. Página web\n\nPuntuación: 85/100');
+            alert('¡Excelente trabajo!
+Orden correcto identificado:
+1. Base de datos de clientes (PII)
+2. Sistema de procesamiento de pagos
+3. Sistema de respaldos
+4. Correos corporativos
+5. Página web corporativa
+Puntuación: 85/100');
+            completedSections.add('lab1');
+            updateProgress();
         }
-
         function resetLab() {
             labScore = 0;
             document.getElementById('labScore').textContent = labScore;
             startLab();
         }
-
         function showHint() {
-            alert('💡 Pista: Considera el impacto directo en los clientes y la operación del negocio. Los datos personales y sistemas financieros suelen tener la mayor criticidad.');
+            alert('💡 Pista: Considera el impacto directo en los clientes y la operación del negocio. Los datos personales (PII) y sistemas financieros suelen tener la mayor criticidad por regulaciones como GDPR y PCI DSS.');
         }
-
         // Case Study functions
         function startCaseStudy() {
             const caseContent = document.getElementById('caseStudyContent');
@@ -1180,102 +1882,99 @@
                 <div style="margin: 1rem 0;">
                     <h4>Análisis de Fallos de Seguridad:</h4>
                     <p>Selecciona los principales fallos que permitieron la brecha:</p>
-                    
                     <div style="margin: 1rem 0;">
                         <label style="display: block; margin: 0.5rem 0; cursor: pointer;">
-                            <input type="checkbox" style="margin-right: 0.5rem;"> Falta de parches de seguridad (vulnerabilidad Apache Struts)
+                            <input type="checkbox" id="fallo1" style="margin-right: 0.5rem;"> Falta de parches de seguridad (vulnerabilidad Apache Struts)
                         </label>
                         <label style="display: block; margin: 0.5rem 0; cursor: pointer;">
-                            <input type="checkbox" style="margin-right: 0.5rem;"> Segmentación de red insuficiente
+                            <input type="checkbox" id="fallo2" style="margin-right: 0.5rem;"> Segmentación de red insuficiente
                         </label>
                         <label style="display: block; margin: 0.5rem 0; cursor: pointer;">
-                            <input type="checkbox" style="margin-right: 0.5rem;"> Monitoreo de red deficiente
+                            <input type="checkbox" id="fallo3" style="margin-right: 0.5rem;"> Monitoreo de red deficiente (76 días sin detectar)
                         </label>
                         <label style="display: block; margin: 0.5rem 0; cursor: pointer;">
-                            <input type="checkbox" style="margin-right: 0.5rem;"> Cifrado insuficiente de datos
+                            <input type="checkbox" id="fallo4" style="margin-right: 0.5rem;"> Cifrado insuficiente de datos sensibles
                         </label>
                         <label style="display: block; margin: 0.5rem 0; cursor: pointer;">
-                            <input type="checkbox" style="margin-right: 0.5rem;"> Respuesta tardía al incidente
+                            <input type="checkbox" id="fallo5" style="margin-right: 0.5rem;"> Respuesta tardía al incidente y comunicación
                         </label>
                     </div>
-                    
                     <button class="lab-btn lab-btn-primary" onclick="checkCaseStudy()" style="margin-top: 1rem;">Evaluar Análisis</button>
                 </div>
             `;
         }
-
         function checkCaseStudy() {
             document.getElementById('caseProgress').textContent = '5';
-            alert('Análisis completo!\n\nTodos los factores seleccionados fueron relevantes en la brecha de Equifax. El factor más crítico fue la falta de actualización del parche de Apache Struts, que era conocido 2 meses antes del ataque.');
+            alert('Análisis completo!
+Todos los factores seleccionados fueron relevantes en la brecha de Equifax:
+1. Vulnerabilidad Apache Struts sin parchar (factor crítico)
+2. Falta de segmentación adecuada
+3. Detección tardía (76 días)
+4. Datos sin cifrar apropiado
+5. Comunicación inadecuada del incidente
+Costo total: >$700 millones en multas y compensaciones');
+            completedSections.add('caseStudy');
+            updateProgress();
         }
-
         function showTimeline() {
-            alert('Cronología del Incidente Equifax:\n\n• Marzo 2017: Vulnerabilidad Apache Struts divulgada\n• Mayo 2017: Inicio del ataque (sin detectar)\n• Julio 2017: Descubrimiento interno de la brecha\n• Septiembre 2017: Divulgación pública\n\n76 días de acceso no detectado a los sistemas.');
+            alert('📅 Cronología del Incidente Equifax:
+• 7 Marzo 2017: Apache publica parche para vulnerabilidad CVE-2017-5638
+• 10 Mayo 2017: Inicio del ataque (acceso inicial no detectado)
+• 30 Mayo 2017: Expansión del ataque a múltiples sistemas
+• 29 Julio 2017: Descubrimiento interno de actividad sospechosa
+• 2 Agosto 2017: Confirmación de la brecha
+• 7 Septiembre 2017: Anuncio público
+⚠️ Resultado: 76 días de acceso no autorizado a sistemas críticos');
         }
-
         // Quiz functions
         function selectOption(element, isCorrect) {
-            // Reset previous selections
             document.querySelectorAll('.quiz-option').forEach(opt => {
                 opt.classList.remove('selected');
             });
-            
             element.classList.add('selected');
             selectedOption = { element, isCorrect };
         }
-
         function checkAnswer() {
             if (!selectedOption) {
                 alert('Por favor selecciona una respuesta.');
                 return;
             }
-
             const feedback = document.getElementById('quizFeedback');
             const checkBtn = document.getElementById('checkBtn');
             const nextBtn = document.getElementById('nextBtn');
-
             if (selectedOption.isCorrect) {
                 selectedOption.element.classList.add('correct');
-                feedback.innerHTML = '<div style="color: #10b981; font-weight: 600;">¡Correcto! ' + quizQuestions[currentQuestionIndex].explanation + '</div>';
-                quizScore += 50;
+                feedback.innerHTML = '<div style="color: #10b981; font-weight: 600;">✅ ¡Correcto! ' + quizQuestions[currentQuestionIndex].explanation + '</div>';
+                quizScore += 20;
             } else {
                 selectedOption.element.classList.add('incorrect');
-                // Show correct answer
                 document.querySelectorAll('.quiz-option').forEach((opt, index) => {
                     if (index === quizQuestions[currentQuestionIndex].correct) {
                         opt.classList.add('correct');
                     }
                 });
-                feedback.innerHTML = '<div style="color: #ef4444; font-weight: 600;">Incorrecto. ' + quizQuestions[currentQuestionIndex].explanation + '</div>';
+                feedback.innerHTML = '<div style="color: #ef4444; font-weight: 600;">❌ Incorrecto. ' + quizQuestions[currentQuestionIndex].explanation + '</div>';
             }
-
             feedback.style.display = 'block';
             checkBtn.style.display = 'none';
             nextBtn.style.display = 'inline-flex';
-
-            // Disable further selection
             document.querySelectorAll('.quiz-option').forEach(opt => {
                 opt.style.pointerEvents = 'none';
             });
         }
-
         function nextQuestion() {
             currentQuestionIndex++;
-            
             if (currentQuestionIndex < quizQuestions.length) {
                 loadQuestion(currentQuestionIndex);
             } else {
                 showQuizResults();
             }
         }
-
         function loadQuestion(index) {
             const question = quizQuestions[index];
-            document.getElementById('currentQuestion').textContent = question.question;
-            
+            document.getElementById('currentQuestion').textContent = `Pregunta ${index + 1} de ${quizQuestions.length}: ${question.question}`;
             const optionsContainer = document.getElementById('quizOptions');
             optionsContainer.innerHTML = '';
-            
             question.options.forEach((option, i) => {
                 const li = document.createElement('li');
                 li.className = 'quiz-option';
@@ -1283,27 +1982,111 @@
                 li.onclick = () => selectOption(li, i === question.correct);
                 optionsContainer.appendChild(li);
             });
-
             // Reset UI
             document.getElementById('quizFeedback').style.display = 'none';
             document.getElementById('checkBtn').style.display = 'inline-flex';
             document.getElementById('nextBtn').style.display = 'none';
             selectedOption = null;
         }
-
         function showQuizResults() {
-            const percentage = (quizScore / (quizQuestions.length * 50)) * 100;
-            alert(`Quiz Completado!\n\nPuntuación: ${quizScore}/${quizQuestions.length * 50} puntos (${percentage}%)\n\n${percentage >= 80 ? '¡Excelente trabajo! Puedes continuar al siguiente capítulo.' : 'Considera revisar el material antes de continuar.'}`);
-            
+            const percentage = (quizScore / (quizQuestions.length * 20)) * 100;
+            const resultMessage = percentage >= 80 ? 
+                '🎉 ¡Excelente trabajo! Has demostrado un sólido entendimiento de los fundamentos de ciberseguridad.' : 
+                '📚 Considera revisar el material y volver a intentar. La ciberseguridad requiere bases sólidas.';
+            alert(`🎯 Quiz Completado!
+Puntuación Final: ${quizScore}/${quizQuestions.length * 20} puntos (${percentage}%)
+${resultMessage}
+${percentage >= 80 ? 'Puedes continuar al siguiente capítulo.' : 'Repasa las secciones marcadas en rojo antes de continuar.'}`);
+            completedSections.add('quiz');
+            updateProgress();
             if (percentage >= 80) {
-                moduleProgress = Math.min(moduleProgress + 15, 100);
+                moduleProgress = Math.min(moduleProgress + 20, 100);
                 updateProgress();
             }
         }
-
+        // Additional utility functions
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.style.display = section.style.display === 'none' ? 'block' : 'none';
+            }
+        }
+        function printModule() {
+            window.print();
+        }
+        function shareProgress() {
+            const completedCount = completedSections.size;
+            const message = `He completado ${completedCount}/15 secciones del Módulo de Fundamentos de Ciberseguridad en CyberSec Elite Academy! 🛡️💻`;
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Progreso en Ciberseguridad',
+                    text: message,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback para navegadores sin API de compartir
+                navigator.clipboard.writeText(message + ' ' + window.location.href);
+                alert('Progreso copiado al portapapeles!');
+            }
+        }
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey) {
+                switch(e.key) {
+                    case 'h':
+                        e.preventDefault();
+                        showHint();
+                        break;
+                    case 'n':
+                        e.preventDefault();
+                        if (document.getElementById('nextBtn').style.display !== 'none') {
+                            nextQuestion();
+                        }
+                        break;
+                    case 'r':
+                        e.preventDefault();
+                        resetLab();
+                        break;
+                }
+            }
+        });
+        // Auto-save progress to localStorage (if available)
+        function saveProgress() {
+            try {
+                const progressData = {
+                    completedSections: Array.from(completedSections),
+                    labScore,
+                    quizScore,
+                    timestamp: Date.now()
+                };
+                localStorage.setItem('cybersec_progress', JSON.stringify(progressData));
+            } catch (e) {
+                console.log('No se pudo guardar el progreso:', e);
+            }
+        }
+        function loadProgress() {
+            try {
+                const saved = localStorage.getItem('cybersec_progress');
+                if (saved) {
+                    const data = JSON.parse(saved);
+                    completedSections = new Set(data.completedSections || []);
+                    labScore = data.labScore || 0;
+                    quizScore = data.quizScore || 0;
+                    updateProgress();
+                }
+            } catch (e) {
+                console.log('No se pudo cargar el progreso:', e);
+            }
+        }
+        // Save progress periodically
+        setInterval(saveProgress, 30000); // Every 30 seconds
         // Initialize on load
-        document.addEventListener('DOMContentLoaded', initializePage);
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProgress();
+            initializePage();
+        });
+        // Save progress before page unload
+        window.addEventListener('beforeunload', saveProgress);
     </script>
-    
 </body>
 </html>
