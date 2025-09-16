@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Política de Cookies — Ciberseguridadai.com</title>
+  <meta name="description" content="Política de cookies de Ciberseguridadai.com — uso de cookies técnicas, de análisis y publicitarias para mejorar tu experiencia." />
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#06b6d4; --white:#e6eef6;
+      --maxw:900px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#071024 0%,var(--bg) 100%);color:var(--white);-webkit-font-smoothing:antialiased}
+    .container{max-width:var(--maxw);margin:40px auto;padding:24px}
+    header{display:flex;align-items:center;gap:16px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px}
+    h1{margin:0;font-size:22px}
+    p.lead{color:var(--muted);margin-top:8px}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:24px;border-radius:12px;margin-top:20px}
+    h2{color:var(--white);margin-top:0}
+    section{margin-bottom:18px}
+    ul{margin:8px 0 8px 20px;color:var(--muted)}
+    a.inline{color:var(--accent);text-decoration:none}
+
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+    .footer-links{display:flex;gap:12px;justify-content:center;margin-top:8px}
+    .footer-links a{color:var(--muted);text-decoration:none}
+
+    @media (max-width:600px){.container{padding:18px;margin:18px auto}.logo{width:48px;height:48px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">BICE</div>
+      <div>
+        <h1>Política de Cookies</h1>
+        <p class="lead">Ciberseguridadai.com — Última actualización: <strong id="updated"></strong></p>
+      </div>
+    </header>
+
+    <article class="card">
+      <section>
+        <h2>1. ¿Qué son las cookies?</h2>
+        <p>Las cookies son pequeños archivos de texto que se almacenan en tu navegador cuando visitas un sitio web. Se utilizan para recordar tus preferencias, mejorar tu experiencia y, en algunos casos, mostrar publicidad personalizada.</p>
+      </section>
+
+      <section>
+        <h2>2. Tipos de cookies que utilizamos</h2>
+        <ul>
+          <li><strong>Cookies técnicas</strong>: necesarias para el correcto funcionamiento del Sitio.</li>
+          <li><strong>Cookies de análisis</strong>: nos ayudan a medir el tráfico y entender cómo los usuarios interactúan, por ejemplo con <a class="inline" href="https://analytics.google.com" target="_blank">Google Analytics</a>.</li>
+          <li><strong>Cookies publicitarias</strong>: se activan al usar <a class="inline" href="https://www.google.com/adsense" target="_blank">Google AdSense</a> para mostrar anuncios relevantes.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Gestión de cookies</h2>
+        <p>Puedes aceptar o rechazar cookies en cualquier momento configurando tu navegador, o mediante el banner de consentimiento de cookies disponible al ingresar al Sitio.</p>
+      </section>
+
+      <section>
+        <h2>4. Cookies de terceros</h2>
+        <p>Servicios externos como Google pueden instalar sus propias cookies. Te recomendamos revisar sus políticas:</p>
+        <ul>
+          <li><a class="inline" href="https://policies.google.com/privacy" target="_blank">Google Analytics – Privacidad</a></li>
+          <li><a class="inline" href="https://policies.google.com/technologies/ads" target="_blank">Google AdSense – Políticas</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. Actualizaciones</h2>
+        <p>Podemos actualizar esta Política de Cookies en cualquier momento. La fecha de la última modificación siempre estará publicada aquí.</p>
+      </section>
+
+      <section>
+        <h2>6. Contacto</h2>
+        <p>Si tienes dudas sobre esta política, escríbenos a: <strong>darrytimoteo738@gmail.com</strong> </p>
+      </section>
+    </article>
+
+    <footer>
+      <div>© <span id="year"></span> Ciberseguridadai.com</div>
+      <div class="footer-links">
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Términos y Condiciones</a>
+        <a href="#">Aviso Legal</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('updated').textContent = new Date().toLocaleDateString();
+  </script>
+</body>
+</html>
