@@ -251,20 +251,11 @@
             justify-content: center;
             align-items: center;
             position: relative;
-        }
-
-        .university-logo {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            font-size: 6rem;
+            font-size: 8rem; /* ✅ ¡Gorro agrandado! */
+            color: white;
+            text-shadow: 
+                0 0 15px rgba(255, 255, 255, 0.6),
+                0 0 30px rgba(245, 158, 11, 0.4);
         }
 
         /* Course Overview Section */
@@ -468,6 +459,10 @@
             .hero-stats {
                 justify-content: center;
             }
+
+            .hero-visual {
+                font-size: 6rem; /* Responsive: un poco más pequeño en móvil */
+            }
         }
     </style>
 </head>
@@ -528,9 +523,7 @@
             </div>
 
             <div class="hero-visual">
-               
-                    🎓
-                </div>
+                🎓 <!-- ✅ ¡Ahora es grande y brillante! -->
             </div>
         </div>
     </section>
@@ -671,31 +664,29 @@
         <div class="section-container">
             <h3 class="footer-title">CyberSec Elite Academy</h3>
             <p class="footer-text">
-              <p> © 2025 CyberSec Elite Academy. </p>
-               Todos los derechos reservados.
+                © 2025 CyberSec Elite Academy. Todos los derechos reservados.
+            </p>
 
-Aviso Legal: Este sitio web y sus contenidos tienen carácter exclusivamente educativo e 
-informativo. No constituye asesoría profesional, ni emite títulos universitarios o certificaciones
- oficiales reconocidas por entidades estatales. Cualquier certificado otorgado corresponde únicamente
- a la participación en los cursos ofrecidos.
+            <p class="footer-text">
+                Aviso Legal: Este sitio web y sus contenidos tienen carácter exclusivamente educativo e 
+                informativo. No constituye asesoría profesional, ni emite títulos universitarios o certificaciones
+                oficiales reconocidas por entidades estatales. Cualquier certificado otorgado corresponde únicamente
+                a la participación en los cursos ofrecidos.
+            </p>
 
-Las prácticas de ciberseguridad (como pruebas de penetración, simulaciones de phishing o uso de herramientas de anonimato) deben realizarse únicamente en entornos controlados o con autorización expresa del propietario del sistema. El mal uso de estas técnicas puede constituir delito según la legislación vigente. 
-
-
-
+            <p class="footer-text">
+                Las prácticas de ciberseguridad (como pruebas de penetración, simulaciones de phishing o uso de herramientas de anonimato) deben realizarse únicamente en entornos controlados o con autorización expresa del propietario del sistema. El mal uso de estas técnicas puede constituir delito según la legislación vigente.
             </p>
            
             <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; margin-top: 2rem; color: rgba(255, 255, 255, 0.6);">
-                <p>&copy;CyberSec Elite Academy no se hace responsable por un uso indebido de la información aquí publicada. Se recomienda complementar este contenido con formación formal y documentación oficial según las necesidades de cada usuario..</p>
+                <p>&copy; CyberSec Elite Academy no se hace responsable por un uso indebido de la información aquí publicada. Se recomienda complementar este contenido con formación formal y documentación oficial según las necesidades de cada usuario.</p>
                 
-              <p style="margin-top: 1.5rem; font-size: 0.9rem;">
-    <a href="politicaprivacidad.html" style="color: rgba(255, 255, 255, 0.8); margin: 0 0.5rem; text-decoration: none;">Política de Privacidad</a> |
-    <a href="politicacookies.html" style="color: rgba(255, 255, 255, 0.8); margin: 0 0.5rem; text-decoration: none;">Política de Cookies</a> |
-    <a href="terminoscondiciones.html" style="color: rgba(255, 255, 255, 0.8); margin: 0 0.5rem; text-decoration: none;">Términos de uso / Términos y condiciones</a>
-</p>
-
+                <p style="margin-top: 1.5rem; font-size: 0.9rem;">
+                    <a href="politicaprivacidad.html" style="color: rgba(255, 255, 255, 0.8); margin: 0 0.5rem; text-decoration: none;">Política de Privacidad</a> |
+                    <a href="politicacookies.html" style="color: rgba(255, 255, 255, 0.8); margin: 0 0.5rem; text-decoration: none;">Política de Cookies</a> |
+                    <a href="terminoscondiciones.html" style="color: rgba(255, 255, 255, 0.8); margin: 0 0.5rem; text-decoration: none;">Términos de uso / Términos y condiciones</a>
+                </p>
             </div>
-            
         </div>
     </footer>
 
@@ -714,10 +705,7 @@ Las prácticas de ciberseguridad (como pruebas de penetración, simulaciones de 
         // Función para navegar a módulos
         function goToModule(moduleNumber) {
             if (moduleNumber === 1) {
-                // Redirige directamente a modulo1.html
                 window.location.href = "modulo1.html";
-                
-                // Puedes mantener o quitar la lógica de localStorage si no la usas en este contexto
                 localStorage.setItem('currentModule', '1');
                 localStorage.setItem('moduleProgress', JSON.stringify({
                     module1: { unlocked: true, progress: 25 },
@@ -726,7 +714,6 @@ Las prácticas de ciberseguridad (como pruebas de penetración, simulaciones de 
                     module4: { unlocked: false, progress: 0 },
                     module5: { unlocked: false, progress: 0 }
                 }));
-                
             } else {
                 moduleBlocked(moduleNumber);
             }
@@ -739,10 +726,7 @@ Las prácticas de ciberseguridad (como pruebas de penetración, simulaciones de 
         // Verificar progreso al cargar la página
         function checkModuleProgress() {
             const progress = JSON.parse(localStorage.getItem('moduleProgress') || '{}');
-            
-            // Aquí puedes agregar lógica para desbloquear módulos basado en progreso
             if (progress.module1 && progress.module1.progress >= 80) {
-                // Desbloquear módulo 2
                 const module2Card = document.querySelector('.module-card:nth-child(2)');
                 if (module2Card) {
                     module2Card.style.opacity = '1';
