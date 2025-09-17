@@ -251,7 +251,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            font-size: 8rem; /* ✅ ¡Gorro agrandado! */
+            font-size: 8rem;
             color: white;
             text-shadow: 
                 0 0 15px rgba(255, 255, 255, 0.6),
@@ -431,6 +431,98 @@
             margin-right: auto;
         }
 
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--secondary-color);
+            color: white;
+            padding: 1.2rem 2rem;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+            z-index: 2000;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideUp 0.5s ease forwards;
+        }
+
+        .cookie-banner.hidden {
+            display: none;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .cookie-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .cookie-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .cookie-link {
+            color: var(--gold-color);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-cookie {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-cookie.accept {
+            background: linear-gradient(135deg, var(--gold-color), #fbbf24);
+            color: var(--primary-color);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-cookie.accept:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-cookie.reject {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-cookie.reject:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero-container {
@@ -461,7 +553,16 @@
             }
 
             .hero-visual {
-                font-size: 6rem; /* Responsive: un poco más pequeño en móvil */
+                font-size: 6rem;
+            }
+
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cookie-buttons {
+                justify-content: center;
             }
         }
     </style>
@@ -523,7 +624,7 @@
             </div>
 
             <div class="hero-visual">
-                🎓 <!-- ✅ ¡Ahora es grande y brillante! -->
+                🎓
             </div>
         </div>
     </section>
@@ -690,6 +791,19 @@
         </div>
     </footer>
 
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>🍪 Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra 
+                <a href="politicacookies.html" target="_blank" class="cookie-link">Política de Cookies</a>.
+            </p>
+            <div class="cookie-buttons">
+                <button onclick="acceptCookies()" class="btn-cookie accept">✅ Aceptar</button>
+                <button onclick="rejectCookies()" class="btn-cookie reject">❌ Rechazar</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Navegación suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -736,10 +850,32 @@
             }
         }
 
+        // Funciones para el banner de cookies
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookie-banner').classList.add('hidden');
+            console.log('Cookies aceptadas');
+        }
+
+        function rejectCookies() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            document.getElementById('cookie-banner').classList.add('hidden');
+            console.log('Cookies rechazadas');
+        }
+
+        // Verificar si mostrar el banner de cookies
+        function checkCookieBanner() {
+            const cookieConsent = localStorage.getItem('cookieConsent');
+            if (cookieConsent) {
+                document.getElementById('cookie-banner').classList.add('hidden');
+            }
+        }
+
         // Inicializar página
         document.addEventListener('DOMContentLoaded', function() {
             console.log('CyberSec Elite Informativo cargado correctamente');
             checkModuleProgress();
+            checkCookieBanner();
         });
     </script>
 </body>
